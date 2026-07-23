@@ -51,12 +51,29 @@
   .bar .bl { font-size:9px; color:var(--muted); margin-top:3px; }
   .bar .bv { font-size:9px; color:var(--muted); }
   .pos { color:var(--green); } .neg { color:var(--red); } .warn { color:var(--yellow); }
+  .refreshbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-bottom:18px; }
+  #refreshBtn { background:var(--blue); color:#0d1117; border:none; border-radius:6px; padding:8px 14px; font-size:13px; font-weight:600; cursor:pointer; }
+  #refreshBtn:disabled { opacity:.5; cursor:default; }
+  button.link { background:none; border:none; color:var(--muted); font-size:12px; text-decoration:underline; cursor:pointer; padding:0; }
+  .progress { display:flex; gap:10px; flex-wrap:wrap; width:100%; }
+  .pchip { font-size:12px; padding:3px 9px; border-radius:12px; border:1px solid var(--border); background:#0d1117; }
+  .pchip.run { border-color:var(--blue); color:var(--blue); }
+  .pchip.done { border-color:var(--green); color:var(--green); }
+  .pchip.fail { border-color:var(--red); color:var(--red); }
+  .spin { display:inline-block; animation:sp 1s linear infinite; }
+  @keyframes sp { to { transform:rotate(360deg); } }
   footer { color:var(--muted); font-size:12px; margin-top:24px; }
 </style>
 </head>
 <body>
 <h1>CloudLabs GitHub Ops Dashboard</h1>
 <div class="sub">Enterprise: cloudlabs-organizations · auto-updated by each workflow run · <span id="stamp"></span></div>
+<div class="refreshbar">
+  <button id="refreshBtn" onclick="refreshAll()">🔄 Refresh data now</button>
+  <span id="refreshHint" class="muted2">Runs all monitors (read-only / dry-run) and reloads when done.</span>
+  <button id="tokenBtn" class="link" onclick="setToken()">set token</button>
+  <div id="progress" class="progress"></div>
+</div>
 <div class="card cr" id="card-cost-review"><h2>📋 Cost review <small>forecast · budget · efficiency · savings</small></h2><div class="body">loading…</div></div>
 <div class="grid">
   <div class="card" id="card-billing-watchdog"><h2>💰 Billing watchdog <small>daily 05:00 UTC</small></h2><div class="body">loading…</div></div>
@@ -120,7 +137,7 @@ async function loadCard(slug, statFn, hideMarkdown) {
   el.innerHTML = html;
   if (hist && hist.length) document.getElementById('stamp').textContent = 'last data: ' + hist[hist.length - 1].date;
 }
-loadCard('billing-watchdog', h => {
+const billingFn = h => {
   const l = h[h.length - 1];
   const usd = v => '$' + (v ?? 0).toLocaleString(undefined, {maximumFractionDigits: 0});
   let html = `<div class="stats">
@@ -193,8 +210,8 @@ loadCard('billing-watchdog', h => {
       </table>`;
   }
   return html;
-}, true);
-loadCard('copilot-seat-reaper', h => {
+};
+const seatFn = h => {
   const l = h[h.length - 1];
   return `<div class="stats">
     <div class="stat"><b>${l.total ?? '—'}</b><span>seats</span></div>
@@ -203,8 +220,8 @@ loadCard('copilot-seat-reaper', h => {
     <div class="stat"><b>${l.pending_cancel ?? '—'}</b><span>pending cancel</span></div>
     <div class="stat"><b class="${(l.candidates ?? 0) > 0 ? 'alert' : 'ok'}">${l.candidates ?? 0}</b><span>reap candidates</span></div>
   </div>` + spark(h.map(x => x.active ?? 0), '#3fb950');
-});
-loadCard('org-reaper', h => {
+};
+const orgFn = h => {
   const l = h[h.length - 1];
   return `<div class="stats">
     <div class="stat"><b>${l.orgs ?? '—'}</b><span>orgs</span></div>
@@ -212,8 +229,8 @@ loadCard('org-reaper', h => {
     <div class="stat"><b class="${(l.deleted ?? 0) > 0 ? 'alert' : 'ok'}">${l.deleted ?? 0}</b><span>deleted/would</span></div>
     <div class="stat"><b>${l.dry_run === 'true' ? 'DRY-RUN' : 'ARMED'}</b><span>mode</span></div>
   </div>` + spark(h.map(x => x.orgs ?? 0), '#d29922');
-});
-(async function loadCostReview() {
+};
+async function loadCostReview() {
   const el = document.querySelector('#card-cost-review .body');
   const [bh, sh] = await Promise.all([fetchJson('data/billing-watchdog-history.json'), fetchJson('data/copilot-seat-reaper-history.json')]);
   if (!bh || !bh.length) { el.innerHTML = '<p class="alert">no data yet</p>'; return; }
@@ -282,8 +299,8 @@ loadCard('org-reaper', h => {
   </div>`;
 
   el.innerHTML = h;
-})();
-(async function loadHealth() {
+}
+async function loadHealth() {
   const el = document.querySelector('#card-enterprise-health .body');
   const hist = await fetchJson('data/billing-watchdog-history.json');
   if (!hist || !hist.length) { el.innerHTML = '<p class="alert">no data yet</p>'; return; }
@@ -305,7 +322,96 @@ loadCard('org-reaper', h => {
   html += `<h3 style="margin-top:14px">👤 Identity & licenses</h3>
     <div class="muted2">Active licenses track enterprise members consuming a GHEC seat. Inactive = SCIM-provisioned minus active (suspended/never-activated). No self-hosted runners registered at the enterprise level.</div>`;
   el.innerHTML = html;
-})();
+}
+
+async function renderAll() {
+  await Promise.all([
+    loadCard('billing-watchdog', billingFn, true),
+    loadCard('copilot-seat-reaper', seatFn),
+    loadCard('org-reaper', orgFn),
+    loadCostReview(),
+    loadHealth()
+  ]);
+}
+renderAll();
+
+// ---- Refresh button: trigger all monitors (read-only / dry-run) and poll ----
+const GH_REPO = 'Cloudlabs-GH-Copilot/org-reaper';
+// dry_run:true on the reapers guarantees the refresh never deletes an org or changes a seat.
+const WFS = [
+  { file: 'billing-watchdog.yml', label: 'billing', inputs: {} },
+  { file: 'copilot-seat-reaper.yml', label: 'seats', inputs: { dry_run: 'true' } },
+  { file: 'org-reaper.yml', label: 'orgs', inputs: { dry_run: 'true' } },
+];
+function getToken() { return localStorage.getItem('gh_pat') || ''; }
+function setToken() {
+  const t = prompt('Paste a GitHub token with Actions read/write on ' + GH_REPO + '.\nStored only in this browser (localStorage); never sent anywhere except api.github.com.');
+  if (t !== null) { localStorage.setItem('gh_pat', t.trim()); alert('Token saved in this browser.'); }
+}
+async function gh(path, method, body) {
+  const r = await fetch('https://api.github.com/' + path, {
+    method: method || 'GET',
+    headers: { 'Authorization': 'Bearer ' + getToken(), 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+    body: body ? JSON.stringify(body) : undefined,
+  });
+  return r;
+}
+function setChips(states) {
+  document.getElementById('progress').innerHTML = states.map(s =>
+    `<span class="pchip ${s.cls}">${s.cls === 'run' ? '<span class="spin">↻</span> ' : s.cls === 'done' ? '✓ ' : s.cls === 'fail' ? '✕ ' : ''}${s.label}: ${s.text}</span>`
+  ).join('');
+}
+const sleep = ms => new Promise(r => setTimeout(r, ms));
+async function refreshAll() {
+  const btn = document.getElementById('refreshBtn');
+  if (!getToken()) { setToken(); if (!getToken()) return; }
+  btn.disabled = true;
+  const startISO = new Date(Date.now() - 15000).toISOString();
+  try {
+    // 1. Dispatch all three workflows.
+    setChips(WFS.map(w => ({ label: w.label, cls: 'run', text: 'starting…' })));
+    for (const w of WFS) {
+      const r = await gh(`repos/${GH_REPO}/actions/workflows/${w.file}/dispatches`, 'POST', { ref: 'main', inputs: w.inputs });
+      if (r.status === 401) { localStorage.removeItem('gh_pat'); throw new Error('Token rejected (401). Click “set token” and paste a valid one.'); }
+      if (r.status !== 204) throw new Error(`Dispatch ${w.file} failed: HTTP ${r.status} ${(await r.text()).slice(0,120)}`);
+    }
+    // 2. Poll each workflow's newest run until complete.
+    const done = {};
+    for (let tick = 0; tick < 120; tick++) {
+      await sleep(5000);
+      const states = [];
+      for (const w of WFS) {
+        if (done[w.file]) { states.push(done[w.file]); continue; }
+        const r = await gh(`repos/${GH_REPO}/actions/workflows/${w.file}/runs?event=workflow_dispatch&per_page=3`);
+        const runs = r.ok ? (await r.json()).workflow_runs || [] : [];
+        const run = runs.find(x => x.created_at >= startISO) || runs[0];
+        if (!run) { states.push({ label: w.label, cls: 'run', text: 'queued' }); continue; }
+        if (run.status === 'completed') {
+          const st = { label: w.label, cls: run.conclusion === 'success' ? 'done' : 'fail', text: run.conclusion };
+          done[w.file] = st; states.push(st);
+        } else { states.push({ label: w.label, cls: 'run', text: run.status }); }
+      }
+      // publish/sync status once data workflows are done
+      if (Object.keys(done).length === WFS.length) {
+        const pr = await gh(`repos/${GH_REPO}/actions/workflows/publish-public.yml/runs?per_page=3`);
+        const pruns = pr.ok ? (await pr.json()).workflow_runs || [] : [];
+        const prun = pruns.find(x => x.created_at >= startISO);
+        if (prun && prun.status === 'completed') { states.push({ label: 'publish', cls: prun.conclusion === 'success' ? 'done' : 'fail', text: prun.conclusion }); setChips(states); break; }
+        else states.push({ label: 'publish', cls: 'run', text: prun ? prun.status : 'pending' });
+      }
+      setChips(states);
+    }
+    // 3. Reload data (cache-busted fetches already used by loaders).
+    setChips([{ label: 'reloading dashboard', cls: 'run', text: '…' }]);
+    await sleep(4000);
+    await renderAll();
+    document.getElementById('progress').innerHTML = '<span class="pchip done">✓ updated ' + new Date().toLocaleTimeString() + '</span>';
+  } catch (e) {
+    document.getElementById('progress').innerHTML = '<span class="pchip fail">✕ ' + esc(e.message) + '</span>';
+  } finally {
+    btn.disabled = false;
+  }
+}
 </script>
 </body>
 </html>
