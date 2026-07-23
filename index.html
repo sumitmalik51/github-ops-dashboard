@@ -102,7 +102,7 @@ loadCard('billing-watchdog', h => {
     <div class="stat"><b class="${(l.alert_count ?? 0) > 0 ? 'alert' : 'ok'}">${l.alert_count ?? 0}</b><span>alerts</span></div>
   </div>` + spark(h.map(x => x.yday ?? 0), '#58a6ff');
 
-  if (l.azure_mtd != null) {
+  if (l.azure_gh_total != null) {
     const ghApi = l.mtd ?? 0, azOur = l.azure_our ?? 0, delta = ghApi - azOur;
     const pctMatch = azOur > 0 ? Math.round((Math.min(ghApi, azOur) / Math.max(ghApi, azOur)) * 100) : 0;
     html += `<h3 style="margin-top:16px">☁️ GitHub ↔ Azure reconciliation (our enterprise)</h3>
