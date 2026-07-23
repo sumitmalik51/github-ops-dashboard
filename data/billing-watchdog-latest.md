@@ -1,6 +1,6 @@
 ## Billing watchdog — 2026-07-23
 
-**MTD net: $10143.7** (gross $10829.54) — yesterday: $928.87 — GHEC seats: 253 — Copilot seats: 885
+**MTD net: $10143.7** (gross $10829.58) — yesterday: $928.87 — GHEC seats: 254 — Copilot seats: 886
 
 ```
 ghec: $6006.68
@@ -9,6 +9,40 @@ ghas: $1047.97
 codespaces: $0.63
 actions: $0
 ```
+
+### 💵 GitHub cost routing (MTD)
+
+| Destination | MTD net |
+|---|---|
+| **Total GitHub enterprise** | **$12657.92** |
+| → Our Azure sub (enterprise default) | $10143.7 |
+| → Cost centers (prepaid credit pools) | $2514.22 |
+
+#### Credit-pool burn-down
+
+| Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
+|---|---|---|---|---|---|
+| labcluster-AzGHCredits01-3k-expiry23July26 | $3000 | $2514.22 | 84% | $486 | 0d |
+| labcluster-AzGHCredits02-4k-expiry23July26 | $4000 | $0.00 | 0% | $4000 | 0d |
+| labcluster-AzGHCredits05-5k-expiry23July26 | $5000 | $0.00 | 0% | $5000 | 0d |
+| labcluster-POC09-10k-expiry09aug26 | $10000 | $0.00 | 0% | $10000 | 16d |
+| labcluster-POC10-5k-13sep26 | $5000 | $0.00 | 0% | $5000 | 51d |
+| labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 51d |
+
+### ⚙️ Actions consumption by org (MTD)
+
+| Org | Minutes | Gross |
+|---|---|---|
+| Cloudlabs-Enterprises | 7062.1 | $40.01 |
+| ghas-bootcamp-2026-07-22-2323169 | 105 | $0.63 |
+| Cloudlabs-GH-Copilot | 25 | $0.15 |
+| ghas-bootcamp-2026-06-10-2269853 | 23 | $0.14 |
+| ghas-bootcamp-2026-06-10-2269869 | 18 | $0.11 |
+| ghas-bootcamp-2026-06-11-2270450 | 17 | $0.1 |
+
+### 👤 Identity & licenses
+
+SCIM-provisioned identities: **360** — active licenses: **254** — inactive/suspended (est.): **106**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
@@ -34,8 +68,8 @@ customer-12238363 (EXTERNAL): $0
 ```
 
 ### 🚨 Alerts
-- Cost center 'labcluster-AzGHCredits01-3k-expiry23July26' credit pool expires in 0d
-- Cost center 'labcluster-AzGHCredits02-4k-expiry23July26' credit pool expires in 0d
-- Cost center 'labcluster-AzGHCredits05-5k-expiry23July26' credit pool expires in 0d
+- Cost center 'labcluster-AzGHCredits01-3k-expiry23July26' expires in 0d with $486 of $3000 still unused (84% consumed)
+- Cost center 'labcluster-AzGHCredits02-4k-expiry23July26' expires in 0d with $4000 of $4000 still unused (0% consumed)
+- Cost center 'labcluster-AzGHCredits05-5k-expiry23July26' expires in 0d with $5000 of $5000 still unused (0% consumed)
 - External GitHub enterprise(s) charging this Azure sub $8595.68 MTD (not customer-13304750): customer-3863811 $8595.68, customer-12238363 $0
 

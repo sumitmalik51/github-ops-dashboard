@@ -47,6 +47,7 @@
   <div class="card" id="card-billing-watchdog"><h2>💰 Billing watchdog <small>daily 05:00 UTC</small></h2><div class="body">loading…</div></div>
   <div class="card" id="card-copilot-seat-reaper"><h2>🪑 Copilot seat reaper <small>weekly Mon 03:00 UTC</small></h2><div class="body">loading…</div></div>
   <div class="card" id="card-org-reaper"><h2>🗑️ Org reaper <small>daily 02:00 UTC</small></h2><div class="body">loading…</div></div>
+  <div class="card" id="card-enterprise-health"><h2>⚙️ Actions & identity <small>daily 05:00 UTC</small></h2><div class="body">loading…</div></div>
 </div>
 <footer>Source: <code>Cloudlabs-GH-Copilot/org-reaper</code> — data under <code>docs/data/</code>. Dry-run flags apply until armed.</footer>
 <script>
@@ -102,6 +103,31 @@ loadCard('billing-watchdog', h => {
     <div class="stat"><b class="${(l.alert_count ?? 0) > 0 ? 'alert' : 'ok'}">${l.alert_count ?? 0}</b><span>alerts</span></div>
   </div>` + spark(h.map(x => x.yday ?? 0), '#58a6ff');
 
+  if (l.github_total != null) {
+    html += `<h3 style="margin-top:16px">💵 GitHub cost routing (MTD)</h3>
+      <table class="cmp"><tr><th>Destination</th><th>MTD net</th></tr>
+        <tr class="delta"><td>Total GitHub enterprise</td><td>${usd(l.github_total)}</td></tr>
+        <tr><td>→ Our Azure sub (enterprise default)</td><td>${usd(l.mtd)}</td></tr>
+        <tr><td>→ Cost centers (prepaid credit pools)</td><td>${usd(l.cc_total_mtd)}</td></tr>
+      </table>`;
+    if (l.cost_centers && l.cost_centers.length) {
+      html += `<h3 style="margin-top:14px">Credit-pool burn-down</h3>
+        <table class="cmp"><tr><th>Cost center</th><th>Pool</th><th>Used</th><th>Remaining</th><th>Expires</th></tr>
+        ${l.cost_centers.map(c => {
+          const near = c.days_left != null && c.days_left <= 14;
+          const idle = c.pct < 10 && c.pool >= 10000;
+          const barcol = c.pct >= 80 ? 'var(--red)' : c.pct >= 40 ? 'var(--yellow)' : 'var(--green)';
+          return `<tr><td>${c.name.replace(/^labcluster-/,'')}${idle ? ' <span class="alert">idle</span>' : ''}</td>
+            <td>${usd(c.pool)}</td>
+            <td><div class="matchbar" style="min-width:70px"><div class="matchfill" style="width:${Math.min(c.pct,100)}%;background:${barcol}"></div></div>${c.pct}%</td>
+            <td>${usd(c.remaining)}</td>
+            <td class="${near ? 'alert' : ''}">${c.days_left == null ? '—' : c.days_left + 'd'}</td></tr>`;
+        }).join('')}
+        </table>
+        <div class="muted2">Burn-down is cumulative (current + previous month). Idle pools near expiry are wasted prepaid credit.</div>`;
+    }
+  }
+
   if (l.azure_gh_total != null) {
     const ghApi = l.mtd ?? 0, azOur = l.azure_our ?? 0, delta = ghApi - azOur;
     const pctMatch = azOur > 0 ? Math.round((Math.min(ghApi, azOur) / Math.max(ghApi, azOur)) * 100) : 0;
@@ -148,6 +174,29 @@ loadCard('org-reaper', h => {
     <div class="stat"><b>${l.dry_run === 'true' ? 'DRY-RUN' : 'ARMED'}</b><span>mode</span></div>
   </div>` + spark(h.map(x => x.orgs ?? 0), '#d29922');
 });
+(async function loadHealth() {
+  const el = document.querySelector('#card-enterprise-health .body');
+  const hist = await fetchJson('data/billing-watchdog-history.json');
+  if (!hist || !hist.length) { el.innerHTML = '<p class="alert">no data yet</p>'; return; }
+  const l = hist[hist.length - 1];
+  const usd = v => '$' + (v ?? 0).toLocaleString(undefined, {maximumFractionDigits: 0});
+  let html = `<div class="stats">
+    <div class="stat"><b>${l.scim_total ?? '—'}</b><span>SCIM identities</span></div>
+    <div class="stat"><b class="ok">${l.active_licenses ?? '—'}</b><span>active licenses</span></div>
+    <div class="stat"><b>${l.inactive_est ?? '—'}</b><span>inactive (est.)</span></div>
+  </div>` + spark(hist.map(x => x.active_licenses ?? 0), '#3fb950');
+  if (l.actions_by_org && l.actions_by_org.length) {
+    html += `<h3 style="margin-top:16px">⚙️ Actions consumption by org (MTD)</h3>
+      <table class="cmp"><tr><th>Org</th><th>Minutes</th><th>Gross</th></tr>
+      ${l.actions_by_org.map(a => `<tr><td>${a.org}</td><td>${(a.minutes ?? 0).toLocaleString()}</td><td>${usd(a.gross)}</td></tr>`).join('')}
+      </table>`;
+  } else {
+    html += `<div class="muted2" style="margin-top:12px">No metered Actions consumption this month.</div>`;
+  }
+  html += `<h3 style="margin-top:14px">👤 Identity & licenses</h3>
+    <div class="muted2">Active licenses track enterprise members consuming a GHEC seat. Inactive = SCIM-provisioned minus active (suspended/never-activated). No self-hosted runners registered at the enterprise level.</div>`;
+  el.innerHTML = html;
+})();
 </script>
 </body>
 </html>
