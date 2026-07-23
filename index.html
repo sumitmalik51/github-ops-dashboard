@@ -27,6 +27,16 @@
   .md ul { padding-left:20px; margin:6px 0; }
   .alert { color:var(--red); }
   .ok { color:var(--green); }
+  table.cmp { border-collapse:collapse; margin:8px 0; font-size:13px; width:100%; }
+  table.cmp th, table.cmp td { border:1px solid var(--border); padding:4px 10px; text-align:left; }
+  table.cmp th { background:#21262d; }
+  table.cmp td:nth-child(2) { text-align:right; font-variant-numeric:tabular-nums; }
+  table.cmp tr.delta td { font-weight:600; background:#1c2128; }
+  table.cmp small { color:var(--muted); font-weight:normal; }
+  .matchbar { height:8px; background:#21262d; border-radius:4px; overflow:hidden; margin:6px 0 4px; }
+  .matchfill { height:100%; background:var(--green); }
+  .muted2 { color:var(--muted); font-size:12px; margin-bottom:6px; }
+  .extbox { border:1px solid var(--red); border-radius:6px; padding:10px; margin:12px 0; background:rgba(248,81,73,0.08); }
   footer { color:var(--muted); font-size:12px; margin-top:24px; }
 </style>
 </head>
@@ -83,15 +93,41 @@ async function loadCard(slug, statFn) {
 }
 loadCard('billing-watchdog', h => {
   const l = h[h.length - 1];
-  return `<div class="stats">
-    <div class="stat"><b>$${(l.mtd ?? 0).toLocaleString()}</b><span>MTD net</span></div>
-    <div class="stat"><b>$${(l.yday ?? 0).toLocaleString()}</b><span>yesterday</span></div>
+  const usd = v => '$' + (v ?? 0).toLocaleString(undefined, {maximumFractionDigits: 0});
+  let html = `<div class="stats">
+    <div class="stat"><b>${usd(l.mtd)}</b><span>GitHub MTD net</span></div>
+    <div class="stat"><b>${usd(l.yday)}</b><span>yesterday</span></div>
     <div class="stat"><b>${l.ghec ?? '—'}</b><span>GHEC seats</span></div>
     <div class="stat"><b>${l.copilot ?? '—'}</b><span>Copilot seats</span></div>
     <div class="stat"><b class="${(l.alert_count ?? 0) > 0 ? 'alert' : 'ok'}">${l.alert_count ?? 0}</b><span>alerts</span></div>
-    ${l.azure_mtd != null ? `<div class="stat"><b>$${l.azure_mtd.toLocaleString()}</b><span>Azure MTD</span></div>` : ''}
-    ${l.azure_yday != null ? `<div class="stat"><b>$${l.azure_yday.toLocaleString()}</b><span>Azure yesterday</span></div>` : ''}
   </div>` + spark(h.map(x => x.yday ?? 0), '#58a6ff');
+
+  if (l.azure_mtd != null) {
+    const ghApi = l.mtd ?? 0, azOur = l.azure_our ?? 0, delta = ghApi - azOur;
+    const pctMatch = azOur > 0 ? Math.round((Math.min(ghApi, azOur) / Math.max(ghApi, azOur)) * 100) : 0;
+    html += `<h3 style="margin-top:16px">☁️ GitHub ↔ Azure reconciliation (our enterprise)</h3>
+      <table class="cmp"><tr><th></th><th>MTD</th></tr>
+        <tr><td>GitHub billing API (net)</td><td>${usd(ghApi)}</td></tr>
+        <tr><td>Azure sub — our account</td><td>${usd(azOur)}</td></tr>
+        <tr class="delta"><td>Difference <small>(unposted accrual + lag)</small></td><td>${usd(delta)}</td></tr>
+      </table>
+      <div class="matchbar"><div class="matchfill" style="width:${pctMatch}%"></div></div>
+      <div class="muted2">${pctMatch}% reconciled — Azure posts GitHub usage with a 1–2 day lag, so GitHub's live MTD runs slightly ahead.</div>`;
+
+    const ext = l.azure_external ?? 0;
+    if (ext > 0 && l.azure_accounts) {
+      const extAccts = l.azure_accounts.filter(a => !a.ours);
+      html += `<div class="extbox"><b class="alert">⚠️ ${usd(ext)} MTD on this Azure subscription is NOT your enterprise</b>
+        <div class="muted2">Other GitHub enterprise account(s) billing the same subscription:</div>
+        <table class="cmp">${extAccts.map(a => `<tr><td>${a.account}</td><td>${usd(a.amount)}</td></tr>`).join('')}</table></div>`;
+    }
+    html += `<h3 style="margin-top:14px">Azure sub — GitHub charges by account</h3>
+      <table class="cmp"><tr><th>Billing account</th><th>MTD</th><th></th></tr>
+        ${(l.azure_accounts || []).map(a => `<tr><td>${a.account}</td><td>${usd(a.amount)}</td><td>${a.ours ? '<span class="ok">ours</span>' : '<span class="alert">external</span>'}</td></tr>`).join('')}
+        <tr class="delta"><td>Total GitHub on sub</td><td>${usd(l.azure_gh_total)}</td><td></td></tr>
+      </table>`;
+  }
+  return html;
 });
 loadCard('copilot-seat-reaper', h => {
   const l = h[h.length - 1];

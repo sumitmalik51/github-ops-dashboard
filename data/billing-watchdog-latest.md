@@ -1,13 +1,24 @@
 ## Billing watchdog — 2026-07-23
 
-**MTD net: $10138.05** (gross $10823.37) — yesterday: $928.87 — GHEC seats: 192 — Copilot seats: 823
+**MTD net: $10143.7** (gross $10829.5) — yesterday: $928.87 — GHEC seats: 252 — Copilot seats: 884
 
 ```
-ghec: $6002.61
+ghec: $6006.68
 copilot: $3088.42
-ghas: $1046.39
+ghas: $1047.97
 codespaces: $0.63
 actions: $0
+```
+
+### ☁️ Azure subscription (GitHub billing sub)
+
+**MTD: $17065.15** — yesterday: $0.34
+
+GitHub charges by billing account (MTD):
+```
+customer-12238363: $0
+customer-13304750: $8461.86
+customer-3863811: $8595.68
 ```
 
 ### 🚨 Alerts
