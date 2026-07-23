@@ -37,12 +37,27 @@
   .matchfill { height:100%; background:var(--green); }
   .muted2 { color:var(--muted); font-size:12px; margin-bottom:6px; }
   .extbox { border:1px solid var(--red); border-radius:6px; padding:10px; margin:12px 0; background:rgba(248,81,73,0.08); }
+  .card.cr { margin-bottom:16px; }
+  .krow { display:flex; gap:14px; flex-wrap:wrap; margin:10px 0 16px; }
+  .kpi { flex:1; min-width:150px; border:1px solid var(--border); border-radius:8px; padding:12px 14px; background:#0d1117; }
+  .kpi .v { font-size:24px; font-weight:600; }
+  .kpi .l { color:var(--muted); font-size:11px; text-transform:uppercase; letter-spacing:.04em; margin-top:2px; }
+  .kpi .sub2 { font-size:12px; margin-top:4px; }
+  .crgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(300px,1fr)); gap:18px; }
+  .bars { display:flex; align-items:flex-end; gap:6px; height:110px; margin:8px 0; }
+  .bar { flex:1; display:flex; flex-direction:column; align-items:center; justify-content:flex-end; height:100%; }
+  .bar .col { width:70%; background:var(--blue); border-radius:3px 3px 0 0; }
+  .bar.cur .col { background:var(--green); }
+  .bar .bl { font-size:9px; color:var(--muted); margin-top:3px; }
+  .bar .bv { font-size:9px; color:var(--muted); }
+  .pos { color:var(--green); } .neg { color:var(--red); } .warn { color:var(--yellow); }
   footer { color:var(--muted); font-size:12px; margin-top:24px; }
 </style>
 </head>
 <body>
 <h1>CloudLabs GitHub Ops Dashboard</h1>
 <div class="sub">Enterprise: cloudlabs-organizations · auto-updated by each workflow run · <span id="stamp"></span></div>
+<div class="card cr" id="card-cost-review"><h2>📋 Cost review <small>forecast · budget · efficiency · savings</small></h2><div class="body">loading…</div></div>
 <div class="grid">
   <div class="card" id="card-billing-watchdog"><h2>💰 Billing watchdog <small>daily 05:00 UTC</small></h2><div class="body">loading…</div></div>
   <div class="card" id="card-copilot-seat-reaper"><h2>🪑 Copilot seat reaper <small>weekly Mon 03:00 UTC</small></h2><div class="body">loading…</div></div>
@@ -80,6 +95,18 @@ function spark(values, color) {
   const w = 300, h = 36, max = Math.max(...values, 1), min = Math.min(...values, 0);
   const pts = values.map((v, i) => `${(i / (values.length - 1) * w).toFixed(1)},${(h - 3 - (v - min) / (max - min || 1) * (h - 6)).toFixed(1)}`).join(' ');
   return `<svg class="spark" width="${w}" height="${h}"><polyline fill="none" stroke="${color}" stroke-width="1.5" points="${pts}"/></svg>`;
+}
+function barChart(rows, curMonth) {
+  if (!rows || !rows.length) return '';
+  const max = Math.max(...rows.map(r => r.net), 1);
+  const bars = rows.map(r => {
+    const h = Math.max(2, Math.round(r.net / max * 100));
+    const cur = r.month === curMonth ? ' cur' : '';
+    const lbl = r.month.slice(2).replace('-', '/');
+    const val = r.net >= 1000 ? '$' + Math.round(r.net / 1000) + 'k' : '$' + Math.round(r.net);
+    return `<div class="bar${cur}"><div class="bv">${val}</div><div class="col" style="height:${h}%"></div><div class="bl">${lbl}</div></div>`;
+  }).join('');
+  return `<div class="bars">${bars}</div>`;
 }
 async function fetchText(p) { const r = await fetch(p + '?t=' + Date.now()); return r.ok ? r.text() : null; }
 async function fetchJson(p) { const r = await fetch(p + '?t=' + Date.now()); return r.ok ? r.json() : null; }
@@ -186,6 +213,76 @@ loadCard('org-reaper', h => {
     <div class="stat"><b>${l.dry_run === 'true' ? 'DRY-RUN' : 'ARMED'}</b><span>mode</span></div>
   </div>` + spark(h.map(x => x.orgs ?? 0), '#d29922');
 });
+(async function loadCostReview() {
+  const el = document.querySelector('#card-cost-review .body');
+  const [bh, sh] = await Promise.all([fetchJson('data/billing-watchdog-history.json'), fetchJson('data/copilot-seat-reaper-history.json')]);
+  if (!bh || !bh.length) { el.innerHTML = '<p class="alert">no data yet</p>'; return; }
+  const b = bh[bh.length - 1];
+  const s = (sh && sh.length) ? sh[sh.length - 1] : {};
+  const usd = v => '$' + Math.round(v ?? 0).toLocaleString();
+  const curMonth = (b.monthly && b.monthly.length) ? b.monthly[b.monthly.length - 1].month : '';
+
+  // Forecast & budget
+  const bv = b.budget_variance || [];
+  const totalBudget = bv.reduce((a, x) => a + (x.budget || 0), 0);
+  const proj = b.proj_month_end ?? 0;
+  const budgetPct = totalBudget > 0 ? Math.round(proj / totalBudget * 100) : 0;
+  const budgetCls = budgetPct > 100 ? 'neg' : budgetPct > 85 ? 'warn' : 'pos';
+
+  // Efficiency
+  const copTotal = s.total ?? b.copilot ?? 0, copActive = s.active ?? 0;
+  const copUtil = copTotal > 0 ? Math.round(copActive / copTotal * 100) : 0;
+  const poolCommitted = (b.cost_centers || []).reduce((a, c) => a + (c.pool || 0), 0);
+  const poolUsed = (b.cost_centers || []).reduce((a, c) => a + (c.cumulative || 0), 0);
+  const poolUtil = poolCommitted > 0 ? Math.round(poolUsed / poolCommitted * 100) : 0;
+
+  // Savings scorecard
+  const expiringUnused = (b.cost_centers || []).filter(c => c.days_left != null && c.days_left <= 30).reduce((a, c) => a + (c.remaining || 0), 0);
+  const reclaimSeats = s.candidates ?? 0;
+  const reclaimSeat$ = reclaimSeats * 19;
+  const pipelineSeats = s.never_in_grace ?? 0;
+  const savings = expiringUnused + reclaimSeat$;
+
+  // Unit economics
+  const copNet = (b.by_product || []).find(p => p.product === 'copilot')?.net ?? 0;
+  const perActiveCop = copActive > 0 ? copNet / copActive : 0;
+
+  let h = `<div class="krow">
+    <div class="kpi"><div class="v">${usd(proj)}</div><div class="l">Projected month-end</div><div class="sub2 muted2">run-rate ${usd(b.run_rate_daily)}/day</div></div>
+    <div class="kpi"><div class="v ${budgetCls}">${budgetPct}%</div><div class="l">of total budget (${usd(totalBudget)})</div><div class="sub2 ${budgetCls}">${budgetPct > 100 ? 'over' : 'under'} by ${usd(Math.abs(proj - totalBudget))}</div></div>
+    <div class="kpi"><div class="v ${copUtil < 40 ? 'neg' : copUtil < 70 ? 'warn' : 'pos'}">${copUtil}%</div><div class="l">Copilot seat utilization</div><div class="sub2 muted2">${copActive} active / ${copTotal} seats</div></div>
+    <div class="kpi"><div class="v ${poolUtil < 20 ? 'warn' : 'pos'}">${poolUtil}%</div><div class="l">Credit-pool utilization</div><div class="sub2 muted2">${usd(poolUsed)} of ${usd(poolCommitted)}</div></div>
+    <div class="kpi"><div class="v ${savings > 1000 ? 'warn' : 'pos'}">${usd(savings)}</div><div class="l">Identified savings</div><div class="sub2 muted2">expiring credit + idle seats</div></div>
+  </div>`;
+
+  h += '<div class="crgrid">';
+  // MoM trend
+  h += `<div><h3>Month-over-month (net)</h3>${barChart(b.monthly, curMonth)}<div class="muted2">Prev month: ${usd(b.prev_month_total)} — current projecting ${usd(proj)}.</div></div>`;
+  // Budget variance
+  h += `<div><h3>Budget variance (projected vs budget)</h3><table class="cmp"><tr><th>Product</th><th>Actual</th><th>Projected</th><th>Budget</th><th></th></tr>`;
+  bv.forEach(x => {
+    const over = x.budget != null && x.projected > x.budget;
+    h += `<tr><td>${x.product}</td><td>${usd(x.actual)}</td><td>${usd(x.projected)}</td><td>${x.budget != null ? usd(x.budget) : '—'}</td><td>${x.budget == null ? '' : over ? '<span class="neg">over</span>' : '<span class="pos">ok</span>'}</td></tr>`;
+  });
+  h += `</table></div>`;
+  h += '</div>';
+
+  // Savings breakdown + unit economics
+  h += `<div class="crgrid" style="margin-top:14px">
+    <div><h3>💸 Savings scorecard</h3><table class="cmp">
+      <tr><td>Prepaid credit expiring ≤30d, unused</td><td>${usd(expiringUnused)}</td></tr>
+      <tr><td>Idle Copilot seats reclaimable now (${reclaimSeats})</td><td>${usd(reclaimSeat$)}</td></tr>
+      <tr class="delta"><td>Total identified</td><td>${usd(savings)}</td></tr>
+    </table><div class="muted2">Plus ${pipelineSeats} never-used seats in grace and ${(s.pending_cancel ?? 0)} already pending cancellation.</div></div>
+    <div><h3>📐 Unit economics</h3><table class="cmp">
+      <tr><td>Cost per active Copilot user (MTD)</td><td>${usd(perActiveCop)}</td></tr>
+      <tr><td>Copilot list price</td><td>$19</td></tr>
+      <tr><td>GHEC active licenses</td><td>${b.active_licenses ?? '—'}</td></tr>
+    </table><div class="muted2">Effective per-active-user cost below list = mid-cycle proration; well below list with low utilization means paying for idle seats.</div></div>
+  </div>`;
+
+  el.innerHTML = h;
+})();
 (async function loadHealth() {
   const el = document.querySelector('#card-enterprise-health .body');
   const hist = await fetchJson('data/billing-watchdog-history.json');
