@@ -16,6 +16,9 @@ nav { display:flex; gap:6px; flex-wrap:wrap; margin-top:12px; }
 nav a { padding:6px 12px; border-radius:6px; font-size:13px; color:var(--fg); border:1px solid transparent; }
 nav a:hover { background:var(--card); }
 nav a.active { background:var(--card); border-color:var(--border); color:var(--blue); font-weight:600; }
+.fresh { display:inline-block; font-size:12px; padding:3px 10px; border-radius:12px; margin-top:8px; }
+.fresh.freshN { color:var(--green); border:1px solid var(--green); background:rgba(63,185,80,0.08); }
+.fresh.staleN { color:var(--red); border:1px solid var(--red); background:rgba(248,81,73,0.12); font-weight:600; }
 .refreshbar { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:10px; }
 #refreshBtn { background:var(--blue); color:#0d1117; border:none; border-radius:6px; padding:7px 13px; font-size:13px; font-weight:600; cursor:pointer; }
 #refreshBtn:disabled { opacity:.5; cursor:default; }

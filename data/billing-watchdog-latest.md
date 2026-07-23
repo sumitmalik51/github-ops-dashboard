@@ -1,6 +1,6 @@
 ## Billing watchdog — 2026-07-23
 
-**MTD net: $10224.99** (gross $10924.63) — yesterday: $928.87 — GHEC seats: 253 — Copilot seats: 886
+**MTD net: $10224.99** (gross $10925.34) — yesterday: $928.87 — GHEC seats: 250 — Copilot seats: 886
 
 ```
 ghec: $6087.97
@@ -35,14 +35,14 @@ actions: $0
 |---|---|---|
 | Cloudlabs-Enterprises | 7066.1 | $40.04 |
 | ghas-bootcamp-2026-07-22-2323169 | 105 | $0.63 |
-| Cloudlabs-GH-Copilot | 35 | $0.21 |
+| Cloudlabs-GH-Copilot | 39 | $0.23 |
 | ghas-bootcamp-2026-06-10-2269853 | 23 | $0.14 |
 | ghas-bootcamp-2026-06-10-2269869 | 18 | $0.11 |
 | ghas-bootcamp-2026-06-11-2270450 | 17 | $0.1 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **360** — active licenses: **253** — inactive/suspended (est.): **107**
+SCIM-provisioned identities: **360** — active licenses: **250** — inactive/suspended (est.): **110**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 

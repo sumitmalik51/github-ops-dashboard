@@ -101,13 +101,15 @@ const DASH = (() => {
     const b = d.b, e = efficiency(d), sv = savings(d);
     const bv = b.budget_variance || [];
     const totalBudget = bv.reduce((a, x) => a + (x.budget || 0), 0);
-    const proj = b.proj_month_end ?? 0;
+    const projLin = b.proj_month_end ?? 0, projTr = b.proj_trailing ?? projLin;
+    const projLo = Math.min(projLin, projTr), projHi = Math.max(projLin, projTr);
+    const proj = projHi; // conservative for budget check
     const budgetPct = totalBudget > 0 ? Math.round(proj / totalBudget * 100) : 0;
     const bcls = budgetPct > 100 ? 'neg' : budgetPct > 85 ? 'warn' : 'pos';
     const curMonth = (b.monthly && b.monthly.length) ? b.monthly[b.monthly.length - 1].month : '';
     let h = `<div class="krow">
-      <div class="kpi"><div class="v">${usd(proj)}</div><div class="l">Projected month-end</div><div class="sub2 muted2">run-rate ${usd(b.run_rate_daily)}/day</div></div>
-      <div class="kpi"><div class="v ${bcls}">${budgetPct}%</div><div class="l">of budget (${usd(totalBudget)})</div><div class="sub2 ${bcls}">${budgetPct > 100 ? 'over' : 'under'} by ${usd(Math.abs(proj - totalBudget))}</div></div>
+      <div class="kpi"><div class="v">${usd(projLo)}–${usd(projHi)}</div><div class="l">Projected month-end</div><div class="sub2 muted2">linear ${usd(projLin)} · 7-day-rate ${usd(projTr)}</div></div>
+      <div class="kpi"><div class="v ${bcls}">${budgetPct}%</div><div class="l">of budget (${usd(totalBudget)})</div><div class="sub2 ${bcls}">worst-case ${budgetPct > 100 ? 'over' : 'under'} by ${usd(Math.abs(proj - totalBudget))}</div></div>
       <div class="kpi"><div class="v ${e.copUtil < 40 ? 'neg' : e.copUtil < 70 ? 'warn' : 'pos'}">${e.copUtil}%</div><div class="l">Copilot utilization</div><div class="sub2 muted2">${e.copActive}/${e.copTotal} seats</div></div>
       <div class="kpi"><div class="v ${e.poolUtil < 20 ? 'warn' : 'pos'}">${e.poolUtil}%</div><div class="l">Pool utilization</div><div class="sub2 muted2">${usd(e.poolUsed)}/${usd(e.poolCommitted)}</div></div>
       <div class="kpi"><div class="v ${sv.total > 1000 ? 'warn' : 'pos'}">${usd(sv.total)}</div><div class="l">Identified savings</div><div class="sub2 muted2">expiring credit + idle seats</div></div>
@@ -130,7 +132,14 @@ const DASH = (() => {
         <div class="stat"><b>${d.o.dry_run === 'true' ? 'DRY-RUN' : 'ARMED'}</b><span>reaper</span></div>
       </div>${spark(d.oh.map(x => x.orgs ?? 0), '#d29922')}</div>
     </div>`;
-    h += `<h3 style="margin-top:18px">Month-over-month (net)</h3>${barChart(b.monthly, curMonth)}<div class="muted2">Prev month ${usd(b.prev_month_total)}; current projecting ${usd(proj)}.</div>`;
+    h += `<h3 style="margin-top:18px">Month-over-month (net)</h3>${barChart(b.monthly, curMonth)}<div class="muted2">Prev month ${usd(b.prev_month_total)}; current projecting ${usd(projLo)}–${usd(projHi)}. Lab spend is event-driven, so the range widens mid-month.</div>`;
+    // Alert history from the daily series
+    const seen = {};
+    (d.bh || []).forEach(e => (e.alerts || []).forEach(a => { const k = a.slice(0, 70); if (!seen[k]) seen[k] = { days: 0, last: e.date }; seen[k].days++; seen[k].last = e.date; }));
+    const rows = Object.entries(seen).sort((a, b2) => b2[1].days - a[1].days).slice(0, 10);
+    h += `<h3 style="margin-top:18px">Alert history (last ${(d.bh || []).length} runs)</h3>${spark((d.bh || []).map(x => x.alert_count ?? 0), '#f85149')}`;
+    if (rows.length) h += `<table class="cmp"><tr><th>Alert</th><th>Runs seen</th><th>Last</th></tr>${rows.map(([k, v]) => `<tr><td>${esc(k)}…</td><td>${v.days}</td><td><small>${v.last ? v.last.slice(0, 10) : ''}</small></td></tr>`).join('')}</table>`;
+    else h += `<div class="muted2">No alerts recorded in the retained history.</div>`;
     return h;
   }
 
@@ -190,10 +199,12 @@ const DASH = (() => {
         <tr><td>Reap candidates (idle ≥30d)</td><td>${d.s.candidates ?? 0}</td></tr>
       </table><div class="muted2">Effective cost below list = mid-cycle proration. Low utilization = paying for idle seats.</div></div>
       <div class="card"><h3>👤 Identity & licenses</h3><div class="stats">
-        <div class="stat"><b>${b.scim_total ?? '—'}</b><span>SCIM identities</span></div>
-        <div class="stat"><b class="ok">${b.active_licenses ?? '—'}</b><span>active</span></div>
-        <div class="stat"><b>${b.inactive_est ?? '—'}</b><span>inactive</span></div>
-      </div>${spark(d.bh.map(x => x.active_licenses ?? 0), '#3fb950')}</div>
+        <div class="stat"><b>${b.member_count ?? '—'}</b><span>ent. members</span></div>
+        <div class="stat"><b class="ok">${b.active_licenses ?? '—'}</b><span>consuming license</span></div>
+        <div class="stat"><b>${b.scim_total ?? '—'}</b><span>SCIM provisioned</span></div>
+        <div class="stat"><b>${b.inactive_est ?? '—'}</b><span>provisioned, no license</span></div>
+      </div>${spark(d.bh.map(x => x.active_licenses ?? 0), '#3fb950')}
+      <div class="muted2">Members and license-consumers are the billable population. Suspended lab accounts that were deprovisioned from Entra aren't SCIM-listed and consume no license — they don't appear here and cost nothing.</div></div>
     </div>`;
     if (d.smd) h += `<div class="card" style="margin-top:16px"><div class="md">${mdToHtml(d.smd)}</div></div>`;
     return h;
@@ -240,6 +251,10 @@ const DASH = (() => {
     </div>`;
     h += `<div class="grid">`;
     h += `<div class="card"><h3>⚙️ Actions consumption by org (MTD)</h3><table class="cmp"><tr><th>Org</th><th>Minutes</th><th>Gross</th></tr>${(b.actions_by_org || []).map(a => `<tr><td>${esc(a.org)}</td><td>${num(a.minutes)}</td><td>${usd(a.gross)}</td></tr>`).join('')}</table></div>`;
+    const tokCls = (b.token_status && b.token_status.includes('no-expiration')) ? 'warn' : (b.token_status && b.token_status.includes('expires in') && parseInt(b.token_status.match(/\d+/)) <= 14 ? 'neg' : 'ok');
+    h += `<div class="card"><h3>🔑 Automation token</h3><table class="cmp">
+      <tr><td>Status</td><td class="${tokCls}">${esc(b.token_status || 'unknown')}</td></tr>
+      </table><div class="muted2">${b.token_status && b.token_status.includes('no-expiration') ? 'Token never expires — convenient but a standing risk. Consider a rotation schedule.' : 'All monitors authenticate with this token; renew before expiry to avoid silent failure.'}</div></div>`;
     if (d.omd) h += `<div class="card"><div class="md">${mdToHtml(d.omd)}</div></div>`;
     h += `</div>`;
     return h;
@@ -257,18 +272,30 @@ const DASH = (() => {
     document.getElementById('nav').innerHTML = `
       <div class="topbar">
         <div class="row1"><h1>CloudLabs GitHub Ops</h1><span class="sub">Enterprise: cloudlabs-organizations · <span id="stamp"></span></span></div>
+        <div id="freshness"></div>
         <nav>${nav}</nav>
         <div class="refreshbar">
           <button id="refreshBtn" onclick="DASH.refreshAll()">🔄 Refresh data now</button>
           <span class="muted2">Runs all monitors (read-only / dry-run) and reloads when done.</span>
+          <button class="link" onclick="DASH.exportCSV()">⬇ export CSV</button>
           <button class="link" onclick="DASH.setToken()">set token</button>
           <div id="progress" class="progress"></div>
         </div>
       </div>`;
   }
+  function freshnessBanner(d) {
+    const el = document.getElementById('freshness'); if (!el) return;
+    const dt = d.b && d.b.date ? new Date(d.b.date) : null;
+    if (!dt) { el.innerHTML = ''; return; }
+    const ageH = (Date.now() - dt.getTime()) / 3.6e6;
+    const stale = ageH > 36;
+    const age = ageH < 1 ? '<1h' : Math.round(ageH) + 'h';
+    el.innerHTML = `<div class="fresh ${stale ? 'staleN' : 'freshN'}">${stale ? '⚠ STALE' : '● live'} — data ${age} old (${dt.toLocaleString()})${stale ? ' · a monitor may have stopped' : ''}</div>`;
+  }
   async function page(name) {
     renderNav(name);
     const d = await loadData();
+    freshnessBanner(d);
     document.getElementById('content').innerHTML = PAGES[name](d);
     stamp(d);
     window.__page = name;
@@ -336,5 +363,30 @@ const DASH = (() => {
     } finally { btn.disabled = false; }
   }
 
-  return { page, refreshAll, setToken };
+  async function exportCSV() {
+    const d = await loadData();
+    const b = d.b;
+    const rows = [];
+    const push = (section, k, v) => rows.push([section, k, v]);
+    push('summary', 'as_of', b.date || '');
+    push('summary', 'github_total_mtd', b.github_total); push('summary', 'our_sub_mtd', b.mtd); push('summary', 'cost_centers_mtd', b.cc_total_mtd);
+    push('summary', 'yesterday', b.yday); push('summary', 'proj_linear', b.proj_month_end); push('summary', 'proj_trailing', b.proj_trailing);
+    push('summary', 'members', b.member_count); push('summary', 'active_licenses', b.active_licenses); push('summary', 'scim_provisioned', b.scim_total);
+    push('summary', 'copilot_seats', b.copilot); push('summary', 'copilot_active', d.s.active);
+    (b.by_product || []).forEach(p => push('by_product', p.product, p.net));
+    (b.by_org || []).forEach(o => push('by_org', o.org, o.net));
+    (b.monthly || []).forEach(m => push('monthly', m.month, m.net));
+    (b.budget_variance || []).forEach(x => rows.push(['budget', x.product, x.actual, x.projected, x.budget]));
+    (b.cost_centers || []).forEach(c => rows.push(['cost_center', c.name, c.pool, c.cumulative, c.remaining, c.pct + '%', c.days_left, (c.resources || []).join('; ')]));
+    (b.azure_accounts || []).forEach(a => rows.push(['azure_account', a.account, a.amount, a.ours ? 'ours' : 'external']));
+    (b.alerts || []).forEach(a => push('alert', '', a));
+    const csv = rows.map(r => r.map(c => { const s = String(c ?? ''); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
+    const blob = new Blob(['section,key,value,extra1,extra2,extra3,extra4,extra5\n' + csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'cloudlabs-github-ops-' + (b.date ? b.date.slice(0, 10) : 'export') + '.csv';
+    a.click(); URL.revokeObjectURL(a.href);
+  }
+
+  return { page, refreshAll, setToken, exportCSV };
 })();
