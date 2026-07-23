@@ -83,12 +83,13 @@ function spark(values, color) {
 }
 async function fetchText(p) { const r = await fetch(p + '?t=' + Date.now()); return r.ok ? r.text() : null; }
 async function fetchJson(p) { const r = await fetch(p + '?t=' + Date.now()); return r.ok ? r.json() : null; }
-async function loadCard(slug, statFn) {
+async function loadCard(slug, statFn, hideMarkdown) {
   const el = document.querySelector(`#card-${slug} .body`);
   const [md, hist] = await Promise.all([fetchText(`data/${slug}-latest.md`), fetchJson(`data/${slug}-history.json`)]);
   let html = '';
   if (hist && hist.length && statFn) html += statFn(hist);
-  html += md ? `<div class="md">${mdToHtml(md)}</div>` : '<p class="alert">no report published yet — waiting for first workflow run</p>';
+  if (!hideMarkdown) html += md ? `<div class="md">${mdToHtml(md)}</div>` : '<p class="alert">no report published yet — waiting for first workflow run</p>';
+  else if (!hist || !hist.length) html += '<p class="alert">no report published yet — waiting for first workflow run</p>';
   el.innerHTML = html;
   if (hist && hist.length) document.getElementById('stamp').textContent = 'last data: ' + hist[hist.length - 1].date;
 }
@@ -102,6 +103,17 @@ loadCard('billing-watchdog', h => {
     <div class="stat"><b>${l.copilot ?? '—'}</b><span>Copilot seats</span></div>
     <div class="stat"><b class="${(l.alert_count ?? 0) > 0 ? 'alert' : 'ok'}">${l.alert_count ?? 0}</b><span>alerts</span></div>
   </div>` + spark(h.map(x => x.yday ?? 0), '#58a6ff');
+
+  if (l.alerts && l.alerts.length) {
+    html += `<div class="extbox"><b class="alert">🚨 ${l.alerts.length} alert${l.alerts.length > 1 ? 's' : ''}</b>
+      <ul style="margin:6px 0 0;padding-left:18px">${l.alerts.map(a => `<li>${esc(a)}</li>`).join('')}</ul></div>`;
+  }
+  if (l.by_product && l.by_product.length) {
+    html += `<h3 style="margin-top:14px">Spend by product (MTD net)</h3>
+      <table class="cmp"><tr><th>Product</th><th>MTD net</th></tr>
+      ${l.by_product.map(p => `<tr><td>${p.product}</td><td>${usd(p.net)}</td></tr>`).join('')}
+      </table>`;
+  }
 
   if (l.github_total != null) {
     html += `<h3 style="margin-top:16px">💵 GitHub cost routing (MTD)</h3>
@@ -154,7 +166,7 @@ loadCard('billing-watchdog', h => {
       </table>`;
   }
   return html;
-});
+}, true);
 loadCard('copilot-seat-reaper', h => {
   const l = h[h.length - 1];
   return `<div class="stats">
