@@ -1,0 +1,340 @@
+const DASH = (() => {
+  const REPO = 'Cloudlabs-GH-Copilot/org-reaper';
+  const WFS = [
+    { file: 'billing-watchdog.yml', label: 'billing', inputs: {} },
+    { file: 'copilot-seat-reaper.yml', label: 'seats', inputs: { dry_run: 'true' } },
+    { file: 'org-reaper.yml', label: 'orgs', inputs: { dry_run: 'true' } },
+  ];
+  const NAV = [
+    { id: 'overview', file: 'index.html', label: 'Overview' },
+    { id: 'cost', file: 'cost.html', label: 'Cost' },
+    { id: 'seats', file: 'seats.html', label: 'Seats & licenses' },
+    { id: 'pools', file: 'pools.html', label: 'Credit pools' },
+    { id: 'orgs', file: 'orgs.html', label: 'Orgs & ops' },
+  ];
+
+  const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const usd = v => '$' + Math.round(v ?? 0).toLocaleString();
+  const usdc = v => '$' + (v ?? 0).toLocaleString(undefined, { maximumFractionDigits: 0 });
+  const num = v => (v ?? 0).toLocaleString();
+
+  async function fetchJson(p) { try { const r = await fetch(p + '?t=' + Date.now()); return r.ok ? await r.json() : null; } catch { return null; } }
+  async function fetchText(p) { try { const r = await fetch(p + '?t=' + Date.now()); return r.ok ? await r.text() : null; } catch { return null; } }
+
+  function spark(values, color) {
+    if (!values || values.length < 2) return '';
+    const w = 300, h = 36, mx = Math.max(...values, 1), mn = Math.min(...values, 0);
+    const pts = values.map((v, i) => `${(i / (values.length - 1) * w).toFixed(1)},${(h - 3 - (v - mn) / (mx - mn || 1) * (h - 6)).toFixed(1)}`).join(' ');
+    return `<svg class="spark" width="${w}" height="${h}"><polyline fill="none" stroke="${color}" stroke-width="1.5" points="${pts}"/></svg>`;
+  }
+  function barChart(rows, curMonth) {
+    if (!rows || !rows.length) return '';
+    const mx = Math.max(...rows.map(r => r.net), 1);
+    return '<div class="bars">' + rows.map(r => {
+      const hh = Math.max(2, Math.round(r.net / mx * 100));
+      const cur = r.month === curMonth ? ' cur' : '';
+      const lbl = r.month.slice(2).replace('-', '/');
+      const val = r.net >= 1000 ? '$' + Math.round(r.net / 1000) + 'k' : '$' + Math.round(r.net);
+      return `<div class="bar${cur}"><div class="bv">${val}</div><div class="col" style="height:${hh}%"></div><div class="bl">${lbl}</div></div>`;
+    }).join('') + '</div>';
+  }
+  function mdToHtml(md) {
+    const lines = md.split('\n'); let html = '', inCode = false, inTable = false, inList = false;
+    const flush = () => { if (inTable) { html += '</table>'; inTable = false; } if (inList) { html += '</ul>'; inList = false; } };
+    for (let raw of lines) {
+      if (raw.startsWith('```')) { flush(); html += inCode ? '</pre>' : '<pre>'; inCode = !inCode; continue; }
+      if (inCode) { html += esc(raw) + '\n'; continue; }
+      let l = esc(raw).replace(/\*\*(.+?)\*\*/g, '<b>$1</b>').replace(/`(.+?)`/g, '<code>$1</code>');
+      if (/^\|[\s:\-|]+\|$/.test(raw.trim())) continue;
+      if (raw.trim().startsWith('|')) {
+        const cells = l.trim().replace(/^\||\|$/g, '').split('|').map(c => c.trim());
+        if (!inTable) { flush(); html += '<table><tr>' + cells.map(c => `<th>${c}</th>`).join('') + '</tr>'; inTable = true; }
+        else html += '<tr>' + cells.map(c => `<td>${c}</td>`).join('') + '</tr>';
+        continue;
+      }
+      if (raw.startsWith('### ')) { flush(); html += `<h3>${l.slice(4)}</h3>`; continue; }
+      if (raw.startsWith('## ')) { flush(); html += `<h2>${l.slice(3)}</h2>`; continue; }
+      if (raw.startsWith('- ')) { if (!inList) { flush(); html += '<ul>'; inList = true; } html += `<li>${l.slice(2)}</li>`; continue; }
+      flush();
+      if (raw.trim() !== '') html += `<p>${l}</p>`;
+    }
+    flush(); if (inCode) html += '</pre>';
+    return html;
+  }
+
+  let DATA = null;
+  async function loadData(force) {
+    if (DATA && !force) return DATA;
+    const [bh, sh, oh, smd, omd] = await Promise.all([
+      fetchJson('data/billing-watchdog-history.json'),
+      fetchJson('data/copilot-seat-reaper-history.json'),
+      fetchJson('data/org-reaper-history.json'),
+      fetchText('data/copilot-seat-reaper-latest.md'),
+      fetchText('data/org-reaper-latest.md'),
+    ]);
+    DATA = {
+      bh: bh || [], sh: sh || [], oh: oh || [], smd, omd,
+      b: (bh && bh.length) ? bh[bh.length - 1] : {},
+      s: (sh && sh.length) ? sh[sh.length - 1] : {},
+      o: (oh && oh.length) ? oh[oh.length - 1] : {},
+    };
+    return DATA;
+  }
+
+  // ---------- shared computations ----------
+  function efficiency(d) {
+    const copTotal = d.s.total ?? d.b.copilot ?? 0, copActive = d.s.active ?? 0;
+    const copUtil = copTotal > 0 ? Math.round(copActive / copTotal * 100) : 0;
+    const poolCommitted = (d.b.cost_centers || []).reduce((a, c) => a + (c.pool || 0), 0);
+    const poolUsed = (d.b.cost_centers || []).reduce((a, c) => a + (c.cumulative || 0), 0);
+    const poolUtil = poolCommitted > 0 ? Math.round(poolUsed / poolCommitted * 100) : 0;
+    return { copTotal, copActive, copUtil, poolCommitted, poolUsed, poolUtil };
+  }
+  function savings(d) {
+    const expiringUnused = (d.b.cost_centers || []).filter(c => c.days_left != null && c.days_left <= 30).reduce((a, c) => a + (c.remaining || 0), 0);
+    const reclaimSeats = d.s.candidates ?? 0;
+    return { expiringUnused, reclaimSeats, reclaimUsd: reclaimSeats * 19, total: expiringUnused + reclaimSeats * 19 };
+  }
+
+  // ---------- page renderers ----------
+  function overview(d) {
+    const b = d.b, e = efficiency(d), sv = savings(d);
+    const bv = b.budget_variance || [];
+    const totalBudget = bv.reduce((a, x) => a + (x.budget || 0), 0);
+    const proj = b.proj_month_end ?? 0;
+    const budgetPct = totalBudget > 0 ? Math.round(proj / totalBudget * 100) : 0;
+    const bcls = budgetPct > 100 ? 'neg' : budgetPct > 85 ? 'warn' : 'pos';
+    const curMonth = (b.monthly && b.monthly.length) ? b.monthly[b.monthly.length - 1].month : '';
+    let h = `<div class="krow">
+      <div class="kpi"><div class="v">${usd(proj)}</div><div class="l">Projected month-end</div><div class="sub2 muted2">run-rate ${usd(b.run_rate_daily)}/day</div></div>
+      <div class="kpi"><div class="v ${bcls}">${budgetPct}%</div><div class="l">of budget (${usd(totalBudget)})</div><div class="sub2 ${bcls}">${budgetPct > 100 ? 'over' : 'under'} by ${usd(Math.abs(proj - totalBudget))}</div></div>
+      <div class="kpi"><div class="v ${e.copUtil < 40 ? 'neg' : e.copUtil < 70 ? 'warn' : 'pos'}">${e.copUtil}%</div><div class="l">Copilot utilization</div><div class="sub2 muted2">${e.copActive}/${e.copTotal} seats</div></div>
+      <div class="kpi"><div class="v ${e.poolUtil < 20 ? 'warn' : 'pos'}">${e.poolUtil}%</div><div class="l">Pool utilization</div><div class="sub2 muted2">${usd(e.poolUsed)}/${usd(e.poolCommitted)}</div></div>
+      <div class="kpi"><div class="v ${sv.total > 1000 ? 'warn' : 'pos'}">${usd(sv.total)}</div><div class="l">Identified savings</div><div class="sub2 muted2">expiring credit + idle seats</div></div>
+    </div>`;
+    if (b.alerts && b.alerts.length) h += `<div class="extbox"><b class="alert">🚨 ${b.alerts.length} active alert${b.alerts.length > 1 ? 's' : ''}</b><ul style="margin:6px 0 0;padding-left:18px">${b.alerts.map(a => `<li>${esc(a)}</li>`).join('')}</ul></div>`;
+    h += `<div class="grid">
+      <div class="card"><h2>💰 Cost <a href="cost.html">detail →</a></h2><div class="stats">
+        <div class="stat"><b>${usd(b.mtd)}</b><span>MTD net</span></div>
+        <div class="stat"><b>${usd(b.github_total)}</b><span>incl. cost centers</span></div>
+        <div class="stat"><b>${usd(b.yday)}</b><span>yesterday</span></div>
+      </div>${spark(d.bh.map(x => x.yday ?? 0), '#58a6ff')}</div>
+      <div class="card"><h2>🪑 Seats <a href="seats.html">detail →</a></h2><div class="stats">
+        <div class="stat"><b>${d.s.total ?? '—'}</b><span>seats</span></div>
+        <div class="stat"><b class="ok">${d.s.active ?? '—'}</b><span>active</span></div>
+        <div class="stat"><b>${d.s.pending_cancel ?? '—'}</b><span>pending cancel</span></div>
+      </div>${spark(d.sh.map(x => x.active ?? 0), '#3fb950')}</div>
+      <div class="card"><h2>🗑️ Orgs <a href="orgs.html">detail →</a></h2><div class="stats">
+        <div class="stat"><b>${d.o.orgs ?? '—'}</b><span>orgs</span></div>
+        <div class="stat"><b>${d.o.kept ?? 0}</b><span>in grace</span></div>
+        <div class="stat"><b>${d.o.dry_run === 'true' ? 'DRY-RUN' : 'ARMED'}</b><span>reaper</span></div>
+      </div>${spark(d.oh.map(x => x.orgs ?? 0), '#d29922')}</div>
+    </div>`;
+    h += `<h3 style="margin-top:18px">Month-over-month (net)</h3>${barChart(b.monthly, curMonth)}<div class="muted2">Prev month ${usd(b.prev_month_total)}; current projecting ${usd(proj)}.</div>`;
+    return h;
+  }
+
+  function cost(d) {
+    const b = d.b;
+    const curMonth = (b.monthly && b.monthly.length) ? b.monthly[b.monthly.length - 1].month : '';
+    let h = `<div class="stats">
+      <div class="stat"><b>${usd(b.github_total)}</b><span>total GitHub</span></div>
+      <div class="stat"><b>${usd(b.mtd)}</b><span>our sub</span></div>
+      <div class="stat"><b>${usd(b.cc_total_mtd)}</b><span>cost centers</span></div>
+      <div class="stat"><b>${usd(b.yday)}</b><span>yesterday</span></div>
+      <div class="stat"><b>${usd(b.gross)}</b><span>gross</span></div>
+    </div>${spark(d.bh.map(x => x.yday ?? 0), '#58a6ff')}`;
+    h += `<div class="grid">`;
+    h += `<div class="card"><h3>Spend by product (MTD net)</h3><table class="cmp"><tr><th>Product</th><th>MTD net</th></tr>${(b.by_product || []).map(p => `<tr><td>${p.product}</td><td>${usd(p.net)}</td></tr>`).join('')}</table></div>`;
+    h += `<div class="card"><h3>Spend by org (MTD net)</h3><table class="cmp"><tr><th>Org</th><th>MTD net</th></tr>${(b.by_org || []).map(o => `<tr><td>${esc(o.org)}</td><td>${usd(o.net)}</td></tr>`).join('')}</table></div>`;
+    h += `<div class="card"><h3>💵 Cost routing</h3><table class="cmp"><tr><th>Destination</th><th>MTD</th></tr>
+      <tr class="delta"><td>Total GitHub</td><td>${usd(b.github_total)}</td></tr>
+      <tr><td>→ Our Azure sub</td><td>${usd(b.mtd)}</td></tr>
+      <tr><td>→ Cost centers</td><td>${usd(b.cc_total_mtd)}</td></tr></table></div>`;
+    h += `<div class="card"><h3>Budget variance</h3><table class="cmp"><tr><th>Product</th><th>Actual</th><th>Projected</th><th>Budget</th><th></th></tr>${(b.budget_variance || []).map(x => { const over = x.budget != null && x.projected > x.budget; return `<tr><td>${x.product}</td><td>${usd(x.actual)}</td><td>${usd(x.projected)}</td><td>${x.budget != null ? usd(x.budget) : '—'}</td><td>${x.budget == null ? '' : over ? '<span class="neg">over</span>' : '<span class="pos">ok</span>'}</td></tr>`; }).join('')}</table></div>`;
+    if (b.azure_gh_total != null) {
+      const ghApi = b.mtd ?? 0, azOur = b.azure_our ?? 0;
+      const pctMatch = azOur > 0 ? Math.round((Math.min(ghApi, azOur) / Math.max(ghApi, azOur)) * 100) : 0;
+      let a = `<div class="card"><h3>☁️ GitHub ↔ Azure reconciliation</h3><table class="cmp"><tr><th></th><th>MTD</th></tr>
+        <tr><td>GitHub billing API (net)</td><td>${usd(ghApi)}</td></tr>
+        <tr><td>Azure sub — our account</td><td>${usd(azOur)}</td></tr>
+        <tr class="delta"><td>Difference <small>(lag)</small></td><td>${usd(ghApi - azOur)}</td></tr></table>
+        <div class="matchbar"><div class="matchfill" style="width:${pctMatch}%"></div></div>
+        <div class="muted2">${pctMatch}% reconciled — Azure posts with 1–2 day lag.</div>`;
+      const ext = b.azure_external ?? 0;
+      if (ext > 0 && b.azure_accounts) a += `<div class="extbox"><b class="alert">⚠️ ${usd(ext)} on this sub is NOT your enterprise</b><table class="cmp">${b.azure_accounts.filter(x => !x.ours).map(x => `<tr><td>${x.account}</td><td>${usd(x.amount)}</td></tr>`).join('')}</table></div>`;
+      a += `<table class="cmp"><tr><th>Billing account</th><th>MTD</th><th></th></tr>${(b.azure_accounts || []).map(x => `<tr><td>${x.account}</td><td>${usd(x.amount)}</td><td>${x.ours ? '<span class="ok">ours</span>' : '<span class="alert">external</span>'}</td></tr>`).join('')}</table></div>`;
+      h += a;
+    }
+    h += `</div>`;
+    h += `<h3 style="margin-top:18px">Month-over-month (net)</h3>${barChart(b.monthly, curMonth)}`;
+    return h;
+  }
+
+  function seats(d) {
+    const b = d.b, e = efficiency(d);
+    const copNet = (b.by_product || []).find(p => p.product === 'copilot')?.net ?? 0;
+    const perActive = e.copActive > 0 ? copNet / e.copActive : 0;
+    let h = `<div class="krow">
+      <div class="kpi"><div class="v">${d.s.total ?? '—'}</div><div class="l">Copilot seats</div></div>
+      <div class="kpi"><div class="v ok">${d.s.active ?? '—'}</div><div class="l">active (30d)</div></div>
+      <div class="kpi"><div class="v">${(d.s.never_in_grace ?? 0) + (d.s.never_old ?? 0)}</div><div class="l">never used</div></div>
+      <div class="kpi"><div class="v">${d.s.pending_cancel ?? '—'}</div><div class="l">pending cancel</div></div>
+      <div class="kpi"><div class="v ${e.copUtil < 40 ? 'neg' : e.copUtil < 70 ? 'warn' : 'pos'}">${e.copUtil}%</div><div class="l">utilization</div></div>
+    </div>${spark(d.sh.map(x => x.active ?? 0), '#3fb950')}`;
+    h += `<div class="grid">
+      <div class="card"><h3>📐 Unit economics</h3><table class="cmp">
+        <tr><td>Cost per active Copilot user (MTD)</td><td>${usd(perActive)}</td></tr>
+        <tr><td>Copilot list price</td><td>$19</td></tr>
+        <tr><td>GHEC active licenses</td><td>${b.active_licenses ?? '—'}</td></tr>
+        <tr><td>Reap candidates (idle ≥30d)</td><td>${d.s.candidates ?? 0}</td></tr>
+      </table><div class="muted2">Effective cost below list = mid-cycle proration. Low utilization = paying for idle seats.</div></div>
+      <div class="card"><h3>👤 Identity & licenses</h3><div class="stats">
+        <div class="stat"><b>${b.scim_total ?? '—'}</b><span>SCIM identities</span></div>
+        <div class="stat"><b class="ok">${b.active_licenses ?? '—'}</b><span>active</span></div>
+        <div class="stat"><b>${b.inactive_est ?? '—'}</b><span>inactive</span></div>
+      </div>${spark(d.bh.map(x => x.active_licenses ?? 0), '#3fb950')}</div>
+    </div>`;
+    if (d.smd) h += `<div class="card" style="margin-top:16px"><div class="md">${mdToHtml(d.smd)}</div></div>`;
+    return h;
+  }
+
+  function pools(d) {
+    const b = d.b, e = efficiency(d);
+    const cc = b.cost_centers || [];
+    let h = `<div class="krow">
+      <div class="kpi"><div class="v">${usd(e.poolCommitted)}</div><div class="l">total committed</div></div>
+      <div class="kpi"><div class="v">${usd(e.poolUsed)}</div><div class="l">used</div></div>
+      <div class="kpi"><div class="v ${e.poolUtil < 20 ? 'warn' : 'pos'}">${e.poolUtil}%</div><div class="l">utilization</div></div>
+      <div class="kpi"><div class="v warn">${usd(savings(d).expiringUnused)}</div><div class="l">expiring ≤30d, unused</div></div>
+    </div>`;
+    h += `<table class="cmp"><tr><th>Cost center</th><th>Pool</th><th>Used</th><th></th><th>Remaining</th><th>Expires</th><th>Azure sub</th></tr>`;
+    cc.forEach(c => {
+      const near = c.days_left != null && c.days_left <= 14;
+      const idle = c.pct < 10 && c.pool >= 10000;
+      const barcol = c.pct >= 80 ? 'var(--red)' : c.pct >= 40 ? 'var(--yellow)' : 'var(--green)';
+      h += `<tr><td>${esc(c.name.replace(/^labcluster-/, ''))}${idle ? ' <span class="alert">idle</span>' : ''}</td>
+        <td>${usd(c.pool)}</td><td>${usd(c.cumulative)}</td>
+        <td style="min-width:90px"><div class="matchbar"><div class="matchfill" style="width:${Math.min(c.pct, 100)}%;background:${barcol}"></div></div>${c.pct}%</td>
+        <td>${usd(c.remaining)}</td><td class="${near ? 'alert' : ''}">${c.days_left == null ? '—' : c.days_left + 'd'}</td>
+        <td><small>${c.azure_sub ? esc(c.azure_sub.slice(0, 8)) + '…' : '—'}</small></td></tr>`;
+    });
+    h += `</table>`;
+    h += `<h3 style="margin-top:16px">Allocation — what each pool covers</h3><div class="grid">`;
+    cc.forEach(c => {
+      h += `<div class="card"><h3>${esc(c.name.replace(/^labcluster-/, ''))}</h3>
+        <div class="muted2">Pool ${usd(c.pool)} · ${c.pct}% used · ${c.days_left == null ? 'no expiry' : c.days_left + 'd left'}${c.azure_sub ? ' · sub ' + esc(c.azure_sub.slice(0, 8)) + '…' : ''}</div>
+        <ul style="padding-left:18px;margin:4px 0">${(c.resources || []).length ? c.resources.map(r => `<li>${esc(r)}</li>`).join('') : '<li class="muted2">no resources attached</li>'}</ul></div>`;
+    });
+    h += `</div><div class="muted2" style="margin-top:8px">Attaching an org/team/user to a pool routes its GHEC + Copilot + GHAS cost to that prepaid credit instead of the pay-as-you-go sub. Idle pools near expiry are wasted prepaid credit.</div>`;
+    return h;
+  }
+
+  function orgs(d) {
+    const b = d.b;
+    let h = `<div class="krow">
+      <div class="kpi"><div class="v">${d.o.orgs ?? '—'}</div><div class="l">orgs in enterprise</div></div>
+      <div class="kpi"><div class="v">${d.o.kept ?? 0}</div><div class="l">candidates in grace</div></div>
+      <div class="kpi"><div class="v ${(d.o.deleted ?? 0) > 0 ? 'alert' : 'ok'}">${d.o.deleted ?? 0}</div><div class="l">deleted / would</div></div>
+      <div class="kpi"><div class="v">${d.o.dry_run === 'true' ? 'DRY-RUN' : 'ARMED'}</div><div class="l">reaper mode</div></div>
+    </div>`;
+    h += `<div class="grid">`;
+    h += `<div class="card"><h3>⚙️ Actions consumption by org (MTD)</h3><table class="cmp"><tr><th>Org</th><th>Minutes</th><th>Gross</th></tr>${(b.actions_by_org || []).map(a => `<tr><td>${esc(a.org)}</td><td>${num(a.minutes)}</td><td>${usd(a.gross)}</td></tr>`).join('')}</table></div>`;
+    if (d.omd) h += `<div class="card"><div class="md">${mdToHtml(d.omd)}</div></div>`;
+    h += `</div>`;
+    return h;
+  }
+
+  const PAGES = { overview, cost, seats, pools, orgs };
+
+  // ---------- nav + shell ----------
+  function stamp(d) {
+    const t = (d.bh && d.bh.length) ? d.bh[d.bh.length - 1].date : '—';
+    const el = document.getElementById('stamp'); if (el) el.textContent = 'last data: ' + t;
+  }
+  function renderNav(active) {
+    const nav = NAV.map(n => `<a href="${n.file}" class="${n.id === active ? 'active' : ''}">${n.label}</a>`).join('');
+    document.getElementById('nav').innerHTML = `
+      <div class="topbar">
+        <div class="row1"><h1>CloudLabs GitHub Ops</h1><span class="sub">Enterprise: cloudlabs-organizations · <span id="stamp"></span></span></div>
+        <nav>${nav}</nav>
+        <div class="refreshbar">
+          <button id="refreshBtn" onclick="DASH.refreshAll()">🔄 Refresh data now</button>
+          <span class="muted2">Runs all monitors (read-only / dry-run) and reloads when done.</span>
+          <button class="link" onclick="DASH.setToken()">set token</button>
+          <div id="progress" class="progress"></div>
+        </div>
+      </div>`;
+  }
+  async function page(name) {
+    renderNav(name);
+    const d = await loadData();
+    document.getElementById('content').innerHTML = PAGES[name](d);
+    stamp(d);
+    window.__page = name;
+  }
+
+  // ---------- refresh (trigger + poll) ----------
+  function getToken() { return localStorage.getItem('gh_pat') || ''; }
+  function setToken() {
+    const t = prompt('Paste a GitHub token with Actions read/write on ' + REPO + '.\nStored only in this browser (localStorage); sent only to api.github.com.');
+    if (t !== null) { localStorage.setItem('gh_pat', t.trim()); alert('Token saved in this browser.'); }
+  }
+  async function gh(path, method, body) {
+    return fetch('https://api.github.com/' + path, {
+      method: method || 'GET',
+      headers: { 'Authorization': 'Bearer ' + getToken(), 'Accept': 'application/vnd.github+json', 'X-GitHub-Api-Version': '2022-11-28' },
+      body: body ? JSON.stringify(body) : undefined,
+    });
+  }
+  function setChips(states) {
+    document.getElementById('progress').innerHTML = states.map(s =>
+      `<span class="pchip ${s.cls}">${s.cls === 'run' ? '<span class="spin">↻</span> ' : s.cls === 'done' ? '✓ ' : s.cls === 'fail' ? '✕ ' : ''}${s.label}: ${s.text}</span>`).join('');
+  }
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  async function refreshAll() {
+    const btn = document.getElementById('refreshBtn');
+    if (!getToken()) { setToken(); if (!getToken()) return; }
+    btn.disabled = true;
+    const startISO = new Date(Date.now() - 15000).toISOString();
+    try {
+      setChips(WFS.map(w => ({ label: w.label, cls: 'run', text: 'starting…' })));
+      for (const w of WFS) {
+        const r = await gh(`repos/${REPO}/actions/workflows/${w.file}/dispatches`, 'POST', { ref: 'main', inputs: w.inputs });
+        if (r.status === 401) { localStorage.removeItem('gh_pat'); throw new Error('Token rejected (401). Click “set token”.'); }
+        if (r.status !== 204) throw new Error(`Dispatch ${w.file}: HTTP ${r.status}`);
+      }
+      const done = {};
+      for (let tick = 0; tick < 120; tick++) {
+        await sleep(5000);
+        const states = [];
+        for (const w of WFS) {
+          if (done[w.file]) { states.push(done[w.file]); continue; }
+          const r = await gh(`repos/${REPO}/actions/workflows/${w.file}/runs?event=workflow_dispatch&per_page=3`);
+          const runs = r.ok ? (await r.json()).workflow_runs || [] : [];
+          const run = runs.find(x => x.created_at >= startISO) || runs[0];
+          if (!run) { states.push({ label: w.label, cls: 'run', text: 'queued' }); continue; }
+          if (run.status === 'completed') { const st = { label: w.label, cls: run.conclusion === 'success' ? 'done' : 'fail', text: run.conclusion }; done[w.file] = st; states.push(st); }
+          else states.push({ label: w.label, cls: 'run', text: run.status });
+        }
+        if (Object.keys(done).length === WFS.length) {
+          const pr = await gh(`repos/${REPO}/actions/workflows/publish-public.yml/runs?per_page=3`);
+          const pruns = pr.ok ? (await pr.json()).workflow_runs || [] : [];
+          const prun = pruns.find(x => x.created_at >= startISO);
+          if (prun && prun.status === 'completed') { states.push({ label: 'publish', cls: prun.conclusion === 'success' ? 'done' : 'fail', text: prun.conclusion }); setChips(states); break; }
+          states.push({ label: 'publish', cls: 'run', text: prun ? prun.status : 'pending' });
+        }
+        setChips(states);
+      }
+      setChips([{ label: 'reloading', cls: 'run', text: '…' }]);
+      await sleep(4000);
+      await loadData(true);
+      await page(window.__page || 'overview');
+      document.getElementById('progress').innerHTML = '<span class="pchip done">✓ updated ' + new Date().toLocaleTimeString() + '</span>';
+    } catch (e) {
+      document.getElementById('progress').innerHTML = '<span class="pchip fail">✕ ' + esc(e.message) + '</span>';
+    } finally { btn.disabled = false; }
+  }
+
+  return { page, refreshAll, setToken };
+})();
