@@ -206,6 +206,26 @@ const DASH = (() => {
       </div>${spark(d.bh.map(x => x.active_licenses ?? 0), '#3fb950')}
       <div class="muted2">Members and license-consumers are the billable population. Suspended lab accounts that were deprovisioned from Entra aren't SCIM-listed and consume no license — they don't appear here and cost nothing.</div></div>
     </div>`;
+    const seg = b.user_segments;
+    if (seg) {
+      const defs = [
+        { k: 'gh_only', label: 'GitHub only', cost: 21 },
+        { k: 'gh_cop', label: 'GitHub + Copilot', cost: 40 },
+        { k: 'gh_ghas', label: 'GitHub + GHAS', cost: 70 },
+        { k: 'gh_ghas_cop', label: 'GitHub + GHAS + Copilot', cost: 89 },
+        { k: 'cop_no_ghec', label: 'Copilot seat — not an active member', cost: 19, warn: true },
+        { k: 'ghas_no_ghec', label: 'GHAS committer — not a member', cost: 49, warn: true },
+      ];
+      let totalEst = 0;
+      const rows = defs.map(dd => { const n = seg[dd.k] || 0; const est = n * dd.cost; totalEst += est; return { ...dd, n, est }; });
+      h += `<h3 style="margin-top:18px">🧩 Product entitlement & per-user cost</h3>
+        <table class="cmp"><tr><th>Segment</th><th>Users</th><th>$/user-mo (list)</th><th>Est. monthly</th></tr>
+        ${rows.map(r => `<tr${r.warn && r.n > 0 ? ' style="background:rgba(210,153,34,0.08)"' : ''}><td>${r.label}${r.warn && r.n > 0 ? ' <span class="warn">⚠</span>' : ''}</td><td>${r.n}</td><td>$${r.cost}</td><td>${usd(r.est)}</td></tr>`).join('')}
+        <tr class="delta"><td>Total (list-price basis)</td><td>${seg.universe}</td><td></td><td>${usd(totalEst)}</td></tr>
+        </table>
+        <div class="muted2">Universe = ${seg.universe} distinct users across all paid products. GHEC ${seg.ghec_total} · Copilot ${seg.copilot_total} · GHAS committers ${seg.ghas_total}. List prices ($21 GHEC / $19 Copilot / $49 GHAS committer); actuals are prorated.</div>`;
+      if ((seg.cop_no_ghec || 0) > 0) h += `<div class="extbox"><b class="warn">⚠ ${seg.cop_no_ghec} Copilot seats are assigned to users who are not active GHEC members</b><div class="muted2">These are suspended/pending-cancel lab users whose Copilot seats linger until end of billing cycle — roughly ${usd(seg.cop_no_ghec * 19)}/month. The seat reaper (dry-run) tracks these; removing them stops the charge at cycle end.</div></div>`;
+    }
     if (d.smd) h += `<div class="card" style="margin-top:16px"><div class="md">${mdToHtml(d.smd)}</div></div>`;
     return h;
   }
