@@ -67,6 +67,12 @@ table.cmp small { color:var(--muted); font-weight:normal; }
 .bar .bv { font-size:9px; color:var(--muted); }
 .spark { margin:4px 0 10px; }
 .extbox { border:1px solid var(--red); border-radius:6px; padding:10px; margin:12px 0; background:rgba(248,81,73,0.08); }
+.bdg { display:inline-block; font-size:10px; padding:1px 6px; border-radius:10px; margin-right:4px; border:1px solid var(--border); }
+.bdg.gh { color:var(--blue); border-color:var(--blue); }
+.bdg.cop { color:var(--green); border-color:var(--green); }
+.bdg.ghas { color:var(--yellow); border-color:var(--yellow); }
+.pbtn { background:var(--card); color:var(--fg); border:1px solid var(--border); border-radius:6px; padding:6px 12px; font-size:13px; cursor:pointer; }
+.pbtn.active { background:var(--blue); color:#0d1117; border-color:var(--blue); font-weight:600; }
 
 /* markdown block */
 .md h2,.md h3 { font-size:14px; margin:12px 0 6px; }

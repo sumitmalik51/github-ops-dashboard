@@ -1,6 +1,6 @@
 ## Billing watchdog — 2026-07-24
 
-**MTD net: $10952.22** (gross $11654.36) — yesterday: $931.81 — GHEC seats: 194 — Copilot seats: 886
+**MTD net: $10952.22** (gross $11654.38) — yesterday: $931.81 — GHEC seats: 194 — Copilot seats: 886
 
 ```
 ghec: $6581.81
@@ -32,7 +32,7 @@ actions: $0
 |---|---|---|
 | Cloudlabs-Enterprises | 7082.2 | $40.13 |
 | ghas-bootcamp-2026-07-22-2323169 | 105 | $0.63 |
-| Cloudlabs-GH-Copilot | 57 | $0.34 |
+| Cloudlabs-GH-Copilot | 60 | $0.36 |
 | ghas-bootcamp-2026-06-10-2269853 | 23 | $0.14 |
 | ghas-bootcamp-2026-06-10-2269869 | 18 | $0.11 |
 | ghas-bootcamp-2026-06-11-2270450 | 17 | $0.1 |

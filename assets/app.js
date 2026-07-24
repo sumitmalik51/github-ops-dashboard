@@ -9,7 +9,9 @@ const DASH = (() => {
     { id: 'seats', file: 'seats.html', label: 'Seats & licenses' },
     { id: 'pools', file: 'pools.html', label: 'Credit pools' },
     { id: 'orgs', file: 'orgs.html', label: 'Orgs & ops' },
+    { id: 'users', file: 'users.html', label: 'Users' },
   ];
+  const state = { userPeriod: 'month', userSearch: '', users: [], usersGen: null };
 
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const usd = v => '$' + Math.round(v ?? 0).toLocaleString();
@@ -301,7 +303,52 @@ const DASH = (() => {
     return h;
   }
 
-  const PAGES = { overview, cost, seats, pools, orgs };
+  async function users(d) {
+    const data = await fetchJson('data/users.json');
+    state.users = (data && data.users) || [];
+    state.usersGen = data && data.generated;
+    state.userPeriod = 'month';
+    state.userSearch = '';
+    if (!state.users.length) return '<p class="alert">No per-user data yet — it publishes with the daily run.</p>';
+    setTimeout(renderUsersTable, 0);
+    const btn = p => `<button class="pbtn" data-p="${p}" onclick="DASH.userSetPeriod('${p}')">${p === '7d' ? 'Last 7 days' : p === '30d' ? 'Last 30 days' : 'This month'}</button>`;
+    return `<h3>Per-user product entitlement & cost</h3>
+      <div class="muted2">${state.users.length} users across GHEC / Copilot / GHAS. Cost is license-entitlement (list price), prorated to the selected window. Data as of ${state.usersGen || '—'}.</div>
+      <div class="refreshbar" style="margin-top:10px">
+        ${btn('7d')}${btn('month')}${btn('30d')}
+        <input id="userSearch" placeholder="filter by login…" oninput="DASH.userSearchInput(this.value)" style="background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:6px;padding:6px 10px;font-size:13px">
+      </div>
+      <div id="usersTable">loading…</div>`;
+  }
+  function renderUsersTable() {
+    const el = document.getElementById('usersTable'); if (!el) return;
+    const now = new Date();
+    const dim = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0)).getUTCDate();
+    const elapsed = now.getUTCDate();
+    const factor = state.userPeriod === '7d' ? 7 / 30 : state.userPeriod === '30d' ? 1 : elapsed / dim;
+    const plabel = state.userPeriod === '7d' ? 'last 7d' : state.userPeriod === '30d' ? 'last 30d' : 'this month';
+    const cutoff30 = now.getTime() - 30 * 864e5;
+    const q = (state.userSearch || '').toLowerCase();
+    let list = state.users;
+    if (q) list = list.filter(u => u.login.toLowerCase().includes(q));
+    const totalPeriod = list.reduce((a, u) => a + u.monthly_cost * factor, 0);
+    const shown = list.slice(0, 300);
+    const badge = u => [u.ghec ? '<span class="bdg gh">GHEC</span>' : '', u.copilot ? '<span class="bdg cop">Copilot</span>' : '', u.ghas ? '<span class="bdg ghas">GHAS</span>' : ''].join('');
+    const status = u => {
+      if (u.cop_cancel) return `<span class="warn">cancels ${u.cop_cancel}</span>`;
+      if (u.copilot && u.cop_last) return (new Date(u.cop_last).getTime() >= cutoff30) ? '<span class="ok">active</span>' : '<span class="muted2">idle</span>';
+      if (u.copilot && !u.cop_last) return '<span class="muted2">never used</span>';
+      return '<span class="muted2">member</span>';
+    };
+    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — total ${plabel} cost ${usd(totalPeriod)} (prorated list).</div>
+      <table class="cmp"><tr><th>User (login)</th><th>Products</th><th>Cost (${plabel})</th><th>Copilot last activity</th><th>Status</th></tr>
+      ${shown.map(u => `<tr><td>${esc(u.login)}</td><td>${badge(u)}</td><td>${usd(u.monthly_cost * factor)}</td><td>${u.cop_last ? esc(u.cop_last.slice(0, 10)) : (u.copilot ? 'never' : '—')}</td><td>${status(u)}</td></tr>`).join('')}
+      </table>${list.length > 300 ? '<div class="muted2">Showing top 300 by cost; use the filter to narrow.</div>' : ''}`;
+  }
+  function userSetPeriod(p) { state.userPeriod = p; document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('active', b.dataset.p === p)); renderUsersTable(); }
+  function userSearchInput(v) { state.userSearch = v; renderUsersTable(); }
+
+  const PAGES = { overview, cost, seats, pools, orgs, users };
 
   // ---------- nav + shell ----------
   function stamp(d) {
@@ -337,7 +384,7 @@ const DASH = (() => {
     renderNav(name);
     const d = await loadData();
     freshnessBanner(d);
-    document.getElementById('content').innerHTML = PAGES[name](d);
+    document.getElementById('content').innerHTML = await PAGES[name](d);
     stamp(d);
     window.__page = name;
   }
@@ -429,5 +476,5 @@ const DASH = (() => {
     a.click(); URL.revokeObjectURL(a.href);
   }
 
-  return { page, refreshAll, setToken, exportCSV };
+  return { page, refreshAll, setToken, exportCSV, userSetPeriod, userSearchInput };
 })();
