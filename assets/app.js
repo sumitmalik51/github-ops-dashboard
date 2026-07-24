@@ -376,7 +376,7 @@ const DASH = (() => {
       return '<span class="muted2">member</span>';
     };
     const addedCell = u => u.added ? esc(u.added) : (u.cop_created ? esc(u.cop_created.slice(0, 10)) + ' <span class="muted2">(seat)</span>' : (u.ghec ? '<span class="muted2">before month</span>' : '—'));
-    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — month total ${usd(totAll)} (GHEC ${usd(totGhec)} + Copilot ${usd(totCop)}); billed to month-end.</div>
+    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — month total ${usd(totAll)} (GHEC ${usd(totGhec)} + Copilot ${usd(totCop)}) at full list price; GHEC metering under verification.</div>
       <table class="cmp"><tr><th>User (canonical login)</th><th>Products</th><th>Added</th><th>Removed</th><th>Member days</th><th>GHEC (mo)</th><th>Copilot (mo)</th><th>Total (mo)</th><th>Status</th></tr>
       ${shown.map(u => `<tr><td>${esc(u.login)}${(u.aka && u.aka.length) ? ` <span class="muted2" title="${esc(u.aka.join(', '))}">+${u.aka.length} aka</span>` : ''}</td><td>${badge(u)}</td><td>${addedCell(u)}</td><td>${u.removed ? '<span class="warn">' + esc(u.removed) + '</span>' : '—'}</td><td>${u.member_days != null ? u.member_days : '—'}</td><td>${usd(u.ghec_billed)}</td><td>${u.copilot_cost ? usd(u.copilot_cost) : '—'}</td><td><b>${usd(u.total_month)}</b></td><td>${status(u)}</td></tr>`).join('')}
       </table>
