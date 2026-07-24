@@ -311,7 +311,9 @@ const DASH = (() => {
     // Merge authoritative audit-log history (added/removed/member_days) onto current-entitlement
     // rows, then append users who were members this month but have since been fully removed.
     const seen = new Set(base.map(u => u.login));
-    const merged = base.map(u => Object.assign({}, u, H[u.login] || {}));
+    // Merge history; but a current GHEC member is active now, so ignore any stale mid-month
+    // remove event (they were re-added) — only genuinely-gone users keep a "removed" date.
+    const merged = base.map(u => { const m = Object.assign({}, u, H[u.login] || {}); if (u.ghec) m.removed = null; return m; });
     Object.keys(H).forEach(login => {
       if (!seen.has(login)) {
         const h = H[login];
