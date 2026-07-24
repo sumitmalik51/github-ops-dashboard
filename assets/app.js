@@ -314,6 +314,7 @@ const DASH = (() => {
     const btn = p => `<button class="pbtn" data-p="${p}" onclick="DASH.userSetPeriod('${p}')">${p === '7d' ? 'Last 7 days' : p === '30d' ? 'Last 30 days' : 'This month'}</button>`;
     return `<h3>Per-user product entitlement & cost</h3>
       <div class="muted2">${state.users.length} users across GHEC / Copilot / GHAS. Cost is license-entitlement (list price), prorated to the selected window. Data as of ${state.usersGen || '—'}.</div>
+      <div class="muted2" style="margin-bottom:8px"><b>Reading the badges:</b> a <b>Copilot-only</b> row (no GHEC badge) with a cancellation date is a user <b>removed from the enterprise</b> — they consumed GHEC while active this month (prorated, already counted in the cost totals), and their Copilot seat bills until its cancellation date. This table reflects <i>current</i> entitlement, so GitHub's API doesn't attribute those since-removed GHEC days per row.</div>
       <div class="refreshbar" style="margin-top:10px">
         ${btn('7d')}${btn('month')}${btn('30d')}
         <input id="userSearch" placeholder="filter by login…" oninput="DASH.userSearchInput(this.value)" style="background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:6px;padding:6px 10px;font-size:13px">
