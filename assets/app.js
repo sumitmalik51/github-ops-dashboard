@@ -208,23 +208,30 @@ const DASH = (() => {
     </div>`;
     const seg = b.user_segments;
     if (seg) {
+      const cd = seg.cancel_date || 'cycle end';
       const defs = [
         { k: 'gh_only', label: 'GitHub only', cost: 21 },
         { k: 'gh_cop', label: 'GitHub + Copilot', cost: 40 },
         { k: 'gh_ghas', label: 'GitHub + GHAS', cost: 70 },
         { k: 'gh_ghas_cop', label: 'GitHub + GHAS + Copilot', cost: 89 },
-        { k: 'cop_no_ghec', label: 'Copilot seat — not an active member', cost: 19, warn: true },
+        { k: 'cop_no_ghec_pending', label: `Removed from enterprise — cancels ${cd}`, cost: 19, winding: true },
+        { k: 'cop_no_ghec_active', label: 'Removed but NOT scheduled to cancel — still billing', cost: 19, warn: true },
         { k: 'ghas_no_ghec', label: 'GHAS committer — not a member', cost: 49, warn: true },
       ];
       let totalEst = 0;
       const rows = defs.map(dd => { const n = seg[dd.k] || 0; const est = n * dd.cost; totalEst += est; return { ...dd, n, est }; });
       h += `<h3 style="margin-top:18px">🧩 Product entitlement & per-user cost</h3>
         <table class="cmp"><tr><th>Segment</th><th>Users</th><th>$/user-mo (list)</th><th>Est. monthly</th></tr>
-        ${rows.map(r => `<tr${r.warn && r.n > 0 ? ' style="background:rgba(210,153,34,0.08)"' : ''}><td>${r.label}${r.warn && r.n > 0 ? ' <span class="warn">⚠</span>' : ''}</td><td>${r.n}</td><td>$${r.cost}</td><td>${usd(r.est)}</td></tr>`).join('')}
+        ${rows.map(r => { const bg = r.warn && r.n > 0 ? ' style="background:rgba(248,81,73,0.10)"' : r.winding && r.n > 0 ? ' style="background:rgba(139,148,158,0.08)"' : ''; const tag = r.warn && r.n > 0 ? ' <span class="neg">⚠ still billing</span>' : r.winding && r.n > 0 ? ' <span class="muted2">↓ scheduled</span>' : ''; return `<tr${bg}><td>${r.label}${tag}</td><td>${r.n}</td><td>$${r.cost}</td><td>${usd(r.est)}</td></tr>`; }).join('')}
         <tr class="delta"><td>Total (list-price basis)</td><td>${seg.universe}</td><td></td><td>${usd(totalEst)}</td></tr>
         </table>
         <div class="muted2">Universe = ${seg.universe} distinct users across all paid products. GHEC ${seg.ghec_total} · Copilot ${seg.copilot_total} · GHAS committers ${seg.ghas_total}. List prices ($21 GHEC / $19 Copilot / $49 GHAS committer); actuals are prorated.</div>`;
-      if ((seg.cop_no_ghec || 0) > 0) h += `<div class="extbox"><b class="warn">⚠ ${seg.cop_no_ghec} Copilot seats are assigned to users who are not active GHEC members</b><div class="muted2">These are suspended/pending-cancel lab users whose Copilot seats linger until end of billing cycle — roughly ${usd(seg.cop_no_ghec * 19)}/month. The seat reaper (dry-run) tracks these; removing them stops the charge at cycle end.</div></div>`;
+      const active = seg.cop_no_ghec_active || 0, pending = seg.cop_no_ghec_pending || 0;
+      if (active > 0) {
+        h += `<div class="extbox"><b class="alert">⚠ ${active} Copilot seats on removed users are NOT scheduled to cancel</b><div class="muted2">These users are no longer enterprise members, but their Copilot seats have no pending cancellation — so they will keep billing (~${usd(active * 19)}/mo) until removed manually. This is the actionable leak; the seat reaper targets exactly these.</div></div>`;
+      } else if (pending > 0) {
+        h += `<div class="extbox" style="border-color:var(--green);background:rgba(63,185,80,0.08)"><b class="ok">✓ All ${pending} non-member Copilot seats are scheduled to cancel on ${cd}</b><div class="muted2">These removed lab users' seats (~${usd(pending * 19)}/mo) will drop automatically at the cycle date — no action needed. Verify Copilot cost falls by roughly that much on the next invoice.</div></div>`;
+      }
     }
     if (d.smd) h += `<div class="card" style="margin-top:16px"><div class="md">${mdToHtml(d.smd)}</div></div>`;
     return h;
