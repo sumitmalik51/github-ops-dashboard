@@ -307,47 +307,59 @@ const DASH = (() => {
     const [data, hist] = await Promise.all([fetchJson('data/users.json'), fetchJson('data/users-history.json')]);
     const base = (data && data.users) || [];
     const H = (hist && hist.users) || {};
+    const AL = (hist && hist.aliases) || {};   // hash-login -> canonical (odl-user) from user.rename
     state.usersHistGen = hist && hist.generated;
-    // Merge authoritative audit-log history (added/removed/member_days) onto current-entitlement
-    // rows, then append users who were members this month but have since been fully removed.
-    const seen = new Set(base.map(u => u.login));
-    // Merge history; but a current GHEC member is active now, so ignore any stale mid-month
-    // remove event (they were re-added) — only genuinely-gone users keep a "removed" date.
-    const merged = base.map(u => { const m = Object.assign({}, u, H[u.login] || {}); if (u.ghec) m.removed = null; return m; });
+    const canon = login => AL[login] || login;
+    // 1) Collapse renamed duplicates: group current-entitlement rows by canonical identity.
+    const byCanon = {};
+    base.forEach(u => {
+      const c = canon(u.login);
+      const g = byCanon[c] || (byCanon[c] = { login: c, ghec: false, copilot: false, ghas: false, cop_created: null, cop_last: null, cop_cancel: null, akaSeats: [] });
+      g.ghec = g.ghec || u.ghec; g.copilot = g.copilot || u.copilot; g.ghas = g.ghas || u.ghas;
+      g.cop_created = g.cop_created || u.cop_created; g.cop_last = u.cop_last || g.cop_last; g.cop_cancel = g.cop_cancel || u.cop_cancel;
+      if (u.login !== c) g.akaSeats.push(u.login);
+    });
+    // 2) Merge audit-log history (authoritative added/removed/member_days + verified GHEC billing).
+    Object.values(byCanon).forEach(g => {
+      const h = H[g.login] || {};
+      g.added = h.added || null; g.removed = h.removed || null; g.member_days = h.member_days;
+      g.ghec_billed = h.ghec_billed_eom != null ? h.ghec_billed_eom : (g.ghec ? 21 : 0);  // GHEC add->month-end
+      g.copilot_cost = g.copilot ? 19 : 0;
+      g.ghas_cost = g.ghas ? 49 : 0;
+      g.total_month = g.ghec_billed + g.copilot_cost + g.ghas_cost;
+      g.aka = (h.aka || []).concat(g.akaSeats).filter((v, i, a) => a.indexOf(v) === i).slice(0, 4);
+      // active GHEC member now => the stale mid-month remove was a re-add; don't show "left"
+      if (g.ghec) g.removed = null;
+    });
+    // 3) Add history-only humans (members this month, no current entitlement seat).
     Object.keys(H).forEach(login => {
-      if (!seen.has(login)) {
+      if (!byCanon[login]) {
         const h = H[login];
-        merged.push({ login, ghec: true, copilot: false, ghas: false, monthly_cost: 0, cop_created: null, cop_last: null, cop_cancel: null, removed_only: true, added: h.added, removed: h.removed, member_days: h.member_days, ghec_cost: h.ghec_cost });
+        byCanon[login] = { login, ghec: true, copilot: false, ghas: false, cop_created: null, cop_last: null, cop_cancel: null, aka: (h.aka || []).slice(0, 4), added: h.added, removed: h.removed, member_days: h.member_days, ghec_billed: h.ghec_billed_eom != null ? h.ghec_billed_eom : 0, copilot_cost: 0, ghas_cost: 0, total_month: h.ghec_billed_eom || 0, removed_only: true };
       }
     });
-    state.users = merged;
+    state.users = Object.values(byCanon).sort((a, b2) => b2.total_month - a.total_month);
     state.usersGen = data && data.generated;
-    state.userPeriod = 'month';
     state.userSearch = '';
-    if (!state.users.length) return '<p class="alert">No per-user data yet — it publishes with the daily run.</p>';
+    if (!state.users.length) return '<p class="alert">No per-user data yet — publishes with the daily / 3-day runs.</p>';
     setTimeout(renderUsersTable, 0);
-    const btn = p => `<button class="pbtn" data-p="${p}" onclick="DASH.userSetPeriod('${p}')">${p === '7d' ? 'Last 7 days' : p === '30d' ? 'Last 30 days' : 'This month'}</button>`;
-    return `<h3>Per-user product entitlement & cost</h3>
-      <div class="muted2">${state.users.length} users were members at some point this month (current + since-removed, from the audit log). "Added"/"Removed" and member-days are authoritative; product cost is license-entitlement (list price), prorated to the window. Entitlement data as of ${state.usersGen || '—'}, membership history as of ${state.usersHistGen || '—'}.</div>
-      <div class="muted2" style="margin-bottom:8px"><b>Reading the rows:</b> a row with a <b>Removed</b> date is a user who left the enterprise this month — they consumed GHEC for their <b>member days</b> (prorated, in the totals). A Copilot badge with a cancellation date is a lingering seat that bills to cycle-end.</div>
-      <div class="refreshbar" style="margin-top:10px">
-        ${btn('7d')}${btn('month')}${btn('30d')}
+    return `<h3>Per-user cost (identity-deduped, verified billing model)</h3>
+      <div class="muted2">${state.users.length} distinct people this month, after collapsing deprovisioning renames (a lab user's <code>odl-user-*</code> and its later hash login are one person). GHEC bills each seat <b>from its add date through month-end</b> (removal gives no in-month credit — verified in the June audit); only the add date is prorated. Copilot bills the full seat to cycle-end. Entitlement as of ${state.usersGen || '—'}; membership history as of ${state.usersHistGen || '—'}.</div>
+      <div class="muted2" style="margin-bottom:8px"><b>Columns:</b> GHEC (mo) = billed for this month at month-end (add-date prorated); Copilot/GHAS = full seat rate; Total = sum. "aka" shows the user's renamed logins now merged into one row.</div>
+      <div class="refreshbar" style="margin-top:8px">
         <input id="userSearch" placeholder="filter by login…" oninput="DASH.userSearchInput(this.value)" style="background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:6px;padding:6px 10px;font-size:13px">
       </div>
       <div id="usersTable">loading…</div>`;
   }
   function renderUsersTable() {
     const el = document.getElementById('usersTable'); if (!el) return;
-    const now = new Date();
-    const dim = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0)).getUTCDate();
-    const elapsed = now.getUTCDate();
-    const factor = state.userPeriod === '7d' ? 7 / 30 : state.userPeriod === '30d' ? 1 : elapsed / dim;
-    const plabel = state.userPeriod === '7d' ? 'last 7d' : state.userPeriod === '30d' ? 'last 30d' : `MTD, ${elapsed}/${dim}d`;
-    const cutoff30 = now.getTime() - 30 * 864e5;
+    const now = new Date(), cutoff30 = now.getTime() - 30 * 864e5;
     const q = (state.userSearch || '').toLowerCase();
     let list = state.users;
-    if (q) list = list.filter(u => u.login.toLowerCase().includes(q));
-    const totalPeriod = list.reduce((a, u) => a + u.monthly_cost * factor, 0);
+    if (q) list = list.filter(u => u.login.toLowerCase().includes(q) || (u.aka || []).some(a => a.toLowerCase().includes(q)));
+    const totGhec = list.reduce((a, u) => a + (u.ghec_billed || 0), 0);
+    const totCop = list.reduce((a, u) => a + (u.copilot_cost || 0), 0);
+    const totAll = list.reduce((a, u) => a + (u.total_month || 0), 0);
     const cap = state.userShowAll ? list.length : 300;
     const shown = list.slice(0, cap);
     const badge = u => [u.ghec ? '<span class="bdg gh">GHEC</span>' : '', u.copilot ? '<span class="bdg cop">Copilot</span>' : '', u.ghas ? '<span class="bdg ghas">GHAS</span>' : ''].join('');
@@ -360,14 +372,13 @@ const DASH = (() => {
       if (u.copilot && !u.cop_last) return '<span class="muted2">never used</span>';
       return '<span class="muted2">member</span>';
     };
-    const rateExplain = state.userPeriod === 'month' ? ` &middot; "this month" = accrued month-to-date (${elapsed} of ${dim} days), so it's below the full rate until month-end` : state.userPeriod === '7d' ? ' &middot; 7-day slice of the monthly rate' : '';
-    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — total rate ${usd(list.reduce((a, u) => a + u.monthly_cost, 0))}/mo, ${plabel} cost ${usd(totalPeriod)}${rateExplain}.</div>
-      <table class="cmp"><tr><th>User (login)</th><th>Products</th><th>Rate $/mo</th><th>Cost (${plabel})</th><th>Added (ent)</th><th>Removed</th><th>Member days</th><th>Status</th></tr>
-      ${shown.map(u => { const added = u.added ? esc(u.added) : (u.cop_created ? esc(u.cop_created.slice(0, 10)) + ' <span class="muted2">(seat)</span>' : (u.ghec ? '<span class="muted2">before month</span>' : '—')); return `<tr><td>${esc(u.login)}</td><td>${badge(u)}</td><td>${usd(u.monthly_cost)}</td><td>${usd(u.monthly_cost * factor)}</td><td>${added}</td><td>${u.removed ? '<span class="warn">' + esc(u.removed) + '</span>' : '—'}</td><td>${u.member_days != null ? u.member_days : '—'}</td><td>${status(u)}</td></tr>`; }).join('')}
+    const addedCell = u => u.added ? esc(u.added) : (u.cop_created ? esc(u.cop_created.slice(0, 10)) + ' <span class="muted2">(seat)</span>' : (u.ghec ? '<span class="muted2">before month</span>' : '—'));
+    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — month total ${usd(totAll)} (GHEC ${usd(totGhec)} + Copilot ${usd(totCop)}); billed to month-end.</div>
+      <table class="cmp"><tr><th>User (canonical login)</th><th>Products</th><th>Added</th><th>Removed</th><th>Member days</th><th>GHEC (mo)</th><th>Copilot (mo)</th><th>Total (mo)</th><th>Status</th></tr>
+      ${shown.map(u => `<tr><td>${esc(u.login)}${(u.aka && u.aka.length) ? ` <span class="muted2" title="${esc(u.aka.join(', '))}">+${u.aka.length} aka</span>` : ''}</td><td>${badge(u)}</td><td>${addedCell(u)}</td><td>${u.removed ? '<span class="warn">' + esc(u.removed) + '</span>' : '—'}</td><td>${u.member_days != null ? u.member_days : '—'}</td><td>${usd(u.ghec_billed)}</td><td>${u.copilot_cost ? usd(u.copilot_cost) : '—'}</td><td><b>${usd(u.total_month)}</b></td><td>${status(u)}</td></tr>`).join('')}
       </table>
-      ${list.length > 300 ? `<div class="muted2" style="margin-top:8px"><button class="link" onclick="DASH.userToggleAll()">${state.userShowAll ? 'Show top 300 only' : 'Show all ' + list.length + ' →'}</button> · or use the filter / export CSV for the full list</div>` : ''}`;
+      ${list.length > 300 ? `<div class="muted2" style="margin-top:8px"><button class="link" onclick="DASH.userToggleAll()">${state.userShowAll ? 'Show top 300 only' : 'Show all ' + list.length + ' →'}</button> · or export CSV for the full list</div>` : ''}`;
   }
-  function userSetPeriod(p) { state.userPeriod = p; document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('active', b.dataset.p === p)); renderUsersTable(); }
   function userSearchInput(v) { state.userSearch = v; renderUsersTable(); }
   function userToggleAll() { state.userShowAll = !state.userShowAll; renderUsersTable(); }
 
@@ -491,14 +502,19 @@ const DASH = (() => {
     (b.cost_centers || []).forEach(c => rows.push(['cost_center', c.name, c.pool, c.cumulative, c.remaining, c.pct + '%', c.days_left, (c.resources || []).join('; ')]));
     (b.azure_accounts || []).forEach(a => rows.push(['azure_account', a.account, a.amount, a.ours ? 'ours' : 'external']));
     (b.alerts || []).forEach(a => push('alert', '', a));
-    const [ud, uh] = await Promise.all([fetchJson('data/users.json'), fetchJson('data/users-history.json')]);
-    const H = (uh && uh.users) || {};
-    const seen = new Set();
-    (ud && ud.users || []).forEach(u => { seen.add(u.login); const h = H[u.login] || {};
-      rows.push(['user', u.login, u.monthly_cost, [u.ghec ? 'GHEC' : '', u.copilot ? 'Copilot' : '', u.ghas ? 'GHAS' : ''].filter(Boolean).join('+'),
-        h.added || '', h.removed || '', h.member_days != null ? h.member_days : '', h.ghec_cost != null ? h.ghec_cost : '']); });
-    Object.keys(H).forEach(login => { if (!seen.has(login)) { const h = H[login];
-      rows.push(['user', login, 0, 'GHEC (removed)', h.added || '', h.removed || '', h.member_days != null ? h.member_days : '', h.ghec_cost != null ? h.ghec_cost : '']); } });
+    // Per-user rows: use the identity-deduped + verified-billing model already built for the Users page.
+    if (window.__page === 'users' && state.users && state.users.length) {
+      state.users.forEach(u => rows.push(['user', u.login, u.total_month,
+        [u.ghec ? 'GHEC' : '', u.copilot ? 'Copilot' : '', u.ghas ? 'GHAS' : ''].filter(Boolean).join('+'),
+        u.added || '', u.removed || '', u.member_days != null ? u.member_days : '', u.ghec_billed, u.copilot_cost]));
+    } else {
+      const [ud, uh] = await Promise.all([fetchJson('data/users.json'), fetchJson('data/users-history.json')]);
+      const H = (uh && uh.users) || {}, AL = (uh && uh.aliases) || {}, byC = {};
+      (ud && ud.users || []).forEach(u => { const c = AL[u.login] || u.login; const g = byC[c] || (byC[c] = { c, ghec: false, copilot: false, ghas: false }); g.ghec |= u.ghec; g.copilot |= u.copilot; g.ghas |= u.ghas; });
+      Object.keys(H).forEach(c => { byC[c] = byC[c] || { c, ghec: true, copilot: false, ghas: false }; });
+      Object.values(byC).forEach(g => { const h = H[g.c] || {}; const ghec = h.ghec_billed_eom != null ? h.ghec_billed_eom : (g.ghec ? 21 : 0); const cop = g.copilot ? 19 : 0; const ghas = g.ghas ? 49 : 0;
+        rows.push(['user', g.c, ghec + cop + ghas, [g.ghec ? 'GHEC' : '', g.copilot ? 'Copilot' : '', g.ghas ? 'GHAS' : ''].filter(Boolean).join('+'), h.added || '', h.removed || '', h.member_days != null ? h.member_days : '', ghec, cop]); });
+    }
     const csv = rows.map(r => r.map(c => { const s = String(c ?? ''); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
     const blob = new Blob(['section,key,value,extra1,extra2,extra3,extra4,extra5\n' + csv], { type: 'text/csv' });
     const a = document.createElement('a');
@@ -507,5 +523,5 @@ const DASH = (() => {
     a.click(); URL.revokeObjectURL(a.href);
   }
 
-  return { page, refreshAll, setToken, exportCSV, userSetPeriod, userSearchInput, userToggleAll };
+  return { page, refreshAll, setToken, exportCSV, userSearchInput, userToggleAll };
 })();
