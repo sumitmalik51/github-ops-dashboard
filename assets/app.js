@@ -347,8 +347,15 @@ const DASH = (() => {
     state.userSearch = '';
     if (!state.users.length) return '<p class="alert">No per-user data yet — publishes with the daily / 3-day runs.</p>';
     setTimeout(renderUsersTable, 0);
+    const provisioned = state.users.filter(u => u.added).length;
+    const carryover = state.users.length - provisioned;
     return `<h3>Per-user cost (identity-deduped, full list-price basis)</h3>
-      <div class="muted2">${state.users.length} distinct people who were members this month, after collapsing deprovisioning renames (a lab user's <code>odl-user-*</code> and its later hash login are one person). Costs shown at <b>full list price — $21/member GHEC, $19/seat Copilot, $49/committer GHAS</b> — a conservative upper bound while the exact GHEC metering is <b>under verification</b> (GitHub's own surfaces disagree; see the Cost page reconciliation). Entitlement as of ${state.usersGen || '—'}; membership history as of ${state.usersHistGen || '—'}.</div>
+      <div class="krow" style="margin:10px 0">
+        <div class="kpi"><div class="v">${num(provisioned)}</div><div class="l">provisioned this month (deployments)</div><div class="sub2 muted2">new org.add_member in ${(state.usersHistGen||'').slice(0,7)}</div></div>
+        <div class="kpi"><div class="v muted2">${num(carryover)}</div><div class="l">carryover — prior-month users torn down this month</div></div>
+        <div class="kpi"><div class="v">${num(state.users.length)}</div><div class="l">held membership at any point this month</div></div>
+      </div>
+      <div class="muted2">Distinct people after collapsing deprovisioning renames (a lab user's <code>odl-user-*</code> and its later hash login are one person — the "+N aka" chip). <b>"Deployments this month" is the ~${num(provisioned)} provisioned figure</b>; the larger ${num(state.users.length)} also includes ${num(carryover)} earlier deployments whose teardown landed this month. Costs at <b>full list price — $21/member GHEC, $19/seat Copilot, $49/committer GHAS</b> — a conservative upper bound while GHEC metering is <b>under verification</b> (see Cost page reconciliation). Entitlement as of ${state.usersGen || '—'}; history as of ${state.usersHistGen || '—'}.</div>
       <div class="muted2" style="margin-bottom:8px"><b>Columns:</b> GHEC (mo) = $21 flat for any member this month; Copilot (mo) = $19 flat per seat; Total = sum. "aka" shows the user's renamed logins now merged into one row.</div>
       <div class="refreshbar" style="margin-top:8px">
         <input id="userSearch" placeholder="filter by login…" oninput="DASH.userSearchInput(this.value)" style="background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:6px;padding:6px 10px;font-size:13px">
