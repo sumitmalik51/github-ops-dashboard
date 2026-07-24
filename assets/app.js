@@ -1,9 +1,7 @@
 const DASH = (() => {
   const REPO = 'Cloudlabs-GH-Copilot/org-reaper';
   const WFS = [
-    { file: 'billing-watchdog.yml', label: 'billing', inputs: {} },
-    { file: 'copilot-seat-reaper.yml', label: 'seats', inputs: { dry_run: 'true' } },
-    { file: 'org-reaper.yml', label: 'orgs', inputs: { dry_run: 'true' } },
+    { file: 'daily-ops.yml', label: 'all monitors', inputs: {} },
   ];
   const NAV = [
     { id: 'overview', file: 'index.html', label: 'Overview' },
@@ -83,8 +81,10 @@ const DASH = (() => {
 
   // ---------- shared computations ----------
   function efficiency(d) {
-    const copTotal = d.s.total ?? d.b.copilot ?? 0, copActive = d.s.active ?? 0;
-    const copUtil = copTotal > 0 ? Math.round(copActive / copTotal * 100) : 0;
+    const cs = d.b.copilot_stats || {};
+    const copTotal = cs.total ?? d.s.total ?? d.b.copilot ?? 0;
+    const copActive = cs.active ?? d.s.active ?? 0;
+    const copUtil = cs.utilization ?? (copTotal > 0 ? Math.round(copActive / copTotal * 100) : 0);
     const poolCommitted = (d.b.cost_centers || []).reduce((a, c) => a + (c.pool || 0), 0);
     const poolUsed = (d.b.cost_centers || []).reduce((a, c) => a + (c.cumulative || 0), 0);
     const poolUtil = poolCommitted > 0 ? Math.round(poolUsed / poolCommitted * 100) : 0;
@@ -92,7 +92,8 @@ const DASH = (() => {
   }
   function savings(d) {
     const expiringUnused = (d.b.cost_centers || []).filter(c => c.days_left != null && c.days_left <= 30).reduce((a, c) => a + (c.remaining || 0), 0);
-    const reclaimSeats = d.s.candidates ?? 0;
+    const cs = d.b.copilot_stats || {};
+    const reclaimSeats = cs.candidates ?? d.s.candidates ?? 0;
     return { expiringUnused, reclaimSeats, reclaimUsd: reclaimSeats * 19, total: expiringUnused + reclaimSeats * 19 };
   }
 
@@ -122,10 +123,10 @@ const DASH = (() => {
         <div class="stat"><b>${usd(b.yday)}</b><span>yesterday</span></div>
       </div>${spark(d.bh.map(x => x.yday ?? 0), '#58a6ff')}</div>
       <div class="card"><h2>🪑 Seats <a href="seats.html">detail →</a></h2><div class="stats">
-        <div class="stat"><b>${d.s.total ?? '—'}</b><span>seats</span></div>
-        <div class="stat"><b class="ok">${d.s.active ?? '—'}</b><span>active</span></div>
-        <div class="stat"><b>${d.s.pending_cancel ?? '—'}</b><span>pending cancel</span></div>
-      </div>${spark(d.sh.map(x => x.active ?? 0), '#3fb950')}</div>
+        <div class="stat"><b>${(d.b.copilot_stats && d.b.copilot_stats.total) ?? d.s.total ?? '—'}</b><span>seats</span></div>
+        <div class="stat"><b class="ok">${(d.b.copilot_stats && d.b.copilot_stats.active) ?? d.s.active ?? '—'}</b><span>active</span></div>
+        <div class="stat"><b>${(d.b.copilot_stats && d.b.copilot_stats.pending_cancel) ?? d.s.pending_cancel ?? '—'}</b><span>pending cancel</span></div>
+      </div>${spark(d.bh.map(x => (x.copilot_stats && x.copilot_stats.active) || 0), '#3fb950')}</div>
       <div class="card"><h2>🗑️ Orgs <a href="orgs.html">detail →</a></h2><div class="stats">
         <div class="stat"><b>${d.o.orgs ?? '—'}</b><span>orgs</span></div>
         <div class="stat"><b>${d.o.kept ?? 0}</b><span>in grace</span></div>
@@ -182,15 +183,17 @@ const DASH = (() => {
 
   function seats(d) {
     const b = d.b, e = efficiency(d);
+    const cs = b.copilot_stats || {};
     const copNet = (b.by_product || []).find(p => p.product === 'copilot')?.net ?? 0;
     const perActive = e.copActive > 0 ? copNet / e.copActive : 0;
     let h = `<div class="krow">
-      <div class="kpi"><div class="v">${d.s.total ?? '—'}</div><div class="l">Copilot seats</div></div>
-      <div class="kpi"><div class="v ok">${d.s.active ?? '—'}</div><div class="l">active (30d)</div></div>
-      <div class="kpi"><div class="v">${(d.s.never_in_grace ?? 0) + (d.s.never_old ?? 0)}</div><div class="l">never used</div></div>
-      <div class="kpi"><div class="v">${d.s.pending_cancel ?? '—'}</div><div class="l">pending cancel</div></div>
+      <div class="kpi"><div class="v">${cs.total ?? d.s.total ?? '—'}</div><div class="l">Copilot seats</div></div>
+      <div class="kpi"><div class="v ok">${cs.active ?? d.s.active ?? '—'}</div><div class="l">active (30d)</div></div>
+      <div class="kpi"><div class="v">${cs.never ?? ((d.s.never_in_grace ?? 0) + (d.s.never_old ?? 0))}</div><div class="l">never used</div></div>
+      <div class="kpi"><div class="v">${cs.pending_cancel ?? d.s.pending_cancel ?? '—'}</div><div class="l">pending cancel</div></div>
       <div class="kpi"><div class="v ${e.copUtil < 40 ? 'neg' : e.copUtil < 70 ? 'warn' : 'pos'}">${e.copUtil}%</div><div class="l">utilization</div></div>
-    </div>${spark(d.sh.map(x => x.active ?? 0), '#3fb950')}`;
+    </div>${spark(d.bh.map(x => (x.copilot_stats && x.copilot_stats.active) || 0), '#3fb950')}
+    <div class="muted2">All Copilot figures on this page are from one snapshot (the billing monitor's latest run), so they reconcile with the provisioning numbers below.</div>`;
     const pv = b.provisioning;
     if (pv) {
       h += `<h3 style="margin-top:6px">📈 This month's provisioning (${pv.month})</h3>
