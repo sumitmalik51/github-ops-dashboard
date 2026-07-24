@@ -326,6 +326,7 @@ const DASH = (() => {
       // Flat full-month $21 for anyone who was a GHEC member this month (conservative list price,
       // while exact metering is under verification — see Cost page reconciliation).
       const wasMember = g.ghec || !!H[g.login];
+      g.ghec_member = wasMember;          // was a GHEC member this month (drives the badge + $21)
       g.ghec_billed = wasMember ? 21 : 0;
       g.copilot_cost = g.copilot ? 19 : 0;
       g.ghas_cost = g.ghas ? 49 : 0;
@@ -338,7 +339,7 @@ const DASH = (() => {
     Object.keys(H).forEach(login => {
       if (!byCanon[login]) {
         const h = H[login];
-        byCanon[login] = { login, ghec: true, copilot: false, ghas: false, cop_created: null, cop_last: null, cop_cancel: null, aka: (h.aka || []).slice(0, 4), added: h.added, removed: h.removed, member_days: h.member_days, ghec_billed: 21, copilot_cost: 0, ghas_cost: 0, total_month: 21, removed_only: true };
+        byCanon[login] = { login, ghec: false, ghec_member: true, copilot: false, ghas: false, cop_created: null, cop_last: null, cop_cancel: null, aka: (h.aka || []).slice(0, 4), added: h.added, removed: h.removed, member_days: h.member_days, ghec_billed: 21, copilot_cost: 0, ghas_cost: 0, total_month: 21, removed_only: true };
       }
     });
     state.users = Object.values(byCanon).sort((a, b2) => b2.total_month - a.total_month);
@@ -365,7 +366,7 @@ const DASH = (() => {
     const totAll = list.reduce((a, u) => a + (u.total_month || 0), 0);
     const cap = state.userShowAll ? list.length : 300;
     const shown = list.slice(0, cap);
-    const badge = u => [u.ghec ? '<span class="bdg gh">GHEC</span>' : '', u.copilot ? '<span class="bdg cop">Copilot</span>' : '', u.ghas ? '<span class="bdg ghas">GHAS</span>' : ''].join('');
+    const badge = u => [(u.ghec_member || u.ghec) ? '<span class="bdg gh">GHEC</span>' : '', u.copilot ? '<span class="bdg cop">Copilot</span>' : '', u.ghas ? '<span class="bdg ghas">GHAS</span>' : ''].join('');
     const status = u => {
       const bits = [];
       if (u.removed) bits.push(`<span class="warn">left ${u.removed}</span>`);
