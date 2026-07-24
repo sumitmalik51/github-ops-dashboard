@@ -326,7 +326,7 @@ const DASH = (() => {
     const dim = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth() + 1, 0)).getUTCDate();
     const elapsed = now.getUTCDate();
     const factor = state.userPeriod === '7d' ? 7 / 30 : state.userPeriod === '30d' ? 1 : elapsed / dim;
-    const plabel = state.userPeriod === '7d' ? 'last 7d' : state.userPeriod === '30d' ? 'last 30d' : 'this month';
+    const plabel = state.userPeriod === '7d' ? 'last 7d' : state.userPeriod === '30d' ? 'last 30d' : `MTD, ${elapsed}/${dim}d`;
     const cutoff30 = now.getTime() - 30 * 864e5;
     const q = (state.userSearch || '').toLowerCase();
     let list = state.users;
@@ -340,9 +340,10 @@ const DASH = (() => {
       if (u.copilot && !u.cop_last) return '<span class="muted2">never used</span>';
       return '<span class="muted2">member</span>';
     };
-    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — total ${plabel} cost ${usd(totalPeriod)} (prorated list).</div>
-      <table class="cmp"><tr><th>User (login)</th><th>Products</th><th>Cost (${plabel})</th><th>Copilot last activity</th><th>Status</th></tr>
-      ${shown.map(u => `<tr><td>${esc(u.login)}</td><td>${badge(u)}</td><td>${usd(u.monthly_cost * factor)}</td><td>${u.cop_last ? esc(u.cop_last.slice(0, 10)) : (u.copilot ? 'never' : '—')}</td><td>${status(u)}</td></tr>`).join('')}
+    const rateExplain = state.userPeriod === 'month' ? ` &middot; "this month" = accrued month-to-date (${elapsed} of ${dim} days), so it's below the full rate until month-end` : state.userPeriod === '7d' ? ' &middot; 7-day slice of the monthly rate' : '';
+    el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — total rate ${usd(list.reduce((a, u) => a + u.monthly_cost, 0))}/mo, ${plabel} cost ${usd(totalPeriod)}${rateExplain}.</div>
+      <table class="cmp"><tr><th>User (login)</th><th>Products</th><th>Rate $/mo</th><th>Cost (${plabel})</th><th>Copilot last activity</th><th>Status</th></tr>
+      ${shown.map(u => `<tr><td>${esc(u.login)}</td><td>${badge(u)}</td><td>${usd(u.monthly_cost)}</td><td>${usd(u.monthly_cost * factor)}</td><td>${u.cop_last ? esc(u.cop_last.slice(0, 10)) : (u.copilot ? 'never' : '—')}</td><td>${status(u)}</td></tr>`).join('')}
       </table>${list.length > 300 ? '<div class="muted2">Showing top 300 by cost; use the filter to narrow.</div>' : ''}`;
   }
   function userSetPeriod(p) { state.userPeriod = p; document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('active', b.dataset.p === p)); renderUsersTable(); }
