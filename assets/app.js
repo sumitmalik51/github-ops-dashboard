@@ -323,7 +323,10 @@ const DASH = (() => {
     Object.values(byCanon).forEach(g => {
       const h = H[g.login] || {};
       g.added = h.added || null; g.removed = h.removed || null; g.member_days = h.member_days;
-      g.ghec_billed = h.ghec_billed_eom != null ? h.ghec_billed_eom : (g.ghec ? 21 : 0);  // GHEC add->month-end
+      // Flat full-month $21 for anyone who was a GHEC member this month (conservative list price,
+      // while exact metering is under verification — see Cost page reconciliation).
+      const wasMember = g.ghec || !!H[g.login];
+      g.ghec_billed = wasMember ? 21 : 0;
       g.copilot_cost = g.copilot ? 19 : 0;
       g.ghas_cost = g.ghas ? 49 : 0;
       g.total_month = g.ghec_billed + g.copilot_cost + g.ghas_cost;
@@ -335,7 +338,7 @@ const DASH = (() => {
     Object.keys(H).forEach(login => {
       if (!byCanon[login]) {
         const h = H[login];
-        byCanon[login] = { login, ghec: true, copilot: false, ghas: false, cop_created: null, cop_last: null, cop_cancel: null, aka: (h.aka || []).slice(0, 4), added: h.added, removed: h.removed, member_days: h.member_days, ghec_billed: h.ghec_billed_eom != null ? h.ghec_billed_eom : 0, copilot_cost: 0, ghas_cost: 0, total_month: h.ghec_billed_eom || 0, removed_only: true };
+        byCanon[login] = { login, ghec: true, copilot: false, ghas: false, cop_created: null, cop_last: null, cop_cancel: null, aka: (h.aka || []).slice(0, 4), added: h.added, removed: h.removed, member_days: h.member_days, ghec_billed: 21, copilot_cost: 0, ghas_cost: 0, total_month: 21, removed_only: true };
       }
     });
     state.users = Object.values(byCanon).sort((a, b2) => b2.total_month - a.total_month);
@@ -343,9 +346,9 @@ const DASH = (() => {
     state.userSearch = '';
     if (!state.users.length) return '<p class="alert">No per-user data yet — publishes with the daily / 3-day runs.</p>';
     setTimeout(renderUsersTable, 0);
-    return `<h3>Per-user cost (identity-deduped, verified billing model)</h3>
-      <div class="muted2">${state.users.length} distinct people this month, after collapsing deprovisioning renames (a lab user's <code>odl-user-*</code> and its later hash login are one person). GHEC bills each seat <b>from its add date through month-end</b> (removal gives no in-month credit — verified in the June audit); only the add date is prorated. Copilot bills the full seat to cycle-end. Entitlement as of ${state.usersGen || '—'}; membership history as of ${state.usersHistGen || '—'}.</div>
-      <div class="muted2" style="margin-bottom:8px"><b>Columns:</b> GHEC (mo) = billed for this month at month-end (add-date prorated); Copilot/GHAS = full seat rate; Total = sum. "aka" shows the user's renamed logins now merged into one row.</div>
+    return `<h3>Per-user cost (identity-deduped, full list-price basis)</h3>
+      <div class="muted2">${state.users.length} distinct people who were members this month, after collapsing deprovisioning renames (a lab user's <code>odl-user-*</code> and its later hash login are one person). Costs shown at <b>full list price — $21/member GHEC, $19/seat Copilot, $49/committer GHAS</b> — a conservative upper bound while the exact GHEC metering is <b>under verification</b> (GitHub's own surfaces disagree; see the Cost page reconciliation). Entitlement as of ${state.usersGen || '—'}; membership history as of ${state.usersHistGen || '—'}.</div>
+      <div class="muted2" style="margin-bottom:8px"><b>Columns:</b> GHEC (mo) = $21 flat for any member this month; Copilot (mo) = $19 flat per seat; Total = sum. "aka" shows the user's renamed logins now merged into one row.</div>
       <div class="refreshbar" style="margin-top:8px">
         <input id="userSearch" placeholder="filter by login…" oninput="DASH.userSearchInput(this.value)" style="background:var(--bg);border:1px solid var(--border);color:var(--fg);border-radius:6px;padding:6px 10px;font-size:13px">
       </div>
@@ -512,7 +515,7 @@ const DASH = (() => {
       const H = (uh && uh.users) || {}, AL = (uh && uh.aliases) || {}, byC = {};
       (ud && ud.users || []).forEach(u => { const c = AL[u.login] || u.login; const g = byC[c] || (byC[c] = { c, ghec: false, copilot: false, ghas: false }); g.ghec |= u.ghec; g.copilot |= u.copilot; g.ghas |= u.ghas; });
       Object.keys(H).forEach(c => { byC[c] = byC[c] || { c, ghec: true, copilot: false, ghas: false }; });
-      Object.values(byC).forEach(g => { const h = H[g.c] || {}; const ghec = h.ghec_billed_eom != null ? h.ghec_billed_eom : (g.ghec ? 21 : 0); const cop = g.copilot ? 19 : 0; const ghas = g.ghas ? 49 : 0;
+      Object.values(byC).forEach(g => { const h = H[g.c] || {}; const ghec = (g.ghec || !!H[g.c]) ? 21 : 0; const cop = g.copilot ? 19 : 0; const ghas = g.ghas ? 49 : 0;
         rows.push(['user', g.c, ghec + cop + ghas, [g.ghec ? 'GHEC' : '', g.copilot ? 'Copilot' : '', g.ghas ? 'GHAS' : ''].filter(Boolean).join('+'), h.added || '', h.removed || '', h.member_days != null ? h.member_days : '', ghec, cop]); });
     }
     const csv = rows.map(r => r.map(c => { const s = String(c ?? ''); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
