@@ -1,4 +1,4 @@
-## Org reaper — 2026-07-23 (dry_run=true)
+## Org reaper — 2026-07-24 (dry_run=true)
 | Org | Basis date | Deadline | Action |
 |---|---|---|---|
 | ghas-bootcamp-2026-07-22-2323169 | 2026-07-22 (event-date) | 2026-07-25 | kept |
