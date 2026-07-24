@@ -191,6 +191,17 @@ const DASH = (() => {
       <div class="kpi"><div class="v">${d.s.pending_cancel ?? '—'}</div><div class="l">pending cancel</div></div>
       <div class="kpi"><div class="v ${e.copUtil < 40 ? 'neg' : e.copUtil < 70 ? 'warn' : 'pos'}">${e.copUtil}%</div><div class="l">utilization</div></div>
     </div>${spark(d.sh.map(x => x.active ?? 0), '#3fb950')}`;
+    const pv = b.provisioning;
+    if (pv) {
+      h += `<h3 style="margin-top:6px">📈 This month's provisioning (${pv.month})</h3>
+      <div class="krow">
+        <div class="kpi"><div class="v">${num(pv.copilot_added_month)}</div><div class="l">Copilot seats provisioned this month</div><div class="sub2 muted2">lab intake</div></div>
+        <div class="kpi"><div class="v warn">${num(pv.copilot_pending_cancel)}</div><div class="l">scheduled to cancel (${b.user_segments && b.user_segments.cancel_date ? b.user_segments.cancel_date : 'cycle end'})</div></div>
+        <div class="kpi"><div class="v ok">${num(pv.copilot_net_after_cancel)}</div><div class="l">Copilot seats remaining after</div></div>
+        <div class="kpi"><div class="v">${num(b.member_count)}</div><div class="l">active GHEC members now</div></div>
+      </div>
+      <div class="muted2" style="margin-bottom:12px">Why Copilot (${num(pv.copilot_total)}) &gt; GHEC members (${num(b.member_count)}): GHEC counts <b>active members right now</b>, while Copilot still includes the ${num(pv.copilot_pending_cancel)} seats winding down from this month's lab intake. After cancellations on ${b.user_segments && b.user_segments.cancel_date ? b.user_segments.cancel_date : 'the cycle date'}, Copilot settles near ${num(pv.copilot_net_after_cancel)}.</div>`;
+    }
     h += `<div class="grid">
       <div class="card"><h3>📐 Unit economics</h3><table class="cmp">
         <tr><td>Cost per active Copilot user (MTD)</td><td>${usd(perActive)}</td></tr>
