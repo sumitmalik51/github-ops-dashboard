@@ -11,7 +11,7 @@ const DASH = (() => {
     { id: 'orgs', file: 'orgs.html', label: 'Orgs & ops' },
     { id: 'users', file: 'users.html', label: 'Users' },
   ];
-  const state = { userPeriod: 'month', userSearch: '', users: [], usersGen: null };
+  const state = { userPeriod: 'month', userSearch: '', users: [], usersGen: null, userShowAll: false };
 
   const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
   const usd = v => '$' + Math.round(v ?? 0).toLocaleString();
@@ -332,7 +332,8 @@ const DASH = (() => {
     let list = state.users;
     if (q) list = list.filter(u => u.login.toLowerCase().includes(q));
     const totalPeriod = list.reduce((a, u) => a + u.monthly_cost * factor, 0);
-    const shown = list.slice(0, 300);
+    const cap = state.userShowAll ? list.length : 300;
+    const shown = list.slice(0, cap);
     const badge = u => [u.ghec ? '<span class="bdg gh">GHEC</span>' : '', u.copilot ? '<span class="bdg cop">Copilot</span>' : '', u.ghas ? '<span class="bdg ghas">GHAS</span>' : ''].join('');
     const status = u => {
       if (u.cop_cancel) return `<span class="warn">cancels ${u.cop_cancel}</span>`;
@@ -342,12 +343,14 @@ const DASH = (() => {
     };
     const rateExplain = state.userPeriod === 'month' ? ` &middot; "this month" = accrued month-to-date (${elapsed} of ${dim} days), so it's below the full rate until month-end` : state.userPeriod === '7d' ? ' &middot; 7-day slice of the monthly rate' : '';
     el.innerHTML = `<div class="muted2" style="margin:8px 0">Showing ${shown.length} of ${list.length}${q ? ' matching' : ''} — total rate ${usd(list.reduce((a, u) => a + u.monthly_cost, 0))}/mo, ${plabel} cost ${usd(totalPeriod)}${rateExplain}.</div>
-      <table class="cmp"><tr><th>User (login)</th><th>Products</th><th>Rate $/mo</th><th>Cost (${plabel})</th><th>Copilot last activity</th><th>Status</th></tr>
-      ${shown.map(u => `<tr><td>${esc(u.login)}</td><td>${badge(u)}</td><td>${usd(u.monthly_cost)}</td><td>${usd(u.monthly_cost * factor)}</td><td>${u.cop_last ? esc(u.cop_last.slice(0, 10)) : (u.copilot ? 'never' : '—')}</td><td>${status(u)}</td></tr>`).join('')}
-      </table>${list.length > 300 ? '<div class="muted2">Showing top 300 by cost; use the filter to narrow.</div>' : ''}`;
+      <table class="cmp"><tr><th>User (login)</th><th>Products</th><th>Rate $/mo</th><th>Cost (${plabel})</th><th>Added (seat)</th><th>Copilot last activity</th><th>Status</th></tr>
+      ${shown.map(u => `<tr><td>${esc(u.login)}</td><td>${badge(u)}</td><td>${usd(u.monthly_cost)}</td><td>${usd(u.monthly_cost * factor)}</td><td>${u.cop_created ? esc(u.cop_created.slice(0, 10)) : '—'}</td><td>${u.cop_last ? esc(u.cop_last.slice(0, 10)) : (u.copilot ? 'never' : '—')}</td><td>${status(u)}</td></tr>`).join('')}
+      </table>
+      ${list.length > 300 ? `<div class="muted2" style="margin-top:8px"><button class="link" onclick="DASH.userToggleAll()">${state.userShowAll ? 'Show top 300 only' : 'Show all ' + list.length + ' →'}</button> · or use the filter / export CSV for the full list</div>` : ''}`;
   }
   function userSetPeriod(p) { state.userPeriod = p; document.querySelectorAll('.pbtn').forEach(b => b.classList.toggle('active', b.dataset.p === p)); renderUsersTable(); }
   function userSearchInput(v) { state.userSearch = v; renderUsersTable(); }
+  function userToggleAll() { state.userShowAll = !state.userShowAll; renderUsersTable(); }
 
   const PAGES = { overview, cost, seats, pools, orgs, users };
 
@@ -469,6 +472,10 @@ const DASH = (() => {
     (b.cost_centers || []).forEach(c => rows.push(['cost_center', c.name, c.pool, c.cumulative, c.remaining, c.pct + '%', c.days_left, (c.resources || []).join('; ')]));
     (b.azure_accounts || []).forEach(a => rows.push(['azure_account', a.account, a.amount, a.ours ? 'ours' : 'external']));
     (b.alerts || []).forEach(a => push('alert', '', a));
+    const ud = await fetchJson('data/users.json');
+    (ud && ud.users || []).forEach(u => rows.push(['user', u.login, u.monthly_cost,
+      [u.ghec ? 'GHEC' : '', u.copilot ? 'Copilot' : '', u.ghas ? 'GHAS' : ''].filter(Boolean).join('+'),
+      u.cop_created ? u.cop_created.slice(0, 10) : '', u.cop_last ? u.cop_last.slice(0, 10) : '', u.cop_cancel || '']));
     const csv = rows.map(r => r.map(c => { const s = String(c ?? ''); return /[",\n]/.test(s) ? '"' + s.replace(/"/g, '""') + '"' : s; }).join(',')).join('\n');
     const blob = new Blob(['section,key,value,extra1,extra2,extra3,extra4,extra5\n' + csv], { type: 'text/csv' });
     const a = document.createElement('a');
@@ -477,5 +484,5 @@ const DASH = (() => {
     a.click(); URL.revokeObjectURL(a.href);
   }
 
-  return { page, refreshAll, setToken, exportCSV, userSetPeriod, userSearchInput };
+  return { page, refreshAll, setToken, exportCSV, userSetPeriod, userSearchInput, userToggleAll };
 })();
