@@ -1,12 +1,12 @@
-## Billing watchdog — 2026-07-30
+## Billing watchdog — 2026-07-31
 
-**MTD net: $18331** (gross $19106.93) — yesterday: $1343.5 — GHEC seats: 186 — Copilot seats: 935
+**MTD net: $19733.42** (gross $20509.52) — yesterday: $1371.68 — GHEC seats: 146 — Copilot seats: 940
 
 ```
-ghec: $10365.19
-copilot: $6341.1
-ghas: $1623.32
-codespaces: $1.39
+ghec: $11119.84
+copilot: $6893.94
+ghas: $1718.16
+codespaces: $1.49
 actions: $0
 ```
 
@@ -14,57 +14,59 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$18976.48** |
-| → Our Azure sub (enterprise default) | $18331 |
-| → Cost centers (prepaid credit pools) | $645.48 |
+| **Total GitHub enterprise** | **$20429.52** |
+| → Our Azure sub (enterprise default) | $19733.42 |
+| → Cost centers (prepaid credit pools) | $696.10 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
-| labcluster-POC09-10k-expiry09aug26 | $10000 | $645.48 | 6% | $9355 | 9d |
-| labcluster-POC10-5k-13sep26 | $5000 | $0.00 | 0% | $5000 | 44d |
-| labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 44d |
+| labcluster-POC09-10k-expiry09aug26 | $10000 | $696.10 | 7% | $9304 | 8d |
+| labcluster-POC10-5k-13sep26 | $5000 | $0.00 | 0% | $5000 | 43d |
+| labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 43d |
 
 ### ⚙️ Actions consumption by org (MTD)
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Cloudlabs-Enterprises | 7367.4 | $42.03 |
+| Cloudlabs-Enterprises | 7385.6 | $42.14 |
 | Public-sector-hacks-Org | 1086 | $6.52 |
-| CL-Labs-04 | 571.2 | $3.42 |
+| CL-Labs-04 | 573.4 | $3.43 |
 | ghas-bootcamp-2026-07-22-2323169 | 128 | $0.77 |
-| Cloudlabs-GH-Copilot | 100 | $0.6 |
+| Cloudlabs-GH-Copilot | 107 | $0.64 |
 | ghas-bootcamp-2026-06-10-2269853 | 23 | $0.14 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **295** — active licenses: **186** — inactive/suspended (est.): **109**
+SCIM-provisioned identities: **267** — active licenses: **146** — inactive/suspended (est.): **121**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
-**Total sub MTD: $23726.77** — yesterday: $0.34 — GitHub charges: $23716.93
+**Total sub MTD: $26354.28** — yesterday: $0.34 — GitHub charges: $26344.1
 
 #### GitHub ↔ Azure reconciliation (our enterprise)
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $18331 |
-| Azure sub charge — our account (customer-13304750) | $15121.25 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $3209.75 |
+| GitHub billing API (net, enterprise default) | $19733.42 |
+| Azure sub charge — our account (customer-13304750) | $17746.58 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $1986.84 |
 
 #### ⚠️ External GitHub cost on this subscription (NOT our enterprise)
 
-**$8595.68 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
+**$8597.52 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
 
 GitHub charges by billing account (MTD):
 ```
-customer-13304750 (ours): $15121.25
+customer-13304750 (ours): $17746.58
 customer-3863811 (EXTERNAL): $8595.68
+customer-6174522 (EXTERNAL): $1.23
+customer-13061039 (EXTERNAL): $0.61
 customer-12238363 (EXTERNAL): $0
 ```
 
 ### 🚨 Alerts
-- Cost center 'labcluster-POC09-10k-expiry09aug26' expires in 9d with $9355 of $10000 still unused (6% consumed)
-- External GitHub enterprise(s) charging this Azure sub $8595.68 MTD (not customer-13304750): customer-3863811 $8595.68, customer-12238363 $0
+- Cost center 'labcluster-POC09-10k-expiry09aug26' expires in 8d with $9304 of $10000 still unused (7% consumed)
+- External GitHub enterprise(s) charging this Azure sub $8597.52 MTD (not customer-13304750): customer-3863811 $8595.68, customer-6174522 $1.23, customer-13061039 $0.61, customer-12238363 $0
 
