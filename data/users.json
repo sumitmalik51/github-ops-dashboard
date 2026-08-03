@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-02T05:58:35Z",
-  "count": 64,
+  "generated": "2026-08-03T06:01:21Z",
+  "count": 65,
   "users": [
     {
       "login": "mta-admin01_clabs",
@@ -57,7 +57,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
+      "cop_last": "2026-08-02T23:30:02Z",
       "cop_created": "2026-07-31T17:58:55Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -641,6 +641,16 @@
       "cop_created": null,
       "cop_cancel": null,
       "monthly_cost": 21
+    },
+    {
+      "login": "96417f6979478abd22452f0f48572b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-08-02T17:24:03Z",
+      "cop_created": "2026-08-02T13:41:17Z",
+      "cop_cancel": "2026-08-31",
+      "monthly_cost": 19
     }
   ]
 }
