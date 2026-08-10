@@ -38,7 +38,7 @@ actions: $0
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **303** — active licenses: **192** — inactive/suspended (est.): **111**
+SCIM-provisioned identities: **300** — active licenses: **192** — inactive/suspended (est.): **108**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
