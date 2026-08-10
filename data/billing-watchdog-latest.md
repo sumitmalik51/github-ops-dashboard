@@ -1,11 +1,11 @@
 ## Billing watchdog — 2026-08-10
 
-**MTD net: $1981.5** (gross $1996.56) — yesterday: $474.87 — GHEC seats: 187 — Copilot seats: 532
+**MTD net: $2035.69** (gross $2050.77) — yesterday: $474.87 — GHEC seats: 189 — Copilot seats: 534
 
 ```
-ghec: $1096.74
+ghec: $1136.71
 copilot: $691.97
-ghas: $188.1
+ghas: $202.32
 codespaces: $3.08
 code_quality: $1.61
 actions: $0
@@ -15,15 +15,15 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$2430.14** |
-| → Our Azure sub (enterprise default) | $1981.5 |
-| → Cost centers (prepaid credit pools) | $448.64 |
+| **Total GitHub enterprise** | **$2495.40** |
+| → Our Azure sub (enterprise default) | $2035.69 |
+| → Cost centers (prepaid credit pools) | $459.71 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
-| labcluster-POC10-5k-13sep26 | $5000 | $448.64 | 9% | $4551 | 33d |
+| labcluster-POC10-5k-13sep26 | $5000 | $459.71 | 9% | $4540 | 33d |
 | labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 33d |
 
 ### ⚙️ Actions consumption by org (MTD)
@@ -34,23 +34,23 @@ actions: $0
 | Cloudlabs-Enterprises | 426 | $2.53 |
 | ghas-bootcamp-2026-08-05-2343091 | 76 | $0.46 |
 | Cloudlabs-GH-Copilot | 49 | $0.29 |
-| ghas-bootcamp-2026-07-22-2323169 | 13 | $0.08 |
+| ghas-bootcamp-2026-07-22-2323169 | 15 | $0.09 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **294** — active licenses: **187** — inactive/suspended (est.): **107**
+SCIM-provisioned identities: **296** — active licenses: **189** — inactive/suspended (est.): **107**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
-**Total sub MTD: $1523.69** — yesterday: $0.31 — GitHub charges: $1520.66
+**Total sub MTD: $1523.81** — yesterday: $0.34 — GitHub charges: $1520.66
 
 #### GitHub ↔ Azure reconciliation (our enterprise)
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $1981.5 |
+| GitHub billing API (net, enterprise default) | $2035.69 |
 | Azure sub charge — our account (customer-13304750) | $1505.95 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $475.55 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $529.74 |
 
 #### ⚠️ External GitHub cost on this subscription (NOT our enterprise)
 
