@@ -1,13 +1,13 @@
 ## Billing watchdog — 2026-08-10
 
-**MTD net: $2035.69** (gross $2050.77) — yesterday: $474.87 — GHEC seats: 189 — Copilot seats: 534
+**MTD net: $2056.79** (gross $2071.86) — yesterday: $474.87 — GHEC seats: 192 — Copilot seats: 534
 
 ```
-ghec: $1136.71
+ghec: $1144.84
 copilot: $691.97
-ghas: $202.32
+ghas: $214.97
 codespaces: $3.08
-code_quality: $1.61
+code_quality: $1.94
 actions: $0
 ```
 
@@ -15,15 +15,15 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$2495.40** |
-| → Our Azure sub (enterprise default) | $2035.69 |
-| → Cost centers (prepaid credit pools) | $459.71 |
+| **Total GitHub enterprise** | **$2522.19** |
+| → Our Azure sub (enterprise default) | $2056.79 |
+| → Cost centers (prepaid credit pools) | $465.40 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
-| labcluster-POC10-5k-13sep26 | $5000 | $459.71 | 9% | $4540 | 33d |
+| labcluster-POC10-5k-13sep26 | $5000 | $465.40 | 9% | $4535 | 33d |
 | labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 33d |
 
 ### ⚙️ Actions consumption by org (MTD)
@@ -38,19 +38,19 @@ actions: $0
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **296** — active licenses: **189** — inactive/suspended (est.): **107**
+SCIM-provisioned identities: **303** — active licenses: **192** — inactive/suspended (est.): **111**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
-**Total sub MTD: $1523.81** — yesterday: $0.34 — GitHub charges: $1520.66
+**Total sub MTD: $1523.86** — yesterday: $0.34 — GitHub charges: $1520.66
 
 #### GitHub ↔ Azure reconciliation (our enterprise)
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $2035.69 |
+| GitHub billing API (net, enterprise default) | $2056.79 |
 | Azure sub charge — our account (customer-13304750) | $1505.95 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $529.74 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $550.84 |
 
 #### ⚠️ External GitHub cost on this subscription (NOT our enterprise)
 
