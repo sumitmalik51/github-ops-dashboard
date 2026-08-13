@@ -1,6 +1,6 @@
 {
-  "generated": "2026-08-12T05:29:38Z",
-  "count": 569,
+  "generated": "2026-08-13T05:29:57Z",
+  "count": 574,
   "users": [
     {
       "login": "mta-admin01_clabs",
@@ -197,7 +197,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-11T21:07:34Z",
+      "cop_last": "2026-08-12T22:16:17Z",
       "cop_created": "2026-07-31T17:58:55Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -867,7 +867,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-12T02:58:25Z",
+      "cop_last": "2026-08-13T04:26:08Z",
       "cop_created": "2026-08-04T09:09:08Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1287,7 +1287,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-12T04:57:39Z",
+      "cop_last": "2026-08-13T04:46:29Z",
       "cop_created": "2026-08-04T09:53:25Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1347,7 +1347,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-12T05:04:29Z",
+      "cop_last": "2026-08-12T08:18:51Z",
       "cop_created": "2026-08-04T17:35:07Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1367,7 +1367,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-12T05:04:46Z",
+      "cop_last": "2026-08-12T08:17:02Z",
       "cop_created": "2026-08-04T17:37:50Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1377,7 +1377,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
+      "cop_last": "2026-08-12T10:14:50Z",
       "cop_created": "2026-08-04T17:39:09Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1547,7 +1547,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
+      "cop_last": "2026-08-12T11:42:34Z",
       "cop_created": "2026-08-04T18:02:06Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1703,16 +1703,6 @@
       "monthly_cost": 40
     },
     {
-      "login": "odl-user-2344091_clabs",
-      "ghec": true,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": "2026-08-10T16:29:04Z",
-      "cop_created": "2026-08-06T07:19:48Z",
-      "cop_cancel": null,
-      "monthly_cost": 40
-    },
-    {
       "login": "odl-user-2344129_clabs",
       "ghec": true,
       "copilot": true,
@@ -1729,16 +1719,6 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-06T10:11:31Z",
-      "cop_cancel": null,
-      "monthly_cost": 40
-    },
-    {
-      "login": "odl-user-2344327_clabs",
-      "ghec": true,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": "2026-08-07T12:23:10Z",
-      "cop_created": "2026-08-06T10:39:30Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
@@ -1809,16 +1789,6 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-07T10:58:38Z",
-      "cop_cancel": null,
-      "monthly_cost": 40
-    },
-    {
-      "login": "odl-user-2346992_clabs",
-      "ghec": true,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": "2026-08-12T02:56:02Z",
-      "cop_created": "2026-08-10T06:59:30Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
@@ -1957,7 +1927,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
+      "cop_last": "2026-08-12T05:47:07Z",
       "cop_created": "2026-08-11T06:00:11Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1987,7 +1957,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-12T03:35:38Z",
+      "cop_last": "2026-08-12T16:23:06Z",
       "cop_created": "2026-08-11T06:08:48Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -2087,8 +2057,48 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-12T02:37:08Z",
+      "cop_last": "2026-08-13T04:41:05Z",
       "cop_created": "2026-08-11T11:47:10Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2349381_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-08-12T09:55:10Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2349564_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-08-12T13:12:26Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2349608_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-08-12T13:53:40Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2350147_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-08-13T03:07:58Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
@@ -2124,16 +2134,6 @@
     },
     {
       "login": "odl-user-2342854_clabs",
-      "ghec": true,
-      "copilot": false,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": null,
-      "cop_cancel": null,
-      "monthly_cost": 21
-    },
-    {
-      "login": "odl-user-2346625_clabs",
       "ghec": true,
       "copilot": false,
       "ghas": false,
@@ -2359,6 +2359,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-04T06:55:39Z",
+      "cop_cancel": "2026-08-31",
+      "monthly_cost": 19
+    },
+    {
+      "login": "0dadcad96e9aaeadef7881fcd62fb2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-08-12T07:30:58Z",
       "cop_cancel": "2026-08-31",
       "monthly_cost": 19
     },
@@ -3413,6 +3423,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "5a5ea2da95804de3f57a90a9a00525_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-08-12T16:45:45Z",
+      "cop_created": "2026-08-12T14:02:53Z",
+      "cop_cancel": "2026-08-31",
+      "monthly_cost": 19
+    },
+    {
       "login": "5ae34853b81c3a4810617a4c0999fc_clabs",
       "ghec": false,
       "copilot": true,
@@ -3669,6 +3689,16 @@
       "ghas": false,
       "cop_last": "2026-08-06T19:04:02Z",
       "cop_created": "2026-08-06T13:56:13Z",
+      "cop_cancel": "2026-08-31",
+      "monthly_cost": 19
+    },
+    {
+      "login": "6f7a639acddcd3eee08ca07a85ac7d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-08-10T16:29:04Z",
+      "cop_created": "2026-08-06T07:19:48Z",
       "cop_cancel": "2026-08-31",
       "monthly_cost": 19
     },
@@ -3973,6 +4003,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "8a52be65692fc828cdd374907dfa40_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-08-12T14:48:42Z",
+      "cop_created": "2026-08-10T06:59:30Z",
+      "cop_cancel": "2026-08-31",
+      "monthly_cost": 19
+    },
+    {
       "login": "8aeeebd7c9e44e6c12ce65c7065110_clabs",
       "ghec": false,
       "copilot": true,
@@ -4019,6 +4059,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-06T14:29:16Z",
+      "cop_cancel": "2026-08-31",
+      "monthly_cost": 19
+    },
+    {
+      "login": "8cd1923aa7b06a6273568a2e9ba5b0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-08-07T12:23:10Z",
+      "cop_created": "2026-08-06T10:39:30Z",
       "cop_cancel": "2026-08-31",
       "monthly_cost": 19
     },
