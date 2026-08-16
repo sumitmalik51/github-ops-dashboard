@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-15T05:04:16Z",
+  "generated": "2026-08-16T05:06:30Z",
   "count": 588,
   "users": [
     {
@@ -2057,7 +2057,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-15T04:16:26Z",
+      "cop_last": "2026-08-16T04:30:38Z",
       "cop_created": "2026-08-11T11:47:10Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -2187,7 +2187,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
+      "cop_last": "2026-08-16T01:35:52Z",
       "cop_created": "2026-08-14T18:00:45Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -2197,7 +2197,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-15T03:34:16Z",
+      "cop_last": "2026-08-16T04:41:31Z",
       "cop_created": "2026-08-15T02:22:34Z",
       "cop_cancel": null,
       "monthly_cost": 40
