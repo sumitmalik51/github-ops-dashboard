@@ -1,4 +1,4 @@
-## Org reaper — 2026-08-20 (dry_run=false)
+## Org reaper — 2026-08-21 (dry_run=false)
 | Org | Basis date | Deadline | Action |
 |---|---|---|---|
 
