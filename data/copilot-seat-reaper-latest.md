@@ -1,4 +1,4 @@
-## Copilot seat reaper — 2026-08-22 (dry_run=true)
+## Copilot seat reaper — 2026-08-23 (dry_run=true)
 
 Total seats: 1019 — idle ≥30d candidates: **8** (≈ $152/month) — unassigned this run: 0
 
