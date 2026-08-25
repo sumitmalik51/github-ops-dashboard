@@ -1,12 +1,12 @@
-## Billing watchdog — 2026-08-24
+## Billing watchdog — 2026-08-25
 
-**MTD net: $9372.53** (gross $9387.61) — yesterday: $1029.03 — GHEC seats: 293 — Copilot seats: 1021
+**MTD net: $10405.44** (gross $10420.51) — yesterday: $1032.9 — GHEC seats: 294 — Copilot seats: 1049
 
 ```
-ghec: $5844.77
-copilot: $2572.35
-ghas: $945.23
-code_quality: $7.1
+ghec: $6370.45
+copilot: $2998.32
+ghas: $1025.84
+code_quality: $7.74
 codespaces: $3.08
 actions: $0
 ```
@@ -15,16 +15,16 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$16219.54** |
-| → Our Azure sub (enterprise default) | $9372.53 |
-| → Cost centers (prepaid credit pools) | $6847.01 |
+| **Total GitHub enterprise** | **$17670.40** |
+| → Our Azure sub (enterprise default) | $10405.44 |
+| → Cost centers (prepaid credit pools) | $7264.96 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
-| labcluster-POC10-5k-13sep26 | $5000 | $6847.01 | 137% | $-1847 | 19d |
-| labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 19d |
+| labcluster-POC10-5k-13sep26 | $5000 | $7264.96 | 145% | $-2265 | 18d |
+| labcluster-POC11-83k-expiry13Sep26 | $83000 | $0.00 | 0% | $83000 | 18d |
 
 ### ⚙️ Actions consumption by org (MTD)
 
@@ -38,33 +38,32 @@ actions: $0
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **402** — active licenses: **293** — inactive/suspended (est.): **109**
+SCIM-provisioned identities: **405** — active licenses: **294** — inactive/suspended (est.): **111**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
-**Total sub MTD: $8385.31** — yesterday: $0.34 — GitHub charges: $8377.5
+**Total sub MTD: $9416.52** — yesterday: $0.34 — GitHub charges: $9408.37
 
 #### GitHub ↔ Azure reconciliation (our enterprise)
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $9372.53 |
-| Azure sub charge — our account (customer-13304750) | $8337.05 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $1035.48 |
+| GitHub billing API (net, enterprise default) | $10405.44 |
+| Azure sub charge — our account (customer-13304750) | $9366.08 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $1039.36 |
 
 #### ⚠️ External GitHub cost on this subscription (NOT our enterprise)
 
-**$40.45 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
+**$42.29 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
 
 GitHub charges by billing account (MTD):
 ```
-customer-13304750 (ours): $8337.05
-customer-6174522 (EXTERNAL): $26.97
-customer-13061039 (EXTERNAL): $13.48
+customer-13304750 (ours): $9366.08
+customer-6174522 (EXTERNAL): $28.19
+customer-13061039 (EXTERNAL): $14.1
 customer-12238363 (EXTERNAL): $0
 ```
 
 ### 🚨 Alerts
-- Anomaly: copilot spent $424.13 yesterday vs $207.6/day 7-day average (>2x)
-- External GitHub enterprise(s) charging this Azure sub $40.45 MTD (not customer-13304750): customer-6174522 $26.97, customer-13061039 $13.48, customer-12238363 $0
+- External GitHub enterprise(s) charging this Azure sub $42.29 MTD (not customer-13304750): customer-6174522 $28.19, customer-13061039 $14.1, customer-12238363 $0
 
