@@ -1,5 +1,5 @@
 {
-  "generated": "2026-08-29T05:00:50Z",
+  "generated": "2026-08-30T05:00:59Z",
   "count": 1372,
   "users": [
     {
@@ -2567,7 +2567,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-08-27T19:00:06Z",
+      "cop_last": "2026-08-29T19:56:15Z",
       "cop_created": "2026-08-25T14:08:55Z",
       "cop_cancel": null,
       "monthly_cost": 40
