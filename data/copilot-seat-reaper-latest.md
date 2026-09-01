@@ -1,31 +1,16 @@
-## Copilot seat reaper — 2026-08-31 (dry_run=true)
+## Copilot seat reaper — 2026-09-01 (dry_run=true)
 
-Total seats: 1361 — idle ≥30d candidates: **15** (≈ $285/month) — unassigned this run: 0
+Total seats: 168 — idle ≥30d candidates: **1** (≈ $19/month) — unassigned this run: 0
 
-**Activity (cutoff: 30d):** 🟢 active: **432** · 🟡 used but idle: 0 · ⚪ never used (in grace): 911 · 🔴 never used (past grace): 18 · ⏳ pending cancellation: 1102
+**Activity (cutoff: 30d):** 🟢 active: **48** · 🟡 used but idle: 0 · ⚪ never used (in grace): 119 · 🔴 never used (past grace): 1 · ⏳ pending cancellation: 0
 
 ### Seats by org
 
 | Org | Seats | Active | Never used | Idle |
 |---|---|---|---|---|
-| CL-Labs-04 | 1229 | 383 | 846 | 0 |
-| Public-sector-hacks-Org | 131 | 49 | 82 | 0 |
+| CL-Labs-04 | 167 | 48 | 119 | 0 |
 | Cloudlabs-Enterprises | 1 | 0 | 1 | 0 |
 
 | Org | User | Last activity |
 |---|---|---|
 | Cloudlabs-Enterprises | odl-user-2177706_clabs | never |
-| Public-sector-hacks-Org | mta-t02-u07_clabs | never |
-| Public-sector-hacks-Org | mta-t01-u02_clabs | never |
-| Public-sector-hacks-Org | mta-t07-u03_clabs | never |
-| Public-sector-hacks-Org | mta-admin08_clabs | never |
-| Public-sector-hacks-Org | mta-admin03_clabs | never |
-| Public-sector-hacks-Org | mta-admin07_clabs | never |
-| Public-sector-hacks-Org | mta-t01-u01_clabs | never |
-| Public-sector-hacks-Org | mta-admin04_clabs | never |
-| Public-sector-hacks-Org | mta-t03-u05_clabs | never |
-| Public-sector-hacks-Org | mta-t07-u01_clabs | never |
-| Public-sector-hacks-Org | mta-t03-u01_clabs | never |
-| Public-sector-hacks-Org | mta-admin09_clabs | never |
-| Public-sector-hacks-Org | mta-admin05_clabs | never |
-| Public-sector-hacks-Org | mta-admin10_clabs | never |
