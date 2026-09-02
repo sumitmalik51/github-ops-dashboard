@@ -1,8 +1,11 @@
-## Billing watchdog — 2026-09-01
+## Billing watchdog — 2026-09-02
 
-**MTD net: $0** (gross $0) — yesterday: $0 — GHEC seats: 172 — Copilot seats: 168
+**MTD net: $21.7** (gross $21.7) — yesterday: $11.03 — GHEC seats: 152 — Copilot seats: 170
 
 ```
+ghec: $11.2
+copilot: $8.87
+ghas: $1.63
 actions: $0
 ```
 
@@ -10,15 +13,15 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$37.40** |
-| → Our Azure sub (enterprise default) | $0 |
-| → Cost centers (prepaid credit pools) | $37.40 |
+| **Total GitHub enterprise** | **$273.04** |
+| → Our Azure sub (enterprise default) | $21.7 |
+| → Cost centers (prepaid credit pools) | $251.34 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
-| labcluster-POC11-83k-expiry13Sep26 | $83000 | $1265.18 | 2% | $81735 | 11d |
+| labcluster-POC11-83k-expiry13Sep26 | $83000 | $1479.12 | 2% | $81521 | 10d |
 
 ### ⚙️ Actions consumption by org (MTD)
 
@@ -28,7 +31,7 @@ actions: $0
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **289** — active licenses: **172** — inactive/suspended (est.): **117**
+SCIM-provisioned identities: **271** — active licenses: **152** — inactive/suspended (est.): **119**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
@@ -38,9 +41,9 @@ SCIM-provisioned identities: **289** — active licenses: **172** — inactive/s
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $0 |
+| GitHub billing API (net, enterprise default) | $21.7 |
 | Azure sub charge — our account (customer-13304750) | $0 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $0.00 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $21.70 |
 
 GitHub charges by billing account (MTD):
 ```
@@ -48,5 +51,6 @@ GitHub charges by billing account (MTD):
 ```
 
 ### 🚨 Alerts
-- Cost center 'labcluster-POC11-83k-expiry13Sep26' expires in 11d with $81735 of $83000 still unused (2% consumed)
+- GHAS billing active outside bootcamp orgs: CL-Labs-04/odl-user-2369650_clabs
+- Cost center 'labcluster-POC11-83k-expiry13Sep26' expires in 10d with $81521 of $83000 still unused (2% consumed)
 
