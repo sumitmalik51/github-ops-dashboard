@@ -1,11 +1,11 @@
-## Billing watchdog — 2026-09-02
+## Billing watchdog — 2026-09-03
 
-**MTD net: $21.7** (gross $21.7) — yesterday: $11.03 — GHEC seats: 152 — Copilot seats: 170
+**MTD net: $172.87** (gross $172.87) — yesterday: $126.47 — GHEC seats: 49 — Copilot seats: 210
 
 ```
-ghec: $11.2
-copilot: $8.87
-ghas: $1.63
+ghec: $91.7
+copilot: $77.9
+ghas: $3.27
 actions: $0
 ```
 
@@ -13,15 +13,15 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$273.04** |
-| → Our Azure sub (enterprise default) | $21.7 |
-| → Cost centers (prepaid credit pools) | $251.34 |
+| **Total GitHub enterprise** | **$571.20** |
+| → Our Azure sub (enterprise default) | $172.87 |
+| → Cost centers (prepaid credit pools) | $398.33 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
-| labcluster-POC11-83k-expiry13Sep26 | $83000 | $1479.12 | 2% | $81521 | 10d |
+| labcluster-POC11-83k-expiry13Sep26 | $83000 | $1626.11 | 2% | $81374 | 9d |
 
 ### ⚙️ Actions consumption by org (MTD)
 
@@ -31,26 +31,11 @@ actions: $0
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **271** — active licenses: **152** — inactive/suspended (est.): **119**
-
-### ☁️ Azure subscription (GitHub billing sub)
-
-**Total sub MTD: $n/a** — yesterday: $n/a — GitHub charges: $0
-
-#### GitHub ↔ Azure reconciliation (our enterprise)
-
-| Source | MTD |
-|---|---|
-| GitHub billing API (net, enterprise default) | $21.7 |
-| Azure sub charge — our account (customer-13304750) | $0 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $21.70 |
-
-GitHub charges by billing account (MTD):
-```
-
-```
+SCIM-provisioned identities: **166** — active licenses: **49** — inactive/suspended (est.): **117**
 
 ### 🚨 Alerts
+- Anomaly: copilot spent $57.63 yesterday vs $0.54/day 7-day average (>2x)
+- Anomaly: ghec spent $67.2 yesterday vs $0.8/day 7-day average (>2x)
 - GHAS billing active outside bootcamp orgs: CL-Labs-04/odl-user-2369650_clabs
-- Cost center 'labcluster-POC11-83k-expiry13Sep26' expires in 10d with $81521 of $83000 still unused (2% consumed)
+- Cost center 'labcluster-POC11-83k-expiry13Sep26' expires in 9d with $81374 of $83000 still unused (2% consumed)
 
