@@ -1,6 +1,6 @@
 {
-  "generated": "2026-09-05T05:00:36Z",
-  "count": 221,
+  "generated": "2026-09-06T05:00:40Z",
+  "count": 223,
   "users": [
     {
       "login": "odl-user-2177706_clabs",
@@ -357,7 +357,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-04T10:38:21Z",
+      "cop_last": "2026-09-05T16:56:02Z",
       "cop_created": "2026-08-25T14:08:55Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -399,6 +399,26 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-04T17:13:47Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2375147_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-05T13:15:37Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2375346_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-05T23:23:36Z",
+      "cop_created": "2026-09-05T18:10:10Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
