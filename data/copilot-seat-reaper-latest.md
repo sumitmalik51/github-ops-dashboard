@@ -1,8 +1,8 @@
-## Copilot seat reaper — 2026-09-06 (dry_run=true)
+## Copilot seat reaper — 2026-09-07 (dry_run=true)
 
 Total seats: 221 — idle ≥30d candidates: **20** (≈ $380/month) — unassigned this run: 0
 
-**Activity (cutoff: 30d):** 🟢 active: **64** · 🟡 used but idle: 1 · ⚪ never used (in grace): 137 · 🔴 never used (past grace): 19 · ⏳ pending cancellation: 179
+**Activity (cutoff: 30d):** 🟢 active: **64** · 🟡 used but idle: 1 · ⚪ never used (in grace): 136 · 🔴 never used (past grace): 20 · ⏳ pending cancellation: 180
 
 ### Seats by org
 
