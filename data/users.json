@@ -1,13 +1,13 @@
 {
-  "generated": "2026-09-11T05:00:35Z",
-  "count": 550,
+  "generated": "2026-09-12T05:00:47Z",
+  "count": 571,
   "users": [
     {
       "login": "odl-user-2382236_clabs",
       "ghec": true,
       "copilot": true,
       "ghas": true,
-      "cop_last": "2026-09-10T14:31:15Z",
+      "cop_last": "2026-09-11T17:24:55Z",
       "cop_created": "2026-09-10T09:30:46Z",
       "cop_cancel": null,
       "monthly_cost": 89
@@ -27,8 +27,98 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-11T02:20:34Z",
+      "cop_last": "2026-09-11T19:29:21Z",
       "cop_created": "2026-09-09T16:57:12Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin02_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin03_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin04_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin05_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin06_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin07_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin08_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin09_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-admin10_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
@@ -119,6 +209,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-09T17:46:47Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-u100_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
@@ -973,6 +1073,56 @@
       "monthly_cost": 40
     },
     {
+      "login": "maryland-u95_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-u96_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-u97_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-u98_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "maryland-u99_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T19:58:38Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
       "login": "odl-user-2177706_clabs",
       "ghec": true,
       "copilot": true,
@@ -997,7 +1147,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-10T14:42:39Z",
+      "cop_last": "2026-09-11T17:56:11Z",
       "cop_created": "2026-08-04T15:38:12Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1313,16 +1463,6 @@
       "monthly_cost": 40
     },
     {
-      "login": "odl-user-2374356_clabs",
-      "ghec": true,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-04T12:28:36Z",
-      "cop_cancel": null,
-      "monthly_cost": 40
-    },
-    {
       "login": "odl-user-2375147_clabs",
       "ghec": true,
       "copilot": true,
@@ -1413,12 +1553,42 @@
       "monthly_cost": 40
     },
     {
-      "login": "odl-user-2381142_clabs",
+      "login": "odl-user-2383852_clabs",
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-10T22:46:22Z",
-      "cop_created": "2026-09-09T17:17:48Z",
+      "cop_last": null,
+      "cop_created": "2026-09-11T18:08:20Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2384048_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T18:28:42Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2384056_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T18:46:18Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2384100_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T20:38:06Z",
       "cop_cancel": null,
       "monthly_cost": 40
     },
@@ -1739,6 +1909,16 @@
       "ghas": false,
       "cop_last": "2026-09-09T02:39:44Z",
       "cop_created": "2026-09-08T17:14:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "104b039033796edb7594a4aa8710f1_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-10T14:26:07Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2763,6 +2943,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "529f8a68c494b9c4228291a780b487_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-04T12:28:36Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "5344fa6784822b4d24fec1a1013166_clabs",
       "ghec": false,
       "copilot": true,
@@ -3593,16 +3783,6 @@
       "monthly_cost": 19
     },
     {
-      "login": "86bd3deba7eff3f2340a7660ee3a74_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-10T14:26:07Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
       "login": "86ef1336b8b7254fa19b6a62f13f1f_clabs",
       "ghec": false,
       "copilot": true,
@@ -3909,6 +4089,16 @@
       "ghas": false,
       "cop_last": "2026-09-10T17:50:02Z",
       "cop_created": "2026-09-10T13:55:37Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "988ac95d9ad66b69a633aa834525f9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-11T17:17:08Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4653,6 +4843,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "ca883d373250c0f874306866f123f1_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-11T17:37:05Z",
+      "cop_created": "2026-09-09T17:17:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "cb47a169704104502e0e6b6475d12f_clabs",
       "ghec": false,
       "copilot": true,
@@ -4899,6 +5099,16 @@
       "ghas": false,
       "cop_last": "2026-09-08T09:55:00Z",
       "cop_created": "2026-09-08T06:19:17Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d9028639f369543f58116ff928d2d9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-11T23:28:56Z",
+      "cop_created": "2026-09-11T19:55:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
