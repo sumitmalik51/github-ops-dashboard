@@ -1,13 +1,13 @@
 {
-  "generated": "2026-09-17T05:00:41Z",
-  "count": 722,
+  "generated": "2026-09-18T05:02:23Z",
+  "count": 981,
   "users": [
     {
       "login": "odl-user-2382236_clabs",
       "ghec": true,
       "copilot": true,
       "ghas": true,
-      "cop_last": "2026-09-16T17:21:49Z",
+      "cop_last": "2026-09-17T20:42:46Z",
       "cop_created": "2026-09-10T09:30:46Z",
       "cop_cancel": null,
       "monthly_cost": 89
@@ -17,7 +17,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-16T17:57:38Z",
+      "cop_last": "2026-09-17T19:30:44Z",
       "cop_created": "2026-09-09T16:57:12Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1137,7 +1137,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-16T08:01:52Z",
+      "cop_last": "2026-09-17T12:09:40Z",
       "cop_created": "2026-08-04T15:38:12Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1207,7 +1207,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-10T11:06:30Z",
+      "cop_last": "2026-09-17T17:49:35Z",
       "cop_created": "2026-08-04T17:40:28Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1593,16 +1593,6 @@
       "monthly_cost": 40
     },
     {
-      "login": "odl-user-2386795_clabs",
-      "ghec": true,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": "2026-09-16T19:23:47Z",
-      "cop_created": "2026-09-15T09:41:48Z",
-      "cop_cancel": null,
-      "monthly_cost": 40
-    },
-    {
       "login": "odl-user-2388693_clabs",
       "ghec": true,
       "copilot": true,
@@ -1643,6 +1633,36 @@
       "monthly_cost": 40
     },
     {
+      "login": "odl-user-2390195_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T14:24:21Z",
+      "cop_created": "2026-09-17T06:39:05Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2391914_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:58:13Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
+      "login": "odl-user-2391915_clabs",
+      "ghec": true,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T19:03:13Z",
+      "cop_cancel": null,
+      "monthly_cost": 40
+    },
+    {
       "login": "admin_clabs",
       "ghec": true,
       "copilot": false,
@@ -1673,12 +1693,32 @@
       "monthly_cost": 21
     },
     {
+      "login": "odl-user-2391069_clabs",
+      "ghec": true,
+      "copilot": false,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": null,
+      "cop_cancel": null,
+      "monthly_cost": 21
+    },
+    {
       "login": "001cadd4712051cffdcb714886847e_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-08-19T13:00:28Z",
       "cop_created": "2026-08-19T12:00:01Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "00fad81bd07178b75f7e6ed275a6cf_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:57:00Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -1703,22 +1743,32 @@
       "monthly_cost": 19
     },
     {
-      "login": "01b8e8e4a2b2f1ec39e36396ec02bd_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": "2026-09-16T21:12:58Z",
-      "cop_created": "2026-09-16T16:11:29Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
-      "login": "0248b395db08659ca2da1c64117957_clabs",
+      "login": "015ab38da47549c888c6544c5b90f6_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T15:09:17Z",
+      "cop_created": "2026-09-17T14:50:39Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "01f37c046aa8d4a693211b3402a033_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:34:51Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "02599400491ef318f84e5815724015_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:14:38Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -1743,12 +1793,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "03097e8bd4e1db5b91d7ce97eea1d9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:27:06Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "0313a92d7cf3175647dc8080fda3e5_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-09T18:47:56Z",
       "cop_created": "2026-09-09T15:12:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "035c42e8aa1812bf098523d43a95e0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:35:31Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -1813,6 +1883,36 @@
       "monthly_cost": 19
     },
     {
+      "login": "05ca9ed379bdb188bf3ed6e9ce69f0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:19:02Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "05e90bcbeb57307c177eaf56343e72_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:54:46Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "05effbc0e3a745900217b1a09903aa_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:10:03Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "0619d9e78801bfdc6c80bdc7914457_clabs",
       "ghec": false,
       "copilot": true,
@@ -1843,6 +1943,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "066c983aabae256ee6dd0c486e2a9b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:21Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "06b02535daa964fe2877d82b4efb23_clabs",
       "ghec": false,
       "copilot": true,
@@ -1863,12 +1973,52 @@
       "monthly_cost": 19
     },
     {
+      "login": "075e63ac89218ddab7981361070afc_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:29:38Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "07893d03a844f02952ad66fee90fec_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:48:54Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "07fdb53a93093082b9c3ece2683aaa_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-08-20T13:14:39Z",
       "cop_created": "2026-08-19T12:12:11Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "086f296af4eaf6b45bb12fa2712d15_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:29:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "08c683de37f88481e07f4fbf6ef28e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:51:55Z",
+      "cop_created": "2026-09-17T13:42:24Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -1923,6 +2073,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "0b2fed051ef3bc75f32a29d922f980_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:14:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "0b6b9f31be79de6b6936714e91ca05_clabs",
       "ghec": false,
       "copilot": true,
@@ -1973,12 +2133,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "0c8117fc8b7f0b922a69e740fe7429_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:12:03Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "0d1c0f229bc4ee8f8af61102a58ea7_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:10:44Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "0df4b32b4ef7b2fe7baf372345ea78_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:33:39Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2013,6 +2193,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "0ecdc919d83b380c1c38874883deae_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:50:39Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "0f30a693f7fe577d16a3fbf38098ae_clabs",
       "ghec": false,
       "copilot": true,
@@ -2023,12 +2213,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "0f5e97e60381193849bc9a53270816_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:33:04Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "0f7eaabadb914b8872cfcb230a61ec_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:35:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "0f9251e9129111575b88d37cc917dc_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-09T02:39:44Z",
       "cop_created": "2026-09-08T17:14:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "0f9f218fcbabce77355130d3d74ecf_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:14:51Z",
+      "cop_created": "2026-09-17T14:28:33Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2063,12 +2283,42 @@
       "monthly_cost": 19
     },
     {
-      "login": "12065a3b6f5fb2c324dbd9da2e0226_clabs",
+      "login": "10ce08ca921e06254ff2efa88747ca_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T16:10:03Z",
+      "cop_created": "2026-09-17T14:14:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "11062bcdb04611e8c75bf062a11d65_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "11280dd5dbc233e001518bcff2b413_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:24:56Z",
+      "cop_created": "2026-09-17T13:44:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "120a2ee609728b3c9e290f843e13c3_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:24:52Z",
+      "cop_created": "2026-09-17T14:21:30Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2089,6 +2339,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T12:54:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "12248551bc9a3f3e04f7fd98e5b9f9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:43:55Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2133,6 +2393,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "1356a2ee2e6ca98899e08f2a5e12ac_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T15:09:17Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "13ee5ae532c158efc973b5edc2c3c9_clabs",
       "ghec": false,
       "copilot": true,
@@ -2153,6 +2423,56 @@
       "monthly_cost": 19
     },
     {
+      "login": "14ca0f009ca02c9fd031c63c6da2e2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:26:44Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "1537cb50b755f11ee05134a357a3c6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:19:54Z",
+      "cop_created": "2026-09-17T14:11:26Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "1539b65006a1e00fb2beedb7f78b07_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:50:38Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "1579e6299b1f019ad2e5943ec3b0ac_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:14:48Z",
+      "cop_created": "2026-09-17T13:57:52Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "157b5e4befb5d9f45bd75fda609268_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:47:47Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "15b1c079fe1a75322170432529508d_clabs",
       "ghec": false,
       "copilot": true,
@@ -2169,6 +2489,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-18T16:08:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "160386bf41bc91506c39d3e081e03d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:35:31Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2213,12 +2543,52 @@
       "monthly_cost": 19
     },
     {
+      "login": "1702677f81e44c869ceda88aa3ae40_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:11:26Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "175c3a2a43494ff3673db379c24e5c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:34:59Z",
+      "cop_created": "2026-09-17T14:00:42Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "17805ad659b8e3aa97e18ebd936794_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:15:19Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "17bc6772cdd14e6342140a31ab0326_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:16:06Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "18e5a79f5e65489d4a8518a823066d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:52:46Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2323,6 +2693,36 @@
       "monthly_cost": 19
     },
     {
+      "login": "1bf59a78d37667e57f47556f99f889_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:41:45Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "1c52be828d8d4ea128724723b6aa10_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:15:43Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "1c80a87bebdfd0f6d3a8d1e1be47fc_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:26:44Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "1c8c9110dd8412d0561ee96696ce9a_clabs",
       "ghec": false,
       "copilot": true,
@@ -2393,6 +2793,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "1dff2cf1a0f543a75c495a3c339689_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:42:52Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "1e12b27b4bc10e5ca32a37ebfd4981_clabs",
       "ghec": false,
       "copilot": true,
@@ -2423,6 +2833,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "1ea76cd34ee5da00497c1889c39cc0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:28:33Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "1eb3b2b468d952f0e5cef348496fb6_clabs",
       "ghec": false,
       "copilot": true,
@@ -2443,22 +2863,22 @@
       "monthly_cost": 19
     },
     {
+      "login": "1ed80da15a7ad614b38551c31fe8df_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:09:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "1ef63a89c8492fce25fb476d841b87_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-09T15:11:36Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
-      "login": "1f8ae5cddbd55e0b325275efdabcc5_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T13:03:42Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2493,6 +2913,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "20b490f6de13709d9c5bb6b0410fac_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:31:32Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "20ceae8260cf4f60553f6e001fc8ca_clabs",
       "ghec": false,
       "copilot": true,
@@ -2503,22 +2933,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "21221b46df40466e389a3b8dfbf5f5_clabs",
+      "login": "210db39ca26c6beff042ec71ba60e4_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T16:12:18Z",
+      "cop_created": "2026-09-17T13:59:53Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
     {
-      "login": "214979ae1cee02842c1f5fbe59f00d_clabs",
+      "login": "213952410c714bac596ab0fe1474dc_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T16:13:34Z",
+      "cop_created": "2026-09-17T14:10:48Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2553,6 +2983,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "22f75a362151b4201c65f5535688da_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:54:40Z",
+      "cop_created": "2026-09-17T13:57:52Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "230c2a2ab92a6adcd867e3d4a92a04_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:51:27Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "2321486fdfa6c011e64658c6559303_clabs",
       "ghec": false,
       "copilot": true,
@@ -2569,6 +3019,16 @@
       "ghas": false,
       "cop_last": "2026-09-16T19:54:54Z",
       "cop_created": "2026-09-16T12:03:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "242a698469a2abf50e33149f7fb1e0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:48:58Z",
+      "cop_created": "2026-09-17T14:28:33Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2603,12 +3063,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "24b90af287e3f5eb3bb92ea290a20f_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:46:51Z",
+      "cop_created": "2026-09-17T13:55:04Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "24dd48964638fca4d2263c00bc101c_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T04:48:56Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "250f40dae755ac93e4ab63a4da6c60_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:49:00Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2623,12 +3103,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "26a83ef6d12040ca368af015f9bd42_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:04:58Z",
+      "cop_created": "2026-09-17T13:41:41Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "270041f83799b96c6609bf598124cc_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:24:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "2729f04631bd8803c81c7b2dcffbe6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:06:49Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2653,12 +3153,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "2885cb4294d454d03e089d7d20aaf4_clabs",
+      "login": "27f547ca5d2bf59f27737a8ffa82ae_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T17:32:46Z",
+      "cop_last": "2026-09-17T19:03:47Z",
+      "cop_created": "2026-09-17T13:40:21Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2673,6 +3173,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "28e203794a4c30ecb0c870115bce50_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:16:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "290fe06a1ecafde03af1cd4100ddc2_clabs",
       "ghec": false,
       "copilot": true,
@@ -2683,12 +3193,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "2988c142def35458af79f2283ceaf6_clabs",
+      "login": "298d0912b4a8ebf4b6deeee81fa18a_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T13:04:22Z",
+      "cop_created": "2026-09-17T14:14:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "29c634c99d6dd3d1af2787ba113e55_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:55:00Z",
+      "cop_created": "2026-09-17T13:42:57Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2699,6 +3219,16 @@
       "ghas": false,
       "cop_last": "2026-08-21T07:31:43Z",
       "cop_created": "2026-08-19T18:49:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "2a22ca683092edf175139b0fa90b45_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:54:59Z",
+      "cop_created": "2026-09-17T14:23:26Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2743,6 +3273,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "2c45616af47bfe7d7f2e8220b4dafc_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:24:57Z",
+      "cop_created": "2026-09-17T14:09:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "2c8a17d8c72b12029405a7c754fdba_clabs",
       "ghec": false,
       "copilot": true,
@@ -2783,12 +3323,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "2d71cf0ec31e957b9adcfe0727308e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:09:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "2dff6c6b2c06a161671d86ed4047c6_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-02T14:10:21Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "2e2ca152fd3c1c5932ab764ea8373f_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:46:24Z",
+      "cop_created": "2026-09-17T14:25:22Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2823,12 +3383,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "2f1f0ed419d6b4c7490d8805a0aa15_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:04:12Z",
+      "cop_created": "2026-09-17T13:39:47Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "2f748fdb2493d343512450bcf96bb8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-18T01:14:52Z",
+      "cop_created": "2026-09-17T18:46:17Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "2fbd0c1017074b9605152264b85b96_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T07:06:43Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "2fc11db1ac4015be0e61d89807490c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:49:45Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2859,6 +3449,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:33:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "31006351d3ae1e0401255a631e5644_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:45:47Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2913,6 +3513,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "32090f2cabc7129d1ee53956829e8b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:13:51Z",
+      "cop_created": "2026-09-17T13:56:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "32361af24515ce2d8786612276291b_clabs",
       "ghec": false,
       "copilot": true,
@@ -2923,12 +3533,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "3261c0d30bd11bae95ad726f00f4b8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:27:19Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "3283c7e34ea9a7cdc5fc09f21469e4_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:05:40Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "32bf76c9b40bbdd1b849606127b09a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:49:45Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -2963,6 +3593,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "33700b4bc81f2cee0728a2b6e2a2b1_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:13:16Z",
+      "cop_created": "2026-09-17T14:30:42Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "337ee29ba2cca033056da9c47c65c6_clabs",
       "ghec": false,
       "copilot": true,
@@ -2983,6 +3623,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "34c1c318e79233a2af3b2ac7fd5418_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:05:00Z",
+      "cop_created": "2026-09-17T14:12:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "35658d90b5ec33d75fe4e5e62881da_clabs",
       "ghec": false,
       "copilot": true,
@@ -2993,12 +3643,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "35df6b21ba8caed02caf1ad6adf32f_clabs",
+      "login": "35961d43ece3497b837d6c9a57b9fc_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T17:32:46Z",
+      "cop_created": "2026-09-17T14:33:35Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "35b8c990240cf89fb00bef3bca1e95_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:24:01Z",
+      "cop_created": "2026-09-17T14:24:18Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3013,12 +3673,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "366a8832e8faf871913e7df511aed3_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:34:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "36abaf591f12e34bc6438c0f1f84c4_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:33:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "386f1a8d00e4a2cb7cdb5d6c023421_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:30:41Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "38ca89172bf1095ba321178b5ce6ba_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:43:54Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3039,16 +3729,6 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T07:23:24Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
-      "login": "39a9afcd34637255a535e75e50f3a6_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T16:11:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3079,6 +3759,16 @@
       "ghas": false,
       "cop_last": "2026-09-02T19:54:58Z",
       "cop_created": "2026-09-02T14:04:20Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "3aa60d80247a58bbad0a1b07e53c2e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:40:58Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3173,6 +3863,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "3c7af46a1965eeaf92cb576be678b7_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:56:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "3c7f45289507b12f54d4094ca532fe_clabs",
       "ghec": false,
       "copilot": true,
@@ -3213,6 +3913,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "3d3327567c756365aa6f824f6b4f40_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:12:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "3d35400aaba06c4a85e942089cf4ae_clabs",
       "ghec": false,
       "copilot": true,
@@ -3223,12 +3933,62 @@
       "monthly_cost": 19
     },
     {
+      "login": "3d6a194e926ac10e6dfc3bff961019_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:22:50Z",
+      "cop_created": "2026-09-17T14:26:44Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "3de8d921228a7eb1e3f828cda9ecb2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:51:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "3e2f0f8d3bb9eaf24481cd1bfd715e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T13:03:42Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "3e53b0384a3087c5cc82f08048f21a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:32:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "3ebaef77e4370b32f47a4e89b2451e_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-08-20T08:46:44Z",
       "cop_created": "2026-08-19T12:39:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "3ef0778fe1b86c767b0d8bf318473a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:42:52Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3249,6 +4009,16 @@
       "ghas": false,
       "cop_last": "2026-09-01T10:51:47Z",
       "cop_created": "2026-08-31T17:24:57Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "40e4485ea7fe68583796b8c1aa24b5_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:42:52Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3283,6 +4053,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "42833461ecbbc2e8fcb518e5d85868_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-16T21:56:13Z",
+      "cop_created": "2026-09-16T16:06:26Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "4289d44178a5752b7707be8aca3a16_clabs",
       "ghec": false,
       "copilot": true,
@@ -3293,12 +4073,62 @@
       "monthly_cost": 19
     },
     {
+      "login": "42c1a3d00cdeeee832a65765aefada_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:21:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "42f395b652fa0f6f8f8638d25188a6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:21:04Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "438a2cb2e6248dd41bc3d7a2a1ce2a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:57:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "43ae740ddd08fdeff1a67a97eb4c22_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-01T19:46:37Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "444b1df5940e4d3365c3a35daabd23_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:33:07Z",
+      "cop_created": "2026-09-17T13:59:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "449950482ec3c857fd74560030424c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-16T21:04:53Z",
+      "cop_created": "2026-09-16T16:10:03Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3323,12 +4153,72 @@
       "monthly_cost": 19
     },
     {
+      "login": "46911c37b7af846493fb43dbd938ac_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:46:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "46e0feb2203b6907c0a7e7ccb13a81_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:00:42Z",
+      "cop_created": "2026-09-17T13:56:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "47689315ba2bab1213f5eeabd496df_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:38:43Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "480f5aa9be0e2c4ad85e6036048d20_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:12:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "4838166352f210d19d69624e47cca6_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-08T00:44:55Z",
       "cop_created": "2026-09-07T21:25:06Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "48a7808902839005a807ac8c35c761_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:43:52Z",
+      "cop_created": "2026-09-17T14:14:38Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "48a9d7ccaabd2ddd4e60b9ebe903ed_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:21Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3343,12 +4233,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "48eaf92a03191a91aeb124faf73e78_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:32:46Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "4929fb211f9e5aa73522eab58a4ec9_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:25:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "497c72d54672c5de0add16a598d13a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:30:42Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3393,6 +4303,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "4abb90ece29e4e7e007705e251abf8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "4afe2d4e3d745bd151f2d6797f487e_clabs",
       "ghec": false,
       "copilot": true,
@@ -3429,6 +4349,26 @@
       "ghas": false,
       "cop_last": "2026-09-10T19:54:54Z",
       "cop_created": "2026-09-10T14:04:35Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "4c06c6e73217adb06eb9d478608f93_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:24:45Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "4c161d53751f5ddf3ae4552d09abc9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:55:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3473,6 +4413,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "4ed49bff9f46be3994a1801f1737f0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:01:35Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "4f0f61b93de5996fcf463c41d5c258_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:55:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "4f5445bb43cd09f366e10fdace17db_clabs",
       "ghec": false,
       "copilot": true,
@@ -3513,6 +4473,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "50a2d08d178e470ae3acfecbbc8189_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "5160defc0290602e5a79b0566600a3_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:11:29Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "519b3600d9560164b52bd6b0d5ee7b_clabs",
       "ghec": false,
       "copilot": true,
@@ -3533,12 +4513,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "51e3a52ee8b5d8ba4b992490b9edac_clabs",
+      "login": "5216c4d4e95aa049e11941c6c043e9_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T17:31:33Z",
+      "cop_created": "2026-09-17T17:50:08Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "522eee544a83580cd5edee3a545a2b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:54:31Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3573,12 +4563,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "52c0a54d77f0087e71538d4f96487e_clabs",
+      "login": "52ea51a97fd626d258395536ccff7c_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T16:12:18Z",
+      "cop_created": "2026-09-17T14:33:04Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3599,6 +4589,16 @@
       "ghas": false,
       "cop_last": "2026-09-10T18:53:44Z",
       "cop_created": "2026-09-10T14:10:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "538e24bc8d427ee375ca61c80adbb4_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:32:22Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3653,6 +4653,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "5594112234051f10f88929aec25244_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:40:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "55ffb680501154fc60cb03458db5b2_clabs",
       "ghec": false,
       "copilot": true,
@@ -3669,6 +4679,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:13:33Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "5693ac1a646ce8ddd13256c0085401_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:26:44Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3703,12 +4723,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "58e88584fa362199fc4a7adc05065f_clabs",
+      "login": "587294ac9f7fde9fed8c02a8e3f264_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-16T22:27:39Z",
-      "cop_created": "2026-09-16T16:09:29Z",
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:50:39Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3743,6 +4763,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "5b10f2de54f596223c8ee631ed662c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:39:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "5ba543ec130096a89508e206044c9c_clabs",
       "ghec": false,
       "copilot": true,
@@ -3773,6 +4803,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "5d4e0f4b365e3ce31de0181249d738_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:01:04Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "5d5e35917ef75b28664ad4bcf3c792_clabs",
       "ghec": false,
       "copilot": true,
@@ -3793,12 +4833,62 @@
       "monthly_cost": 19
     },
     {
+      "login": "5e361ceca04809b010a26012e684f2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:39:47Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "5e62973ffb563009c99aeb148f90ab_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:07:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "5f21a2bf34d61d62fbee2d23a2eb95_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-08T11:33:43Z",
       "cop_created": "2026-09-08T06:16:20Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "5f3a80fc4bef3e282c04eb8c7ab294_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T13:04:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "5f5f87beeee6c22574f2b30a552e54_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:11:08Z",
+      "cop_created": "2026-09-17T13:42:24Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "5fe058bbc2516ff3985c61857ef321_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:10:54Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3813,12 +4903,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "6007b77839af39b8b26db7a7f81cb1_clabs",
+      "login": "608ccd39f467e82a9fe15d50ce44e5_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T16:07:41Z",
+      "cop_created": "2026-09-17T14:33:35Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "610b246b0f403dbab2dc6d0f030758_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:50:52Z",
+      "cop_created": "2026-09-17T14:32:22Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -3873,6 +4973,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "62dd96d5c021ac8d1a420a21f45b4d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:50:38Z",
+      "cop_created": "2026-09-17T13:58:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "6302ddafbcc11222d4c9797c66b536_clabs",
       "ghec": false,
       "copilot": true,
@@ -3913,22 +5023,22 @@
       "monthly_cost": 19
     },
     {
+      "login": "64952826422b0ca33722cbda0221c3_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:54:31Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "649e14455d56879f8c1e01b5b66649_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:40:22Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
-      "login": "64bb843f92e81de43a9a42ea0900fa_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T16:11:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4003,6 +5113,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "672d18fc8ce8d8360535c052a1691d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:34:57Z",
+      "cop_created": "2026-09-17T13:43:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "675e146a19cf578cfd89d3ce67c70d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:56:23Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "67ac71661892396ae30ce6f5c281c6_clabs",
       "ghec": false,
       "copilot": true,
@@ -4033,6 +5163,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "6a2255b4a500b5814f02757208cf05_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:33:59Z",
+      "cop_created": "2026-09-17T13:39:47Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "6a8256452b0d75c0a9236f5c59bb4f_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:05:46Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "6bacb122a167dda8dee8d4c8e14e40_clabs",
       "ghec": false,
       "copilot": true,
@@ -4049,6 +5199,16 @@
       "ghas": false,
       "cop_last": "2026-08-19T12:44:36Z",
       "cop_created": "2026-08-19T11:58:54Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "6bcd9cfb76340a0b935d0a92ad0c00_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:27:19Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4083,6 +5243,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "6cab92ddf9355005280a3d21f1f421_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:21:05Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "6cdafd4acef543c957e164b84806e7_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:34:51Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "6ce247f2a1c62ffbf11016f2b6e5cb_clabs",
       "ghec": false,
       "copilot": true,
@@ -4109,6 +5289,26 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:24:20Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "6d491612b092da3f4bc7ada3b3962b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:43:04Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "6da5f4d9275d34096da3f4316806e8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:13:56Z",
+      "cop_created": "2026-09-17T13:44:28Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4143,12 +5343,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "6edd9102a9be912836957f976af92a_clabs",
+      "login": "6ec9ac4c0866bbbb6b875208ffcc33_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T13:52:32Z",
+      "cop_last": "2026-09-17T19:34:41Z",
+      "cop_created": "2026-09-17T14:22:03Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4193,6 +5393,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "7105ed0979782d48b9d05a54aaee75_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:49:59Z",
+      "cop_created": "2026-09-17T13:56:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "7169aa4ca0cfb1e7bc1e765700ce18_clabs",
       "ghec": false,
       "copilot": true,
@@ -4229,6 +5439,26 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:08:01Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "72f982daa5bc6d0e2913f48d07405d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:51:57Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "73500c95ffbec163cc9a13b54a8a89_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:49:35Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4273,6 +5503,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "748199eeb38020543335e1058533e8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:56:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "74eb6bc65d771f84159e3752f01fc4_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:26:44Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "750fd2253ce6eb223a8fa21818d0f4_clabs",
       "ghec": false,
       "copilot": true,
@@ -4303,6 +5553,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "758f6dc1aebd253bd478c7fe913b7a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:44:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "75a2ecbe02e57aac50c52dce8e8b46_clabs",
       "ghec": false,
       "copilot": true,
@@ -4319,6 +5579,16 @@
       "ghas": false,
       "cop_last": "2026-09-10T20:33:29Z",
       "cop_created": "2026-09-10T14:12:21Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "75f002194bcbfc763810297521b4fe_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:37:42Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4343,6 +5613,36 @@
       "monthly_cost": 19
     },
     {
+      "login": "7748ab9307741cb1129eee68a5bde2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:17:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7750586a1cd2f2c5a556694efc5058_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:33:43Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7767d387efe4886c8702e7803c1276_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:14:45Z",
+      "cop_created": "2026-09-17T14:23:26Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "779bf36d3118314c3bd0aa394c51e7_clabs",
       "ghec": false,
       "copilot": true,
@@ -4353,12 +5653,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "77e1cad4e2954fe3d66f46980b281a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:13:33Z",
+      "cop_created": "2026-09-17T14:19:20Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "77e5246096fe062412b2b6279115eb_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:29:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "77f44a0be47b47ff6e0c9bbc28567a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:49:12Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4393,6 +5713,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "78d054674d0ee8c880dd044e93ecdd_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:58:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "790a59665e8e7af3bfe944792e5a84_clabs",
       "ghec": false,
       "copilot": true,
@@ -4403,12 +5733,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "792803985530741cc80e804fea7213_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:43:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "79852b1f524bde285f2b2fb27c8e0c_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-20T10:40:32Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7985f9bffc223454d62671795c23e2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:14:38Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4433,6 +5783,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "7a1926220de57a4f59ac17946477f5_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:13:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "7a6499db8c2c1e096b34b747d4e57f_clabs",
       "ghec": false,
       "copilot": true,
@@ -4449,6 +5809,16 @@
       "ghas": false,
       "cop_last": "2026-09-16T16:34:29Z",
       "cop_created": "2026-09-16T12:17:54Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7af76aa3b52147e200cd55c673324e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:33:04Z",
+      "cop_created": "2026-09-17T13:55:04Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4473,6 +5843,56 @@
       "monthly_cost": 19
     },
     {
+      "login": "7be3a9789a3eda34b10ab4b6885d7b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-18T02:00:14Z",
+      "cop_created": "2026-09-17T16:03:59Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7c85f37b987b46e002f7f4c696a65c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:01:21Z",
+      "cop_created": "2026-09-17T14:10:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7ccbd4aadaff9ae42df321a2350fe2_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:49:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7d9922bc14e4fb793df21a7870e8da_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:42:52Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7e1af1125619e6e2537b1fec6b7457_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T16:34:41Z",
+      "cop_created": "2026-09-17T14:22:03Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "7e2e9c880d40f0641a7fe4e2687850_clabs",
       "ghec": false,
       "copilot": true,
@@ -4489,6 +5909,26 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T03:57:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7f4f16da430db4a19e95f9255ebf91_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:34:52Z",
+      "cop_created": "2026-09-17T14:13:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "7f5e800ca1e4ac8fd6b3939a23a22c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:02:47Z",
+      "cop_created": "2026-09-17T14:29:38Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4613,6 +6053,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "82fec45c29d9a4a167cc39ae7e191f_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:19:20Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "8307d9eed03065ff4730a67a42db6a_clabs",
       "ghec": false,
       "copilot": true,
@@ -4643,6 +6093,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "8334f3bfb8ac8d1851c4836c719b37_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:48:54Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "833e0fb14e53a11ea5418719fddb97_clabs",
       "ghec": false,
       "copilot": true,
@@ -4663,6 +6123,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "84787d1275152560dbc31b3efbac19_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:12:03Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "848a1f1f282db32d84a9c35ee27d2f_clabs",
       "ghec": false,
       "copilot": true,
@@ -4673,12 +6143,32 @@
       "monthly_cost": 19
     },
     {
-      "login": "861c435cf95fc54d4539b90cd1f745_clabs",
+      "login": "85d67a400fd77c9728ed94a3c98701_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T17:34:51Z",
+      "cop_last": "2026-09-17T20:09:23Z",
+      "cop_created": "2026-09-17T13:40:21Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "8615bf9be066442fefeb949640f7d0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:13:36Z",
+      "cop_created": "2026-09-17T13:42:57Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "862fc19eb3018e5a96acb600bd3b70_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T16:04:17Z",
+      "cop_created": "2026-09-16T16:09:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4703,6 +6193,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "8764bf336307902e1d623c68f25779_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:56:07Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "87f654046ce90c30a51efe6cf43232_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:35:43Z",
+      "cop_created": "2026-09-17T14:24:18Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "8887a506c7b57202b8eb229cc2f12c_clabs",
       "ghec": false,
       "copilot": true,
@@ -4719,6 +6229,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-02T14:10:21Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "893d2fa6de8686d02cd12dc5317315_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:14:38Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4753,6 +6273,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "8b6dc1cd0aa9138ae6b249be1f5499_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:49:35Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "8ba53cd90cc86b9e130cf6e4abe792_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-16T19:23:47Z",
+      "cop_created": "2026-09-15T09:41:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "8bdda44814b655adbc4eb5f3aaf796_clabs",
       "ghec": false,
       "copilot": true,
@@ -4769,6 +6309,26 @@
       "ghas": false,
       "cop_last": "2026-09-08T12:00:32Z",
       "cop_created": "2026-09-08T06:18:19Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "8dcbb4c21b53c34079e81742f91220_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:13:34Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "8e16695b384dc804f3058fd3ebc86e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:15:19Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4803,6 +6363,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "8eed3a4ee62f2f3073ee265b7c35ea_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:11:45Z",
+      "cop_created": "2026-09-17T14:28:33Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "8f102ee6d9c256d207a3e8f81a0f3e_clabs",
       "ghec": false,
       "copilot": true,
@@ -4829,6 +6399,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T17:15:45Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "8fc81464c5f63fa4d10deee5094c2b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:50:39Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -4903,6 +6483,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "91c441a1d29280e7945fc017b22551_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:34:14Z",
+      "cop_created": "2026-09-17T14:25:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "92458abe91faaff8471dd69c336a32_clabs",
       "ghec": false,
       "copilot": true,
@@ -4919,6 +6509,36 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-02T14:11:13Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "92bed9974031716821e1a51293242b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:40:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "933f4d614fe3bd8b77c1d986c1c585_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "937e1b745365b4d545291d47eba5d8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:07:08Z",
+      "cop_created": "2026-09-17T13:57:14Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5093,6 +6713,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "98f00dad140465402f560044627cd6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:31:33Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "997d91b0763b7e5a24c4389cccb498_clabs",
       "ghec": false,
       "copilot": true,
@@ -5103,22 +6733,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "9984a84667acc6d3647f6bfe012680_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T17:30:41Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
       "login": "99a06520f771ffd98ea34c998ee53d_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:29:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "99d5b09ed95f57aed1152902d489f0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:54:46Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5139,6 +6769,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:05:05Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "9a78b6912a352bb75250e7706fdc1d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:35:42Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5223,6 +6863,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "9d26f870e8436c202f4a8dcbd69f96_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:34:59Z",
+      "cop_created": "2026-09-17T14:24:18Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "9d974119b7a689b706b704b77f83e9_clabs",
       "ghec": false,
       "copilot": true,
@@ -5273,6 +6923,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "a0c83ce4aeb52da71ea1725e35dd85_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:11:29Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "a1604e12bdac8b5394a4375e35d634_clabs",
       "ghec": false,
       "copilot": true,
@@ -5293,12 +6953,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "a17c8e37917779b40bfd7ce53aacae_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:53:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "a217bbc7b762bee014db31078971b1_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-08T10:11:09Z",
       "cop_created": "2026-09-08T06:13:27Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "a30a0bc6f36d6fa08feeb9b6368f43_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:24:58Z",
+      "cop_created": "2026-09-17T13:41:09Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5323,6 +7003,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "a44f1c06b8caf38d5983d3a69334e5_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:14:21Z",
+      "cop_created": "2026-09-17T14:10:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "a479fa37a1f6cd7b43c5649d2b783e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:39:41Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "a4ae31326546e1b175fe8283d5db73_clabs",
       "ghec": false,
       "copilot": true,
@@ -5339,16 +7039,6 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T04:02:07Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
-      "login": "a515140bef2f9761ef24a6ec227683_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T16:11:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5403,12 +7093,52 @@
       "monthly_cost": 19
     },
     {
+      "login": "a61006eb58b05a3482c764ce10c688_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:55:40Z",
+      "cop_created": "2026-09-17T14:24:18Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "a64fa20cde4de67b14431ac121c704_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:52:12Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "a666996366c731e69de523ad1eba91_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T12:54:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "a69ae1cc7d722fc83d55f0724d851f_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:30:57Z",
+      "cop_created": "2026-09-17T14:30:42Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "a6b82ebda02e357715d0f6b22c7d50_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:12:55Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5523,6 +7253,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "aab74ac5a506800ec352562921e8a9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:46:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "ab05a4e31ef24f2942fe533dc87a14_clabs",
       "ghec": false,
       "copilot": true,
@@ -5533,22 +7273,22 @@
       "monthly_cost": 19
     },
     {
-      "login": "ab2021547db8ebd117511b29dc4217_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T17:29:14Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
       "login": "ab4351f77fba8e762def0d2d48a86a_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:20:32Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "ab69b0a7f061059c282314a9273565_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:23:33Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5583,6 +7323,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "ae064e12a29b5442e0d529714eccaf_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:10:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "ae124283d44913032fc80d1fcbac76_clabs",
       "ghec": false,
       "copilot": true,
@@ -5609,6 +7359,26 @@
       "ghas": false,
       "cop_last": "2026-09-16T19:17:13Z",
       "cop_created": "2026-09-16T11:47:25Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "affd2ff2d58250ef875d48f7b13b17_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:25:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b00d3b1897c4b18d514dc7ab6c29bb_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:32:09Z",
+      "cop_created": "2026-09-17T14:26:01Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5693,6 +7463,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "b348fa7e7207d1ba5733cf4749293b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:43:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b35145a73204c20c0d478b5aa7307a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:43:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "b39f1e0705434d4a2f9a566127293d_clabs",
       "ghec": false,
       "copilot": true,
@@ -5709,6 +7499,26 @@
       "ghas": false,
       "cop_last": "2026-09-08T11:19:38Z",
       "cop_created": "2026-09-08T06:13:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b427ec2fb9b6cd0d57669871c74b6e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:27:32Z",
+      "cop_created": "2026-09-17T13:57:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b4f16b50902946125afaf5aefbe66d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:51:27Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5743,12 +7553,52 @@
       "monthly_cost": 19
     },
     {
+      "login": "b5f9704942266c4ac8a59f2037c3d7_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:57:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b659fa0602f8403b2bb1c9bced4927_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:34:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b6d781615e07f414f4375b64d0991e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:45:26Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "b747c423f4f1b35e846ce3f8e85a0b_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-02T20:47:59Z",
       "cop_created": "2026-09-02T14:02:11Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "b75d90db3efec317b11b28c9a799d7_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:00:00Z",
+      "cop_created": "2026-09-17T13:42:57Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5793,16 +7643,6 @@
       "monthly_cost": 19
     },
     {
-      "login": "b9886297a17224d362aa9dbca39945_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T16:10:54Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
       "login": "ba87e6bfa4da02f9fea0e54af8f417_clabs",
       "ghec": false,
       "copilot": true,
@@ -5833,12 +7673,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "bd514b0d15594e70d9ee5a436bd4d9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:37:06Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "bd68c5ffb6543f3bdef364e943333e_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:19:17Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "bdb573e72a890a67bef3c6d2a321ce_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:18:38Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "bde840ee8e39905b31a50f6d385626_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:20:14Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5859,6 +7729,16 @@
       "ghas": false,
       "cop_last": "2026-09-10T19:54:58Z",
       "cop_created": "2026-09-10T14:01:02Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "bec23520035b6395bf657c9c4eaea5_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:31:32Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5953,12 +7833,42 @@
       "monthly_cost": 19
     },
     {
-      "login": "c101acb02f569af300d7ff778d372b_clabs",
+      "login": "c16fd9935565ca4a69354627bc0f8e_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T17:31:33Z",
+      "cop_created": "2026-09-17T13:30:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c217fbc8fe337c2a515b44d03b8aec_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:10:31Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c268672f1a82c7a87dc63c76a8d717_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:51:27Z",
+      "cop_created": "2026-09-17T14:13:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c28bb73c4ce7e2181249909288f3ef_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:40:08Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -5969,6 +7879,26 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:22:12Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c2e9bf4b8670378db6192d997447c6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T18:30:47Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c336188144cd8523d139d4146d08a9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:14:38Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6003,6 +7933,46 @@
       "monthly_cost": 19
     },
     {
+      "login": "c5c62cc2f541a32db1ab60b4259753_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:12:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c5ddf1f109951ce779fbfc2d3b31c6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:26:30Z",
+      "cop_created": "2026-09-17T14:27:59Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c61f96a890d2bf737bd79f33ac0c3a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:25:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c63b1c05e8dac726d1251ffd559a72_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:31:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "c6a061074338ce0f21d931908969a1_clabs",
       "ghec": false,
       "copilot": true,
@@ -6033,12 +8003,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "c875be5948df341ee1b2c6537d4f77_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:13:27Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "c961d11a2e49e85cec19029dd17a6c_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:18:59Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "c984497ee51edb52933ad15b0c6156_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:53:28Z",
+      "cop_created": "2026-09-17T14:33:35Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6063,6 +8053,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "ca5c9f95886c69be6a7571803f5b10_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:17:24Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "ca69e2a410f98fb6d821366633cd8b_clabs",
       "ghec": false,
       "copilot": true,
@@ -6083,6 +8083,36 @@
       "monthly_cost": 19
     },
     {
+      "login": "caa36cdb1a97855b094af80ddbd084_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:52:46Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "cb17c62470b917aa12ad0a5913629a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:43:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "cb436999a66e4817d1187c8ea4b7fa_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:20:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "cb47a169704104502e0e6b6475d12f_clabs",
       "ghec": false,
       "copilot": true,
@@ -6099,6 +8129,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T13:09:10Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "cbb17dead4a765a9aedef41a254a45_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:24:18Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6183,16 +8223,6 @@
       "monthly_cost": 19
     },
     {
-      "login": "cec3f1bf8217823d74175ffa3d8f96_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": null,
-      "cop_created": "2026-09-16T16:08:36Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
       "login": "cedefafddf36227a4a7bc47a574983_clabs",
       "ghec": false,
       "copilot": true,
@@ -6203,12 +8233,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "ceef009f09491a15067ef27d712304_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:06:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "cfd2149f3b9fc236546b1799f1cf78_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:26:29Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "cfd7f7f515e7b636ff9f6cd6af8410_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T15:34:14Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6229,6 +8279,36 @@
       "ghas": false,
       "cop_last": "2026-09-16T19:30:52Z",
       "cop_created": "2026-09-16T11:47:25Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d0a7a24e3aad996be2a09e5a808ddf_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:12:18Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d0ec2657d09763645779f9e3738422_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:40:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d0f5f0bead051fab90b18bc48ec8c9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:14:13Z",
+      "cop_created": "2026-09-17T13:58:28Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6293,12 +8373,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "d2a5ab6f9e733fd3cbf15c7e4189f4_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:34:26Z",
+      "cop_created": "2026-09-17T14:21:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "d2b5e0752265b41d2c4bf900d23859_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-08T10:44:14Z",
       "cop_created": "2026-09-08T06:16:20Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d2e5790f0051ff1f1248b6c7b976c1_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:43:48Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d2f93bdb7d6a54c45dadc89d76207a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:56:59Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6343,6 +8453,36 @@
       "monthly_cost": 19
     },
     {
+      "login": "d552d5d7c1486627909a92b73c9d29_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:54:12Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d5621e6b7c227b7f819db43d8f2e94_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:42:52Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d570d7073afd22ad5fad924c278163_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:32:46Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "d5a16374faf1a9eedd523703d8c878_clabs",
       "ghec": false,
       "copilot": true,
@@ -6363,12 +8503,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "d746d02ed5c10379db216ab7871b4d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:26:44Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d75ec914d3edce2f943c1c32f11e41_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:34:51Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "d76f136623a828471da66c746be720_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:16:06Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d7854898ecc9933697a08e02f04da5_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:04:53Z",
+      "cop_created": "2026-09-17T14:09:50Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6389,6 +8559,26 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-16T12:07:24Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d83a264ec643dbebe8c76cea6920f0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:39:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d8890e84cf34b98732d258a1d3472b_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:43:59Z",
+      "cop_created": "2026-09-17T13:44:28Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6433,6 +8623,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "d91e8a2d9118b298ea7fed922a8584_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T17:31:33Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "d9599ffb2d2513a0c2b395d0da8484_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:09:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "d96cacbe69342765d432b6e66e3d5a_clabs",
       "ghec": false,
       "copilot": true,
@@ -6473,6 +8683,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "da028537c0787d39af5c796f6badd0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:21:05Z",
+      "cop_created": "2026-09-17T14:12:03Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "da081bf7d95b837ebe77c91374558b_clabs",
       "ghec": false,
       "copilot": true,
@@ -6489,6 +8709,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:01:23Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "dad05eb5ce98e75e7d26d6d8631935_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:12:18Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6519,6 +8749,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-08T06:24:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "dc1a514d38c41c43b971b581799572_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:24:49Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6563,6 +8803,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "de296619e8f5768302dbd6a4d7e1c6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:53:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "de6ddeb83f868b1297b4839a52e223_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:50:55Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "df4030ea78fa9c5590866f431dd03d_clabs",
       "ghec": false,
       "copilot": true,
@@ -6583,6 +8843,46 @@
       "monthly_cost": 19
     },
     {
+      "login": "e03883441223d17797d2ab01bd2278_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:13:28Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e07c2ebb4373e23c1088c4388f4b7d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:34:54Z",
+      "cop_created": "2026-09-17T14:20:14Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e0ce15e381eb440aa37abafff336c6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:49:36Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e194de75141c7ce159ddd43f0d4435_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:37:42Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "e1c0d4fdc200fbd09cdc953fc5b85e_clabs",
       "ghec": false,
       "copilot": true,
@@ -6599,6 +8899,36 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-20T08:47:51Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e2447d0b7976585fb58c95c23c3847_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:07:41Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e2f5b4ef2658829f5510f41890531a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:54:55Z",
+      "cop_created": "2026-09-17T14:09:50Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e34f91a37a17a5c83bd9d79d3644e7_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:47:18Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6643,12 +8973,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "e5ec02dd5137436d5579dce80a82e6_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:36:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "e5feca48e4c7e2c8a6ed70c29471a4_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T12:12:11Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "e61f5a7fa6c2bb29d170919e21e2df_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:23:54Z",
+      "cop_created": "2026-09-17T13:59:53Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6663,12 +9013,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "e6be3b14e2e6a80881ba18a33e1180_clabs",
+      "login": "e6e371e4f92e85be27db00305a2023_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T17:33:43Z",
+      "cop_created": "2026-09-16T16:11:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6723,6 +9073,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "e8f8c00bb9e6ce43640f716c024dcf_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:12:47Z",
+      "cop_created": "2026-09-17T13:40:21Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "e91a44cb9395ef7b417ac79f5b5142_clabs",
       "ghec": false,
       "copilot": true,
@@ -6743,12 +9103,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "e95a54903d4a3a1bcbea005da2e647_clabs",
+      "login": "e93ab5c477bc29d2dd5bbf78bf85d4_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-09-16T21:56:13Z",
-      "cop_created": "2026-09-16T16:06:26Z",
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:06:50Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6773,6 +9133,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "ea2496305e2991196c4c95f3785a32_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:40:58Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "ea276810f633d1a999d4932a3e99e6_clabs",
       "ghec": false,
       "copilot": true,
@@ -6783,22 +9153,12 @@
       "monthly_cost": 19
     },
     {
-      "login": "ea59ea84de02fbb7f8072549c750fc_clabs",
-      "ghec": false,
-      "copilot": true,
-      "ghas": false,
-      "cop_last": "2026-09-16T21:04:53Z",
-      "cop_created": "2026-09-16T16:10:03Z",
-      "cop_cancel": "2026-09-30",
-      "monthly_cost": 19
-    },
-    {
-      "login": "ea93d7d024b0f61c12da4c68208911_clabs",
+      "login": "ea82bf11943c0ccc6b1e0341e6ffa4_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
-      "cop_created": "2026-09-16T16:12:50Z",
+      "cop_created": "2026-09-17T14:27:19Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6819,6 +9179,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:16:36Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "eac8fd0d626552855b36919f46896d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:54:48Z",
+      "cop_created": "2026-09-17T14:09:50Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6863,6 +9233,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "ed8bb20c5ac38985c137f0e52188cb_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:44:45Z",
+      "cop_created": "2026-09-17T14:02:00Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "ee1a19e2d8c7293237c7a94f67985b_clabs",
       "ghec": false,
       "copilot": true,
@@ -6893,6 +9273,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "ef903b1e6760788cb796d357648cda_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:30:10Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "ef9f5922c7ba39a3606ba3d3d7fadf_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T16:08:36Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "efb2a704bd4000c6213e7eedf6ea69_clabs",
       "ghec": false,
       "copilot": true,
@@ -6913,12 +9313,32 @@
       "monthly_cost": 19
     },
     {
+      "login": "f069c784d20ad66fc0ef8c1c1dd7d9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:32:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "f08b7cd32134098cb56277786ac0e2_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-08-19T11:51:23Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f0be020d2021fed5d84f0c1c151aa0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T17:24:57Z",
+      "cop_created": "2026-09-17T14:10:48Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -6949,6 +9369,36 @@
       "ghas": false,
       "cop_last": "2026-09-16T18:53:56Z",
       "cop_created": "2026-09-16T11:53:08Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f2c310a18dd745203cff970fbe10c9_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:28:33Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f36401acf4929d29c7d8987ee7e2fd_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:22:03Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f383833bc4bb82d6ebdb37541c8c2d_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-16T13:52:32Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -7003,12 +9453,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "f540e37da4889e15bd1858bf0fe417_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T13:59:53Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f57ef998e7fbfe50d2884cdac12a07_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:24:58Z",
+      "cop_created": "2026-09-17T14:11:26Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "f593a87b3c86256558c95c4320b774_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-09-10T14:18:35Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f5ada87c8be33e63ee7bc074bc1a5c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:37:42Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -7073,6 +9553,26 @@
       "monthly_cost": 19
     },
     {
+      "login": "f6ed1fe0d850a70bf56e210b381df8_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T19:01:01Z",
+      "cop_created": "2026-09-17T14:26:01Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f738e226075b994608a9149dfb7d38_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:46:21Z",
+      "cop_created": "2026-09-17T13:55:04Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "f7de1173562ecc3a4519a49f69c231_clabs",
       "ghec": false,
       "copilot": true,
@@ -7093,12 +9593,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "f808beaa31c51f0a0ca878ddde918e_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T18:30:30Z",
+      "cop_created": "2026-09-17T13:42:24Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "f8385e35cac9da6ca07e30851adc70_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-10T21:13:48Z",
       "cop_created": "2026-09-10T14:10:34Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f8e4e3fe5d38a025dc58797d0aa73c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:55:30Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "f931abaa86dcd6a83f905631a1f214_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:38:43Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -7133,6 +9663,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "fa098db99c92216e1a63a3bfcca88a_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:31:32Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "fa5cfb8237e722e48ebbc5f7e8a31e_clabs",
       "ghec": false,
       "copilot": true,
@@ -7159,6 +9699,16 @@
       "ghas": false,
       "cop_last": "2026-09-08T10:54:28Z",
       "cop_created": "2026-09-08T06:20:15Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "fc81d3a1cd25b3560ba08db2f26d80_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-17T20:04:42Z",
+      "cop_created": "2026-09-17T14:22:33Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     },
@@ -7193,6 +9743,16 @@
       "monthly_cost": 19
     },
     {
+      "login": "fddd7458fd50c5376599ed92843d2f_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T17:51:27Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "fe0ea346c5b75b06d81e43e30a27d6_clabs",
       "ghec": false,
       "copilot": true,
@@ -7213,12 +9773,42 @@
       "monthly_cost": 19
     },
     {
+      "login": "fe47209894858fe7c29e55a082a134_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T14:39:16Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "fe86ca116afca577abb9725bf1d07c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-09-17T16:16:22Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
       "login": "fea018695a70a8e0a2fdb979ba00dd_clabs",
       "ghec": false,
       "copilot": true,
       "ghas": false,
       "cop_last": "2026-09-16T19:57:10Z",
       "cop_created": "2026-09-16T12:06:18Z",
+      "cop_cancel": "2026-09-30",
+      "monthly_cost": 19
+    },
+    {
+      "login": "ffd2288c553932622567fecdb9534c_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": "2026-09-16T21:12:58Z",
+      "cop_created": "2026-09-16T16:11:29Z",
       "cop_cancel": "2026-09-30",
       "monthly_cost": 19
     }
