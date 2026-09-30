@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-09-29
+## Billing watchdog — 2026-09-30
 
-**MTD net: $31362.04** (gross $36560.24) — yesterday: $2622.42 — GHEC seats: 187 — Copilot seats: 1688
+**MTD net: $34007.3** (gross $39611.48) — yesterday: $2643.92 — GHEC seats: 189 — Copilot seats: 1700
 
 ```
-ghec: $15445.5
-copilot: $12945.97
-ghas: $2851.8
-codespaces: $82.44
-code_quality: $36.33
+ghec: $16749.6
+copilot: $14013.77
+ghas: $3121.3
+codespaces: $83.97
+code_quality: $38.67
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$31362.04** |
-| → Our Azure sub (enterprise default) | $31362.04 |
+| **Total GitHub enterprise** | **$34007.30** |
+| → Our Azure sub (enterprise default) | $34007.3 |
 | → Cost centers (prepaid credit pools) | $0 |
 
 #### Credit-pool burn-down
@@ -28,51 +28,42 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 8877.4 | $53.05 |
-| Cloudlabs-Enterprises | 2826.6 | $16.93 |
-| Cloudlabs-GH-Copilot | 203 | $1.22 |
+| CL-Labs-04 | 9578.5 | $57.24 |
+| Cloudlabs-Enterprises | 2894.9 | $17.34 |
+| Cloudlabs-GH-Copilot | 214 | $1.28 |
 | Public-sector-hacks-Org | 98 | $0.59 |
 | ghas-bootcamp-2026-08-30-2369284 | 10 | $0.06 |
 | First-Org-2394817 | 4 | $0.02 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **294** — active licenses: **187** — inactive/suspended (est.): **107**
+SCIM-provisioned identities: **296** — active licenses: **189** — inactive/suspended (est.): **107**
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
-**Total sub MTD: $28584.94** — yesterday: $0.32 — GitHub charges: $28575.27
+**Total sub MTD: $31209.62** — yesterday: $0.32 — GitHub charges: $31199.59
 
 #### GitHub ↔ Azure reconciliation (our enterprise)
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $31362.04 |
-| Azure sub charge — our account (customer-13304750) | $28523.97 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $2838.07 |
+| GitHub billing API (net, enterprise default) | $34007.3 |
+| Azure sub charge — our account (customer-13304750) | $31146.39 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $2860.91 |
 
 #### ⚠️ External GitHub cost on this subscription (NOT our enterprise)
 
-**$51.3 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
+**$53.2 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
 
 GitHub charges by billing account (MTD):
 ```
-customer-13304750 (ours): $28523.97
-customer-6174522 (EXTERNAL): $34.2
-customer-13061039 (EXTERNAL): $17.1
+customer-13304750 (ours): $31146.39
+customer-6174522 (EXTERNAL): $35.47
+customer-13061039 (EXTERNAL): $17.73
 customer-12238363 (EXTERNAL): $0
 ```
 
 ### 🚨 Alerts
-- Yesterday (2026-09-28) net spend $2622.42 exceeds DAILY_LIMIT $2500
-- GHAS billing active outside bootcamp orgs: CL-Labs-04/odl-user-2382236_clabs
-- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/aiw-devops-with-github-lab-files-new
-- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/-aiw-devops-with-github-lab-files
-- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/aiw-devops-with-github-lab-files-2399689
-- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/aiw-devops-with-github-lab-files-2402014
-- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/aiw-devops-with-github-lab-files-2405918
-- Unknown org detected (matches no known pattern): CL-Lab-RAM
-- Unknown org detected (matches no known pattern): i333TEST
-- Unknown org detected (matches no known pattern): M-sOrg
-- External GitHub enterprise(s) charging this Azure sub $51.3 MTD (not customer-13304750): customer-6174522 $34.2, customer-13061039 $17.1, customer-12238363 $0
+- Yesterday (2026-09-29) net spend $2643.92 exceeds DAILY_LIMIT $2500
+- External GitHub enterprise(s) charging this Azure sub $53.2 MTD (not customer-13304750): customer-6174522 $35.47, customer-13061039 $17.73, customer-12238363 $0
 
