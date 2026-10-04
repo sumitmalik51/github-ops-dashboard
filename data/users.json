@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-03T05:00:42Z",
-  "count": 204,
+  "generated": "2026-10-04T06:42:19Z",
+  "count": 205,
   "users": [
     {
       "login": "maryland-admin01_clabs",
@@ -1729,6 +1729,16 @@
       "ghas": false,
       "cop_last": null,
       "cop_created": "2026-10-01T13:14:51Z",
+      "cop_cancel": "2026-10-31",
+      "monthly_cost": 19
+    },
+    {
+      "login": "96e3168b06472ef053fe78cfb1e527_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-10-03T11:04:17Z",
       "cop_cancel": "2026-10-31",
       "monthly_cost": 19
     },
