@@ -1,6 +1,6 @@
 {
-  "generated": "2026-10-04T06:42:19Z",
-  "count": 205,
+  "generated": "2026-10-05T05:18:07Z",
+  "count": 206,
   "users": [
     {
       "login": "maryland-admin01_clabs",
@@ -537,7 +537,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": "2026-10-02T16:43:29Z",
+      "cop_last": "2026-10-04T13:07:48Z",
       "cop_created": "2026-08-04T17:35:07Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1007,7 +1007,7 @@
       "ghec": true,
       "copilot": true,
       "ghas": false,
-      "cop_last": null,
+      "cop_last": "2026-10-04T16:16:53Z",
       "cop_created": "2026-10-02T15:28:41Z",
       "cop_cancel": null,
       "monthly_cost": 40
@@ -1409,6 +1409,16 @@
       "ghas": false,
       "cop_last": "2026-10-01T13:38:14Z",
       "cop_created": "2026-10-01T08:33:07Z",
+      "cop_cancel": "2026-10-31",
+      "monthly_cost": 19
+    },
+    {
+      "login": "169016bda70ba6ebe2584daffcf2d0_clabs",
+      "ghec": false,
+      "copilot": true,
+      "ghas": false,
+      "cop_last": null,
+      "cop_created": "2026-10-04T21:40:35Z",
       "cop_cancel": "2026-10-31",
       "monthly_cost": 19
     },

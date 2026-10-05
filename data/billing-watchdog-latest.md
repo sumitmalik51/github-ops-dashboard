@@ -1,11 +1,11 @@
-## Billing watchdog — 2026-10-04
+## Billing watchdog — 2026-10-05
 
-**MTD net: $707.17** (gross $1770.1) — yesterday: $247.96 — GHEC seats: 133 — Copilot seats: 174
+**MTD net: $956.38** (gross $2298.22) — yesterday: $249.25 — GHEC seats: 133 — Copilot seats: 175
 
 ```
-ghec: $401.03
-copilot: $301.55
-codespaces: $4.59
+ghec: $541.94
+copilot: $408.81
+codespaces: $5.64
 actions: $0
 ```
 
@@ -13,8 +13,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$707.17** |
-| → Our Azure sub (enterprise default) | $707.17 |
+| **Total GitHub enterprise** | **$956.38** |
+| → Our Azure sub (enterprise default) | $956.38 |
 | → Cost centers (prepaid credit pools) | $0 |
 
 #### Credit-pool burn-down
@@ -26,9 +26,9 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 265.1 | $1.52 |
-| Cloudlabs-Enterprises | 55.1 | $0.32 |
-| Cloudlabs-GH-Copilot | 46 | $0.28 |
+| CL-Labs-04 | 269 | $1.52 |
+| Cloudlabs-Enterprises | 62.4 | $0.37 |
+| Cloudlabs-GH-Copilot | 55 | $0.33 |
 | Public-sector-hacks-Org | 10 | $0.06 |
 
 ### 👤 Identity & licenses
@@ -37,30 +37,30 @@ SCIM-provisioned identities: **239** — active licenses: **133** — inactive/s
 
 ### ☁️ Azure subscription (GitHub billing sub)
 
-**Total sub MTD: $462.23** — yesterday: $0.34 — GitHub charges: $461.21
+**Total sub MTD: $1099.41** — yesterday: $387.38 — GitHub charges: $711.02
 
 #### GitHub ↔ Azure reconciliation (our enterprise)
 
 | Source | MTD |
 |---|---|
-| GitHub billing API (net, enterprise default) | $707.17 |
-| Azure sub charge — our account (customer-13304750) | $457.53 |
-| Difference (GitHub today's accrual not yet posted + reporting lag) | $249.64 |
+| GitHub billing API (net, enterprise default) | $956.38 |
+| Azure sub charge — our account (customer-13304750) | $705.5 |
+| Difference (GitHub today's accrual not yet posted + reporting lag) | $250.88 |
 
 #### ⚠️ External GitHub cost on this subscription (NOT our enterprise)
 
-**$3.68 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
+**$5.52 MTD** is billed to this Azure subscription by GitHub enterprise account(s) that are **not** `customer-13304750`:
 
 GitHub charges by billing account (MTD):
 ```
-customer-13304750 (ours): $457.53
-customer-6174522 (EXTERNAL): $2.45
-customer-13061039 (EXTERNAL): $1.23
+customer-13304750 (ours): $705.5
+customer-6174522 (EXTERNAL): $3.68
+customer-13061039 (EXTERNAL): $1.84
 customer-12238363 (EXTERNAL): $0
 ```
 
 ### 🚨 Alerts
-- Anomaly: copilot spent $106.65 yesterday vs $27.84/day 7-day average (>2x)
-- Anomaly: ghec spent $140.23 yesterday vs $37.06/day 7-day average (>2x)
-- External GitHub enterprise(s) charging this Azure sub $3.68 MTD (not customer-13304750): customer-6174522 $2.45, customer-13061039 $1.23, customer-12238363 $0
+- Anomaly: copilot spent $107.26 yesterday vs $43.08/day 7-day average (>2x)
+- Anomaly: ghec spent $140.9 yesterday vs $57.1/day 7-day average (>2x)
+- External GitHub enterprise(s) charging this Azure sub $5.52 MTD (not customer-13304750): customer-6174522 $3.68, customer-13061039 $1.84, customer-12238363 $0
 
