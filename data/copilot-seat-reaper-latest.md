@@ -1,14 +1,14 @@
-## Copilot seat reaper — 2026-10-12 (dry_run=true)
+## Copilot seat reaper — 2026-10-13 (dry_run=true)
 
-Total seats: 309 — idle ≥30d candidates: **33** (≈ $627/month) — unassigned this run: 0
+Total seats: 327 — idle ≥30d candidates: **33** (≈ $627/month) — unassigned this run: 0
 
-**Activity (cutoff: 30d):** 🟢 active: **96** · 🟡 used but idle: 16 · ⚪ never used (in grace): 166 · 🔴 never used (past grace): 31 · ⏳ pending cancellation: 210
+**Activity (cutoff: 30d):** 🟢 active: **99** · 🟡 used but idle: 16 · ⚪ never used (in grace): 181 · 🔴 never used (past grace): 31 · ⏳ pending cancellation: 222
 
 ### Seats by org
 
 | Org | Seats | Active | Never used | Idle |
 |---|---|---|---|---|
-| CL-Labs-04 | 260 | 62 | 182 | 16 |
+| CL-Labs-04 | 278 | 65 | 197 | 16 |
 | Public-sector-hacks-Org | 48 | 34 | 14 | 0 |
 | Cloudlabs-Enterprises | 1 | 0 | 1 | 0 |
 
