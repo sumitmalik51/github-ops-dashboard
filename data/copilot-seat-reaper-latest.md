@@ -1,21 +1,20 @@
-## Copilot seat reaper — 2026-10-14 (dry_run=true)
+## Copilot seat reaper — 2026-10-15 (dry_run=true)
 
-Total seats: 469 — idle ≥30d candidates: **33** (≈ $627/month) — unassigned this run: 0
+Total seats: 481 — idle ≥30d candidates: **33** (≈ $627/month) — unassigned this run: 0
 
-**Activity (cutoff: 30d):** 🟢 active: **114** · 🟡 used but idle: 16 · ⚪ never used (in grace): 308 · 🔴 never used (past grace): 31 · ⏳ pending cancellation: 277
+**Activity (cutoff: 30d):** 🟢 active: **123** · 🟡 used but idle: 16 · ⚪ never used (in grace): 307 · 🔴 never used (past grace): 35 · ⏳ pending cancellation: 284
 
 ### Seats by org
 
 | Org | Seats | Active | Never used | Idle |
 |---|---|---|---|---|
-| CL-Labs-04 | 420 | 80 | 324 | 16 |
+| CL-Labs-04 | 432 | 89 | 327 | 16 |
 | Public-sector-hacks-Org | 48 | 34 | 14 | 0 |
 | Cloudlabs-Enterprises | 1 | 0 | 1 | 0 |
 
 | Org | User | Last activity |
 |---|---|---|
 | Cloudlabs-Enterprises | odl-user-2177706_clabs | never |
-| CL-Labs-04 | odl-user-2338722_clabs | 2026-08-04T16:21:34Z |
 | CL-Labs-04 | odl-user-2341675_clabs | 2026-09-10T09:13:54Z |
 | CL-Labs-04 | odl-user-2341678_clabs | never |
 | CL-Labs-04 | odl-user-2341679_clabs | never |
@@ -43,7 +42,8 @@ Total seats: 469 — idle ≥30d candidates: **33** (≈ $627/month) — unassig
 | CL-Labs-04 | odl-user-2376417_clabs | never |
 | CL-Labs-04 | odl-user-2376621_clabs | 2026-09-07T21:04:24Z |
 | CL-Labs-04 | odl-user-2379973_clabs | never |
-| CL-Labs-04 | odl-user-2380010_clabs | never |
-| CL-Labs-04 | odl-user-2380371_clabs | never |
 | CL-Labs-04 | odl-user-2380841_clabs | 2026-09-09T18:02:53Z |
-| CL-Labs-04 | odl-user-2384056_clabs | never |
+| CL-Labs-04 | odl-user-2385490_clabs | never |
+| CL-Labs-04 | odl-user-2385560_clabs | never |
+| CL-Labs-04 | odl-user-2385617_clabs | never |
+| CL-Labs-04 | odl-user-2385873_clabs | never |
