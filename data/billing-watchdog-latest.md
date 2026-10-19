@@ -1,12 +1,12 @@
-## Billing watchdog — 2026-10-18
+## Billing watchdog — 2026-10-19
 
-**MTD net: $8255.59** (gross $14860.08) — yesterday: $926.58 — GHEC seats: 302 — Copilot seats: 664
+**MTD net: $9183.46** (gross $16493.31) — yesterday: $926.58 — GHEC seats: 303 — Copilot seats: 665
 
 ```
-ghec: $4647.77
-copilot: $3576.29
-codespaces: $25.72
-code_quality: $5.81
+ghec: $5166
+copilot: $3983.87
+codespaces: $25.85
+code_quality: $7.74
 actions: $0
 ```
 
@@ -14,8 +14,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$8255.59** |
-| → Our Azure sub (enterprise default) | $8255.59 |
+| **Total GitHub enterprise** | **$9183.46** |
+| → Our Azure sub (enterprise default) | $9183.46 |
 | → Cost centers (prepaid credit pools) | $0 |
 
 #### Credit-pool burn-down
@@ -27,13 +27,13 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 1888.6 | $10.94 |
-| Cloudlabs-Enterprises | 1114.9 | $6.66 |
-| Cloudlabs-GH-Copilot | 217 | $1.3 |
+| CL-Labs-04 | 1913.7 | $11.06 |
+| Cloudlabs-Enterprises | 1215.2 | $7.26 |
+| Cloudlabs-GH-Copilot | 237 | $1.42 |
 | Public-sector-hacks-Org | 10 | $0.06 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **559** — active licenses: **302** — inactive/suspended (est.): **257**
+SCIM-provisioned identities: **560** — active licenses: **303** — inactive/suspended (est.): **257**
 
 ✅ No alerts.
