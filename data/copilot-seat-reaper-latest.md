@@ -1,15 +1,15 @@
-## Copilot seat reaper — 2026-10-22 (dry_run=true)
+## Copilot seat reaper — 2026-10-23 (dry_run=true)
 
-Total seats: 991 — idle ≥30d candidates: **32** (≈ $608/month) — unassigned this run: 0
+Total seats: 1118 — idle ≥30d candidates: **31** (≈ $589/month) — unassigned this run: 0
 
-**Activity (cutoff: 30d):** 🟢 active: **260** · 🟡 used but idle: 20 · ⚪ never used (in grace): 676 · 🔴 never used (past grace): 35 · ⏳ pending cancellation: 675
+**Activity (cutoff: 30d):** 🟢 active: **290** · 🟡 used but idle: 19 · ⚪ never used (in grace): 774 · 🔴 never used (past grace): 35 · ⏳ pending cancellation: 729
 
 ### Seats by org
 
 | Org | Seats | Active | Never used | Idle |
 |---|---|---|---|---|
-| CL-Labs-04 | 830 | 215 | 600 | 15 |
-| PPCC-Workshop | 112 | 16 | 96 | 0 |
+| CL-Labs-04 | 914 | 234 | 666 | 14 |
+| PPCC-Workshop | 155 | 27 | 128 | 0 |
 | Public-sector-hacks-Org | 48 | 29 | 14 | 5 |
 | Cloudlabs-Enterprises | 1 | 0 | 1 | 0 |
 
@@ -22,7 +22,6 @@ Total seats: 991 — idle ≥30d candidates: **32** (≈ $608/month) — unassig
 | CL-Labs-04 | odl-user-2341680_clabs | never |
 | CL-Labs-04 | odl-user-2341681_clabs | never |
 | CL-Labs-04 | odl-user-2341682_clabs | 2026-08-13T21:47:29Z |
-| CL-Labs-04 | odl-user-2341683_clabs | 2026-09-10T14:40:17Z |
 | CL-Labs-04 | odl-user-2341702_clabs | 2026-09-10T13:32:38Z |
 | CL-Labs-04 | odl-user-2341704_clabs | 2026-09-10T19:50:01Z |
 | CL-Labs-04 | odl-user-2341705_clabs | 2026-09-10T21:41:47Z |
