@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-10-27
+## Billing watchdog — 2026-10-28
 
-**MTD net: $22369.25** (gross $35835.76) — yesterday: $1879.66 — GHEC seats: 979 — Copilot seats: 1668
+**MTD net: $24135.36** (gross $38007.66) — yesterday: $1766.12 — GHEC seats: 993 — Copilot seats: 1683
 
 ```
-ghec: $12002.52
-copilot: $10272.84
-ghas: $39.52
-code_quality: $27.74
-codespaces: $26.63
+ghec: $12957
+copilot: $11073.9
+ghas: $47.42
+code_quality: $30.32
+codespaces: $26.72
 actions: $0
 ```
 
@@ -15,31 +15,31 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$22734.41** |
-| → Our Azure sub (enterprise default) | $22369.25 |
-| → Cost centers (prepaid credit pools) | $365.16 |
+| **Total GitHub enterprise** | **$24984.39** |
+| → Our Azure sub (enterprise default) | $24135.36 |
+| → Cost centers (prepaid credit pools) | $849.03 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
 | PPCC2000 | $0 | $0.00 | 0% | $0 | — |
-| PPCC2500 | $0 | $107.10 | 0% | $0 | — |
+| PPCC2500 | $0 | $332.90 | 0% | $0 | — |
 | PPCC3000 | $0 | $0.00 | 0% | $0 | — |
-| PPCC5000 | $0 | $258.06 | 0% | $0 | — |
+| PPCC5000 | $0 | $516.13 | 0% | $0 | — |
 
 ### ⚙️ Actions consumption by org (MTD)
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 3006.2 | $17.44 |
-| Cloudlabs-Enterprises | 1813.9 | $10.83 |
-| Cloudlabs-GH-Copilot | 330 | $1.98 |
+| CL-Labs-04 | 3040.3 | $17.62 |
+| Cloudlabs-Enterprises | 1881.2 | $11.24 |
+| Cloudlabs-GH-Copilot | 346 | $2.08 |
 | Public-sector-hacks-Org | 10 | $0.06 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1085** — active licenses: **979** — inactive/suspended (est.): **106**
+SCIM-provisioned identities: **1100** — active licenses: **993** — inactive/suspended (est.): **107**
 
 ### 🚨 Alerts
 - GHAS billing active outside bootcamp orgs: odl-user-2417469_clabs/pod4

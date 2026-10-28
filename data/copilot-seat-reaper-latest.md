@@ -1,14 +1,14 @@
-## Copilot seat reaper — 2026-10-27 (dry_run=true)
+## Copilot seat reaper — 2026-10-28 (dry_run=true)
 
-Total seats: 1704 — idle ≥30d candidates: **34** (≈ $646/month) — unassigned this run: 0
+Total seats: 1719 — idle ≥30d candidates: **30** (≈ $570/month) — unassigned this run: 0
 
-**Activity (cutoff: 30d):** 🟢 active: **486** · 🟡 used but idle: 47 · ⚪ never used (in grace): 1134 · 🔴 never used (past grace): 37 · ⏳ pending cancellation: 786
+**Activity (cutoff: 30d):** 🟢 active: **499** · 🟡 used but idle: 44 · ⚪ never used (in grace): 1140 · 🔴 never used (past grace): 36 · ⏳ pending cancellation: 787
 
 ### Seats by org
 
 | Org | Seats | Active | Never used | Idle |
 |---|---|---|---|---|
-| CL-Labs-04 | 931 | 241 | 675 | 15 |
+| CL-Labs-04 | 946 | 254 | 680 | 12 |
 | PPCC-Workshop | 724 | 243 | 481 | 0 |
 | Public-sector-hacks-Org | 48 | 2 | 14 | 32 |
 | Cloudlabs-Enterprises | 1 | 0 | 1 | 0 |
@@ -21,11 +21,8 @@ Total seats: 1704 — idle ≥30d candidates: **34** (≈ $646/month) — unassi
 | CL-Labs-04 | odl-user-2341678_clabs | never |
 | CL-Labs-04 | odl-user-2341679_clabs | never |
 | CL-Labs-04 | odl-user-2341680_clabs | never |
-| CL-Labs-04 | odl-user-2341681_clabs | never |
 | CL-Labs-04 | odl-user-2341682_clabs | 2026-08-13T21:47:29Z |
 | CL-Labs-04 | odl-user-2341702_clabs | 2026-09-10T13:32:38Z |
-| CL-Labs-04 | odl-user-2341704_clabs | 2026-09-10T19:50:01Z |
-| CL-Labs-04 | odl-user-2341705_clabs | 2026-09-10T21:41:47Z |
 | CL-Labs-04 | odl-user-2341706_clabs | never |
 | CL-Labs-04 | odl-user-2341710_clabs | never |
 | CL-Labs-04 | odl-user-2341714_clabs | never |
@@ -33,7 +30,6 @@ Total seats: 1704 — idle ≥30d candidates: **34** (≈ $646/month) — unassi
 | CL-Labs-04 | odl-user-2341718_clabs | 2026-08-12T11:42:34Z |
 | CL-Labs-04 | odl-user-2341719_clabs | 2026-08-13T08:00:29Z |
 | CL-Labs-04 | odl-user-2341720_clabs | 2026-08-13T09:41:16Z |
-| CL-Labs-04 | odl-user-2341721_clabs | 2026-08-13T12:19:00Z |
 | CL-Labs-04 | odl-user-2341722_clabs | 2026-09-09T11:45:30Z |
 | CL-Labs-04 | odl-user-2341723_clabs | never |
 | CL-Labs-04 | odl-user-2359208_clabs | never |
