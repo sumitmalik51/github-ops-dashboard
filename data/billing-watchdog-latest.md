@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-10-30
+## Billing watchdog — 2026-10-31
 
-**MTD net: $28060.46** (gross $42746.42) — yesterday: $2141.71 — GHEC seats: 1114 — Copilot seats: 1810
+**MTD net: $29994.65** (gross $44689.38) — yesterday: $1939.52 — GHEC seats: 518 — Copilot seats: 1857
 
 ```
-ghec: $14958.1
-copilot: $12959.39
-ghas: $80.61
-code_quality: $35.48
-codespaces: $26.88
+ghec: $15968.13
+copilot: $13854.01
+ghas: $107.48
+code_quality: $38.06
+codespaces: $26.97
 actions: $0
 ```
 
@@ -15,32 +15,33 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$29877.24** |
-| → Our Azure sub (enterprise default) | $28060.46 |
-| → Cost centers (prepaid credit pools) | $1816.78 |
+| **Total GitHub enterprise** | **$33584.76** |
+| → Our Azure sub (enterprise default) | $29994.65 |
+| → Cost centers (prepaid credit pools) | $3590.11 |
 
 #### Credit-pool burn-down
 
 | Cost center | Pool | Used (cum.) | % | Remaining | Expires in |
 |---|---|---|---|---|---|
 | PPCC2000 | $0 | $0.00 | 0% | $0 | — |
-| PPCC2500 | $0 | $784.52 | 0% | $0 | — |
+| PPCC2500 | $0 | $1010.32 | 0% | $0 | — |
 | PPCC3000 | $0 | $0.00 | 0% | $0 | — |
-| PPCC5000 | $0 | $1032.26 | 0% | $0 | — |
+| PPCC5000 | $0 | $1290.32 | 0% | $0 | — |
+| PPCC7500 | $0 | $1289.47 | 0% | $0 | — |
 
 ### ⚙️ Actions consumption by org (MTD)
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 3282.4 | $19.02 |
-| Cloudlabs-Enterprises | 2005.9 | $11.98 |
-| Cloudlabs-GH-Copilot | 372 | $2.23 |
+| CL-Labs-04 | 3309.5 | $19.16 |
+| Cloudlabs-Enterprises | 2079.2 | $12.42 |
+| Cloudlabs-GH-Copilot | 387 | $2.32 |
+| ghas-bootcamp-2026-10-29-2449778 | 18 | $0.11 |
 | Public-sector-hacks-Org | 10 | $0.06 |
-| ghas-bootcamp-2026-10-29-2449778 | 4 | $0.02 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1220** — active licenses: **1114** — inactive/suspended (est.): **106**
+SCIM-provisioned identities: **1242** — active licenses: **518** — inactive/suspended (est.): **724**
 
 ### 🚨 Alerts
 - GHAS billing active outside bootcamp orgs: odl-user-2417469_clabs/pod4
