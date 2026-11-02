@@ -1,8 +1,12 @@
-## Billing watchdog — 2026-11-01
+## Billing watchdog — 2026-11-02
 
-**MTD net: $0** (gross $0.04) — yesterday: $0 — GHEC seats: 21 — Copilot seats: 22
+**MTD net: $159.03** (gross $182.27) — yesterday: $40.37 — GHEC seats: 113 — Copilot seats: 117
 
 ```
+ghec: $83.3
+copilot: $74.1
+ghas: $1.63
+codespaces: $0
 actions: $0
 ```
 
@@ -10,8 +14,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$0.00** |
-| → Our Azure sub (enterprise default) | $0 |
+| **Total GitHub enterprise** | **$159.03** |
+| → Our Azure sub (enterprise default) | $159.03 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -28,15 +32,14 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Cloudlabs-GH-Copilot | 6 | $0.04 |
-| Cloudlabs-Enterprises | 1.1 | $0.01 |
-| CL-Labs-04 | 0.8 | $0 |
+| Cloudlabs-GH-Copilot | 16 | $0.1 |
+| CL-Labs-04 | 8.9 | $0.03 |
+| Cloudlabs-Enterprises | 2.4 | $0.01 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1052** — active licenses: **21** — inactive/suspended (est.): **1031**
+SCIM-provisioned identities: **958** — active licenses: **113** — inactive/suspended (est.): **845**
 
 ### 🚨 Alerts
-- GHAS billing active outside bootcamp orgs: odl-user-2415740_clabs/M01-starter
 - Unknown org detected (matches no known pattern): PPCC-Workshop
 
