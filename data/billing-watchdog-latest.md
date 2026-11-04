@@ -1,12 +1,13 @@
-## Billing watchdog — 2026-11-03
+## Billing watchdog — 2026-11-04
 
-**MTD net: $625.03** (gross $954.55) — yesterday: $458 — GHEC seats: 338 — Copilot seats: 346
+**MTD net: $1455.21** (gross $2451.88) — yesterday: $824.84 — GHEC seats: 250 — Copilot seats: 615
 
 ```
-ghec: $326.9
-copilot: $293.23
-ghas: $4.9
-codespaces: $0
+ghec: $760.9
+copilot: $682.73
+ghas: $9.8
+code_quality: $1.33
+codespaces: $0.45
 actions: $0
 ```
 
@@ -14,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$625.03** |
-| → Our Azure sub (enterprise default) | $625.03 |
+| **Total GitHub enterprise** | **$1455.21** |
+| → Our Azure sub (enterprise default) | $1455.21 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -31,19 +32,20 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 27 | $0.11 |
-| Cloudlabs-GH-Copilot | 25 | $0.15 |
-| ghas-bootcamp-2026-10-29-2449778 | 19 | $0.11 |
-| Cloudlabs-Enterprises | 6.7 | $0.04 |
+| CL-Labs-04 | 1302.1 | $7.74 |
+| Cloudlabs-Enterprises | 272.1 | $1.69 |
+| Cloudlabs-GH-Copilot | 39 | $0.23 |
+| ghas-bootcamp-2026-10-29-2449778 | 23.1 | $0.14 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1030** — active licenses: **338** — inactive/suspended (est.): **692**
+SCIM-provisioned identities: **1105** — active licenses: **250** — inactive/suspended (est.): **855**
 
 ### 🚨 Alerts
-- Anomaly: copilot spent $215.33 yesterday vs $2.53/day 7-day average (>2x)
-- Anomaly: ghec spent $239.4 yesterday vs $3/day 7-day average (>2x)
-- GHEC license consumption grew by 225 since last run (113 -> 338) — a large lab may have onboarded (~$4725/mo run-rate)
-- Copilot seats grew by 229 since last run (117 -> 346) (~$4351/mo run-rate)
+- Anomaly: copilot spent $386.97 yesterday vs $33.3/day 7-day average (>2x)
+- Anomaly: ghec spent $431.2 yesterday vs $37.2/day 7-day average (>2x)
+- Copilot seats grew by 269 since last run (346 -> 615) (~$5111/mo run-rate)
+- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/github-action-2455848
+- Unknown org detected (matches no known pattern): devops-org-20261103-2455848
 - Unknown org detected (matches no known pattern): PPCC-Workshop
 
