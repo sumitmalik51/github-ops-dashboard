@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-04
+## Billing watchdog — 2026-11-05
 
-**MTD net: $1455.21** (gross $2451.88) — yesterday: $824.84 — GHEC seats: 250 — Copilot seats: 615
+**MTD net: $2609.37** (gross $3931.63) — yesterday: $1118.86 — GHEC seats: 388 — Copilot seats: 858
 
 ```
-ghec: $760.9
-copilot: $682.73
-ghas: $9.8
-code_quality: $1.33
-codespaces: $0.45
+ghec: $1365
+copilot: $1224.23
+ghas: $16.33
+code_quality: $3
+codespaces: $0.81
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$1455.21** |
-| → Our Azure sub (enterprise default) | $1455.21 |
+| **Total GitHub enterprise** | **$2609.37** |
+| → Our Azure sub (enterprise default) | $2609.37 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,20 +32,23 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 1302.1 | $7.74 |
-| Cloudlabs-Enterprises | 272.1 | $1.69 |
-| Cloudlabs-GH-Copilot | 39 | $0.23 |
+| CL-Labs-04 | 1910.6 | $11.36 |
+| Cloudlabs-Enterprises | 343.4 | $2.11 |
+| Cloudlabs-GH-Copilot | 49 | $0.29 |
 | ghas-bootcamp-2026-10-29-2449778 | 23.1 | $0.14 |
+| ghas-bootcamp-2026-11-04-2457726 | 11 | $0.07 |
+| devops-org-20261103-2455848 | 4 | $0.02 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1105** — active licenses: **250** — inactive/suspended (est.): **855**
+SCIM-provisioned identities: **1155** — active licenses: **388** — inactive/suspended (est.): **767**
 
 ### 🚨 Alerts
-- Anomaly: copilot spent $386.97 yesterday vs $33.3/day 7-day average (>2x)
-- Anomaly: ghec spent $431.2 yesterday vs $37.2/day 7-day average (>2x)
-- Copilot seats grew by 269 since last run (346 -> 615) (~$5111/mo run-rate)
+- Anomaly: copilot spent $524.4 yesterday vs $88.58/day 7-day average (>2x)
+- Anomaly: ghec spent $585.9 yesterday vs $98.8/day 7-day average (>2x)
+- Copilot seats grew by 243 since last run (615 -> 858) (~$4617/mo run-rate)
 - GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/github-action-2455848
-- Unknown org detected (matches no known pattern): devops-org-20261103-2455848
+- Unknown org detected (matches no known pattern): devops-org-20261104-2458551
+- Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): PPCC-Workshop
 
