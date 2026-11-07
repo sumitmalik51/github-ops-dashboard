@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-06
+## Billing watchdog — 2026-11-07
 
-**MTD net: $4122.45** (gross $6198.59) — yesterday: $1512.27 — GHEC seats: 650 — Copilot seats: 1120
+**MTD net: $5826.59** (gross $8802.15) — yesterday: $1698.21 — GHEC seats: 508 — Copilot seats: 1256
 
 ```
-ghec: $2156.7
-copilot: $1933.57
-ghas: $24.5
-code_quality: $4.67
-codespaces: $3.02
+ghec: $3049.9
+copilot: $2730.93
+ghas: $34.3
+code_quality: $6.33
+codespaces: $5.12
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$4122.45** |
-| → Our Azure sub (enterprise default) | $4122.45 |
+| **Total GitHub enterprise** | **$5826.59** |
+| → Our Azure sub (enterprise default) | $5826.59 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,23 +32,20 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| CL-Labs-04 | 2056.5 | $12.21 |
-| Cloudlabs-Enterprises | 392.6 | $2.41 |
-| Cloudlabs-GH-Copilot | 59 | $0.35 |
-| ghas-bootcamp-2026-11-05-2460398 | 41 | $0.25 |
-| ghas-bootcamp-2026-10-29-2449778 | 23.2 | $0.14 |
-| ghas-bootcamp-2026-11-04-2457726 | 11 | $0.07 |
+| CL-Labs-04 | 2348.7 | $13.94 |
+| Public-sector-hacks-Org | 929.7 | $5.57 |
+| Cloudlabs-Enterprises | 434.7 | $2.72 |
+| Cloudlabs-GH-Copilot | 74 | $0.44 |
+| ghas-bootcamp-2026-11-06-2462323 | 51 | $0.31 |
+| ghas-bootcamp-2026-11-05-2460398 | 41.1 | $0.25 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1229** — active licenses: **650** — inactive/suspended (est.): **579**
+SCIM-provisioned identities: **1175** — active licenses: **508** — inactive/suspended (est.): **667**
 
 ### 🚨 Alerts
-- Anomaly: copilot spent $708.7 yesterday vs $163.49/day 7-day average (>2x)
-- Anomaly: ghec spent $791.7 yesterday vs $182.5/day 7-day average (>2x)
-- GHEC license consumption grew by 262 since last run (388 -> 650) — a large lab may have onboarded (~$5502/mo run-rate)
-- Copilot seats grew by 262 since last run (858 -> 1120) (~$4978/mo run-rate)
-- GHAS billing active outside bootcamp orgs: Cloudlabs-Enterprises/github-action-2455848
+- Anomaly: copilot spent $795.47 yesterday vs $264.73/day 7-day average (>2x)
+- Anomaly: ghec spent $889 yesterday vs $295.6/day 7-day average (>2x)
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): devops-org-20261105-2460647
