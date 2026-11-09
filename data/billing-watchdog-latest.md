@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-08
+## Billing watchdog — 2026-11-09
 
-**MTD net: $7532** (gross $10664.59) — yesterday: $1702.74 — GHEC seats: 514 — Copilot seats: 1262
+**MTD net: $9243.35** (gross $12432.83) — yesterday: $1707.35 — GHEC seats: 501 — Copilot seats: 1267
 
 ```
-ghec: $3943.8
-copilot: $3530.2
-ghas: $44.1
-code_quality: $8
-codespaces: $5.9
+ghec: $4841.2
+copilot: $4332.63
+ghas: $53.9
+code_quality: $9.67
+codespaces: $5.95
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$7532.00** |
-| → Our Azure sub (enterprise default) | $7532 |
+| **Total GitHub enterprise** | **$9243.35** |
+| → Our Azure sub (enterprise default) | $9243.35 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,20 +32,18 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Public-sector-hacks-Org | 3124.3 | $18.33 |
-| CL-Labs-04 | 2409.3 | $14.3 |
-| Cloudlabs-Enterprises | 453.7 | $2.83 |
-| Cloudlabs-GH-Copilot | 84 | $0.5 |
-| ghas-bootcamp-2026-11-06-2462323 | 51.1 | $0.31 |
-| ghas-bootcamp-2026-11-05-2460398 | 41.1 | $0.25 |
+| Public-sector-hacks-Org | 3229.1 | $18.37 |
+| CL-Labs-04 | 2446.9 | $14.51 |
+| Cloudlabs-Enterprises | 469.7 | $2.93 |
+| Cloudlabs-GH-Copilot | 95 | $0.57 |
+| ghas-bootcamp-2026-11-06-2462323 | 51.2 | $0.31 |
+| ghas-bootcamp-2026-11-05-2460398 | 41.2 | $0.25 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1002** — active licenses: **514** — inactive/suspended (est.): **488**
+SCIM-provisioned identities: **1005** — active licenses: **501** — inactive/suspended (est.): **504**
 
 ### 🚨 Alerts
-- Anomaly: copilot spent $798 yesterday vs $378.37/day 7-day average (>2x)
-- Anomaly: ghec spent $892.5 yesterday vs $422.6/day 7-day average (>2x)
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): devops-org-20261105-2460647
