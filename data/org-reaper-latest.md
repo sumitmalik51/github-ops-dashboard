@@ -1,50 +1,21 @@
-## Org reaper — 2026-09-27 (dry_run=false)
+## Org reaper — 2026-11-11 (dry_run=false)
 | Org | Basis date | Deadline | Action |
 |---|---|---|---|
-| ghas-bootcamp-2026-09-21-2394793 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394800 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394795 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394799 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394806 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394803 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394804 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394808 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394807 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394810 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394817 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394811 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394812 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394813 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394815 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394823 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394821 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394820 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394822 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394826 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394835 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394830 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394834 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394832 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394833 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2394872 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| First-Org-2394804 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394800 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394795 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| ghas-bootcamp-2026-09-21-2395200 | 2026-09-21 (event-date) | 2026-09-28 | kept |
-| First-Org-2394817 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394808 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394806 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394793 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394822 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394810 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394811 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394833 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394832 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394803 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394835 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394799 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394821 | 2026-09-21 (created-at) | 2026-09-28 | kept |
-| First-Org-2394812 | 2026-09-21 (created-at) | 2026-09-28 | kept |
+| ghas-bootcamp-2026-10-29-2449534 | 2026-10-29 (event-date) | 2026-11-05 | **deleted** |
+| ghas-bootcamp-2026-10-29-2449778 | 2026-10-29 (event-date) | 2026-11-05 | **deleted** |
+| ghas-bootcamp-2026-10-29-2449981 | 2026-10-29 (event-date) | 2026-11-05 | **deleted** |
+| ghas-bootcamp-2026-11-02-2454178 | 2026-11-02 (event-date) | 2026-11-09 | **deleted** |
+| ghas-bootcamp-2026-11-03-2455117 | 2026-11-03 (event-date) | 2026-11-10 | **deleted** |
+| ghas-bootcamp-2026-11-03-2455240 | 2026-11-03 (event-date) | 2026-11-10 | **deleted** |
+| ghas-bootcamp-2026-11-03-2455368 | 2026-11-03 (event-date) | 2026-11-10 | **deleted** |
+| ghas-bootcamp-2026-11-04-2457388 | 2026-11-04 (event-date) | 2026-11-11 | **deleted** |
+| ghas-bootcamp-2026-11-04-2457538 | 2026-11-04 (event-date) | 2026-11-11 | **deleted** |
+| ghas-bootcamp-2026-11-04-2457708 | 2026-11-04 (event-date) | 2026-11-11 | **deleted** |
+| ghas-bootcamp-2026-11-05-2460398 | 2026-11-05 (event-date) | 2026-11-12 | kept |
+| ghas-bootcamp-2026-11-06-2462323 | 2026-11-06 (event-date) | 2026-11-13 | kept |
+| ghas-bootcamp-2465909-11102026 | 2026-11-10 (created-at) | 2026-11-17 | kept |
+| ghas-bootcamp-20261110-2466601 | 2026-11-10 (event-date) | 2026-11-17 | kept |
+| ghas-bootcamp-20261110-2466860 | 2026-11-10 (event-date) | 2026-11-17 | kept |
 
 
-Totals: 57 orgs, 0 deleted/would-delete, 44 kept (in grace), 0 failed, 13 non-candidates.
+Totals: 24 orgs, 10 deleted/would-delete, 5 kept (in grace), 0 failed, 9 non-candidates.
