@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-12
+## Billing watchdog — 2026-11-13
 
-**MTD net: $15791.77** (gross $19738.21) — yesterday: $2259.31 — GHEC seats: 766 — Copilot seats: 1668
+**MTD net: $18308.48** (gross $22320.06) — yesterday: $2502.66 — GHEC seats: 868 — Copilot seats: 1846
 
 ```
-ghec: $8281.7
-copilot: $7401.13
-ghas: $84.93
-code_quality: $15.33
-codespaces: $8.67
+ghec: $9613.1
+copilot: $8570.27
+ghas: $96.37
+code_quality: $17.33
+codespaces: $11.41
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$15791.77** |
-| → Our Azure sub (enterprise default) | $15791.77 |
+| **Total GitHub enterprise** | **$18308.48** |
+| → Our Azure sub (enterprise default) | $18308.48 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,18 +32,20 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Public-sector-hacks-Org | 12252.4 | $66.99 |
-| CL-Labs-04 | 3491 | $20.75 |
-| Cloudlabs-Enterprises | 524.7 | $3.26 |
-| Cloudlabs-GH-Copilot | 139 | $0.83 |
-| ghas-bootcamp-2026-11-06-2462323 | 51.6 | $0.31 |
-| ghas-bootcamp-2026-11-05-2460398 | 41.3 | $0.25 |
+| Public-sector-hacks-Org | 12770.2 | $67.17 |
+| CL-Labs-04 | 3740 | $22.25 |
+| Cloudlabs-Enterprises | 690.7 | $4.25 |
+| Cloudlabs-GH-Copilot | 155 | $0.93 |
+| ghas-bootcamp-2026-11-06-2462323 | 51.7 | $0.31 |
+| ghas-bootcamp-2026-11-05-2460398 | 41.4 | $0.25 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1053** — active licenses: **766** — inactive/suspended (est.): **287**
+SCIM-provisioned identities: **1108** — active licenses: **868** — inactive/suspended (est.): **240**
 
 ### 🚨 Alerts
+- Yesterday (2026-11-12) net spend $2502.66 exceeds DAILY_LIMIT $2500
+- Copilot seats grew by 178 since last run (1668 -> 1846) (~$3382/mo run-rate)
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): devops-org-20261105-2460647
