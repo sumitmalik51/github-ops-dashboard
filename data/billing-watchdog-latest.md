@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-13
+## Billing watchdog — 2026-11-14
 
-**MTD net: $18308.48** (gross $22320.06) — yesterday: $2502.66 — GHEC seats: 868 — Copilot seats: 1846
+**MTD net: $21134.43** (gross $25318.43) — yesterday: $2824.65 — GHEC seats: 788 — Copilot seats: 2038
 
 ```
-ghec: $9613.1
-copilot: $8570.27
-ghas: $96.37
-code_quality: $17.33
-codespaces: $11.41
+ghec: $11111.8
+copilot: $9858.47
+ghas: $132.3
+code_quality: $20
+codespaces: $11.86
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$18308.48** |
-| → Our Azure sub (enterprise default) | $18308.48 |
+| **Total GitHub enterprise** | **$21134.43** |
+| → Our Azure sub (enterprise default) | $21134.43 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,23 +32,23 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Public-sector-hacks-Org | 12770.2 | $67.17 |
-| CL-Labs-04 | 3740 | $22.25 |
-| Cloudlabs-Enterprises | 690.7 | $4.25 |
-| Cloudlabs-GH-Copilot | 155 | $0.93 |
-| ghas-bootcamp-2026-11-06-2462323 | 51.7 | $0.31 |
-| ghas-bootcamp-2026-11-05-2460398 | 41.4 | $0.25 |
+| Public-sector-hacks-Org | 13287.4 | $67.34 |
+| CL-Labs-04 | 4222 | $25.14 |
+| Cloudlabs-Enterprises | 719.7 | $4.43 |
+| Cloudlabs-GH-Copilot | 165 | $0.99 |
+| ghas-bootcamp-20261113-2471474 | 57 | $0.34 |
+| ghas-bootcamp-20261113-2471466 | 55 | $0.33 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1108** — active licenses: **868** — inactive/suspended (est.): **240**
+SCIM-provisioned identities: **1208** — active licenses: **788** — inactive/suspended (est.): **420**
 
 ### 🚨 Alerts
-- Yesterday (2026-11-12) net spend $2502.66 exceeds DAILY_LIMIT $2500
-- Copilot seats grew by 178 since last run (1668 -> 1846) (~$3382/mo run-rate)
+- Yesterday (2026-11-13) net spend $2824.65 exceeds DAILY_LIMIT $2500
+- Copilot seats grew by 192 since last run (1846 -> 2038) (~$3648/mo run-rate)
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): devops-org-20261105-2460647
 - Unknown org detected (matches no known pattern): devops-org-20261110-2466588
-- Unknown org detected (matches no known pattern): PPCC-Workshop
+- Unknown org detected (matches no known pattern): devops-org-20261113-2471391
 
