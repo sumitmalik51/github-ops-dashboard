@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-14
+## Billing watchdog — 2026-11-15
 
-**MTD net: $21134.43** (gross $25318.43) — yesterday: $2824.65 — GHEC seats: 788 — Copilot seats: 2038
+**MTD net: $23963.98** (gross $28149.83) — yesterday: $2828.22 — GHEC seats: 784 — Copilot seats: 2041
 
 ```
-ghec: $11111.8
-copilot: $9858.47
-ghas: $132.3
-code_quality: $20
-codespaces: $11.86
+ghec: $12612.6
+copilot: $11148.57
+ghas: $168.23
+code_quality: $22.67
+codespaces: $11.91
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$21134.43** |
-| → Our Azure sub (enterprise default) | $21134.43 |
+| **Total GitHub enterprise** | **$23963.98** |
+| → Our Azure sub (enterprise default) | $23963.98 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,20 +32,19 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Public-sector-hacks-Org | 13287.4 | $67.34 |
-| CL-Labs-04 | 4222 | $25.14 |
-| Cloudlabs-Enterprises | 719.7 | $4.43 |
-| Cloudlabs-GH-Copilot | 165 | $0.99 |
+| Public-sector-hacks-Org | 13727.8 | $67.49 |
+| CL-Labs-04 | 4238 | $25.24 |
+| Cloudlabs-Enterprises | 720.7 | $4.43 |
+| Cloudlabs-GH-Copilot | 183 | $1.1 |
 | ghas-bootcamp-20261113-2471474 | 57 | $0.34 |
 | ghas-bootcamp-20261113-2471466 | 55 | $0.33 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1208** — active licenses: **788** — inactive/suspended (est.): **420**
+SCIM-provisioned identities: **1173** — active licenses: **784** — inactive/suspended (est.): **389**
 
 ### 🚨 Alerts
-- Yesterday (2026-11-13) net spend $2824.65 exceeds DAILY_LIMIT $2500
-- Copilot seats grew by 192 since last run (1846 -> 2038) (~$3648/mo run-rate)
+- Yesterday (2026-11-14) net spend $2828.22 exceeds DAILY_LIMIT $2500
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): devops-org-20261105-2460647
