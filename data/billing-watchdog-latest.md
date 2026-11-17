@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-16
+## Billing watchdog — 2026-11-17
 
-**MTD net: $26808.89** (gross $30999.31) — yesterday: $2836.21 — GHEC seats: 716 — Copilot seats: 2052
+**MTD net: $29955.06** (gross $34387.78) — yesterday: $3083.44 — GHEC seats: 871 — Copilot seats: 2321
 
 ```
-ghec: $14121.8
-copilot: $12445.63
-ghas: $204.17
-code_quality: $25.33
-codespaces: $11.96
+ghec: $15761.9
+copilot: $13913.07
+ghas: $240.1
+code_quality: $28
+codespaces: $11.99
 actions: $0
 ```
 
@@ -15,8 +15,8 @@ actions: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$26808.89** |
-| → Our Azure sub (enterprise default) | $26808.89 |
+| **Total GitHub enterprise** | **$29955.06** |
+| → Our Azure sub (enterprise default) | $29955.06 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -32,19 +32,22 @@ actions: $0
 
 | Org | Minutes | Gross |
 |---|---|---|
-| Public-sector-hacks-Org | 14136.4 | $67.62 |
-| CL-Labs-04 | 4251 | $25.31 |
-| Cloudlabs-Enterprises | 764.7 | $4.7 |
-| Cloudlabs-GH-Copilot | 203 | $1.22 |
-| ghas-bootcamp-20261113-2471474 | 57 | $0.34 |
+| Public-sector-hacks-Org | 14448.5 | $67.73 |
+| CL-Labs-04 | 4694 | $27.97 |
+| Cloudlabs-Enterprises | 767.7 | $4.72 |
+| Cloudlabs-GH-Copilot | 218 | $1.31 |
+| ghas-bootcamp-20261113-2471474 | 65 | $0.39 |
 | ghas-bootcamp-20261113-2471466 | 55 | $0.33 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1184** — active licenses: **716** — inactive/suspended (est.): **468**
+SCIM-provisioned identities: **1407** — active licenses: **871** — inactive/suspended (est.): **536**
 
 ### 🚨 Alerts
-- Yesterday (2026-11-15) net spend $2836.21 exceeds DAILY_LIMIT $2500
+- Yesterday (2026-11-16) net spend $3083.44 exceeds DAILY_LIMIT $2500
+- GHEC license consumption grew by 155 since last run (716 -> 871) — a large lab may have onboarded (~$3255/mo run-rate)
+- Copilot seats grew by 269 since last run (2052 -> 2321) (~$5111/mo run-rate)
+- Unknown org detected (matches no known pattern): CL-odl-user-2459088
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
 - Unknown org detected (matches no known pattern): devops-org-20261105-2460647
