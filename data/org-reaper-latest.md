@@ -1,13 +1,9 @@
-## Org reaper — 2026-11-18 (dry_run=false)
+## Org reaper — 2026-11-19 (dry_run=false)
 | Org | Basis date | Deadline | Action |
 |---|---|---|---|
-| ghas-bootcamp-20261111-2468489 | 2026-11-11 (event-date) | 2026-11-18 | **deleted** |
-| ghas-bootcamp-20261111-2468487 | 2026-11-11 (event-date) | 2026-11-18 | **deleted** |
-| ghas-bootcamp-20261111-2468531 | 2026-11-11 (event-date) | 2026-11-18 | **deleted** |
-| ghas-bootcamp-20261111-2468588 | 2026-11-11 (event-date) | 2026-11-18 | **deleted** |
-| ghas-bootcamp-20261112-2470236 | 2026-11-12 (event-date) | 2026-11-19 | kept |
-| ghas-bootcamp-20261112-2470291 | 2026-11-12 (event-date) | 2026-11-19 | kept |
-| ghas-bootcamp-20261112-2470292 | 2026-11-12 (event-date) | 2026-11-19 | kept |
+| ghas-bootcamp-20261112-2470236 | 2026-11-12 (event-date) | 2026-11-19 | **deleted** |
+| ghas-bootcamp-20261112-2470291 | 2026-11-12 (event-date) | 2026-11-19 | **deleted** |
+| ghas-bootcamp-20261112-2470292 | 2026-11-12 (event-date) | 2026-11-19 | **deleted** |
 | ghas-bootcamp-20261113-2471434 | 2026-11-13 (event-date) | 2026-11-20 | kept |
 | ghas-bootcamp-20261113-2471435 | 2026-11-13 (event-date) | 2026-11-20 | kept |
 | ghas-bootcamp-20261113-2471464 | 2026-11-13 (event-date) | 2026-11-20 | kept |
@@ -90,4 +86,4 @@
 | ghas-bootcamp-20261113-2471582 | 2026-11-13 (event-date) | 2026-11-20 | kept |
 
 
-Totals: 179 orgs, 4 deleted/would-delete, 83 kept (in grace), 0 failed, 92 non-candidates.
+Totals: 176 orgs, 3 deleted/would-delete, 80 kept (in grace), 0 failed, 93 non-candidates.

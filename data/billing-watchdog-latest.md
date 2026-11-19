@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-18
+## Billing watchdog — 2026-11-19
 
-**MTD net: $33391.09** (gross $38317.27) — yesterday: $1984.46 — GHEC seats: 938 — Copilot seats: 2445
+**MTD net: $36931.46** (gross $42458) — yesterday: $3538.9 — GHEC seats: 783 — Copilot seats: 2535
 
 ```
-ghec: $17594.5
-copilot: $15452.7
-ghas: $300.53
-code_quality: $31.33
-codespaces: $12.02
+ghec: $19468.4
+copilot: $17055.03
+ghas: $360.97
+code_quality: $34.67
+codespaces: $12.39
 actions: $0
 sandbox: $0
 ```
@@ -16,8 +16,8 @@ sandbox: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$33391.09** |
-| → Our Azure sub (enterprise default) | $33391.09 |
+| **Total GitHub enterprise** | **$36931.46** |
+| → Our Azure sub (enterprise default) | $36931.46 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -34,32 +34,19 @@ sandbox: $0
 | Org | Minutes | Gross |
 |---|---|---|
 | Public-sector-hacks-Org | 14461.9 | $67.73 |
-| CL-Labs-04 | 5315 | $31.7 |
-| Cloudlabs-Enterprises | 773.7 | $4.75 |
-| Cloudlabs-GH-Copilot | 229 | $1.37 |
+| CL-Labs-04 | 6078.3 | $36.28 |
+| Cloudlabs-Enterprises | 774.7 | $4.76 |
+| Cloudlabs-GH-Copilot | 247 | $1.48 |
 | devops-org-20261117-2475699 | 79 | $0.53 |
 | ghas-bootcamp-20261113-2471474 | 65 | $0.39 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1521** — active licenses: **938** — inactive/suspended (est.): **583**
+SCIM-provisioned identities: **1413** — active licenses: **783** — inactive/suspended (est.): **630**
 
 ### 🚨 Alerts
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475628/github-action-2475628
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475633/github-action-2475633
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475645/github-action-2475645
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475683/github-action-2475683
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475691/github-action-11172026
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475695/github-action-2475695
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475693/github-action-2475693
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475694/github-action-2475694
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475700/github-action-2475700
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475699/github-action-2475699
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475705/github-action-2475705
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475706/github-action-2475706
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475709/github-action-2475709
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475712/github-action-2475712
-- GHAS billing active outside bootcamp orgs: devops-org-20261117-2475710/github-action-2475710
+- Yesterday (2026-11-18) net spend $3538.9 exceeds DAILY_LIMIT $2500
+- Anomaly: ghas spent $60.43 yesterday vs $24.27/day 7-day average (>2x)
 - Unknown org detected (matches no known pattern): CL-odl-user-2459088
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458594
@@ -147,4 +134,5 @@ SCIM-provisioned identities: **1521** — active licenses: **938** — inactive/
 - Unknown org detected (matches no known pattern): devops-org-20261117-2476121
 - Unknown org detected (matches no known pattern): devops-org-20261117-2476122
 - Unknown org detected (matches no known pattern): devops-org-20261117-2476123
+- Unknown org detected (matches no known pattern): devops-org-20261118-2478254
 
