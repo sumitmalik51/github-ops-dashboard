@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-22
+## Billing watchdog — 2026-11-23
 
-**MTD net: $49046.07** (gross $55440.16) — yesterday: $3591.25 — GHEC seats: 808 — Copilot seats: 2570
+**MTD net: $52695.73** (gross $59259.77) — yesterday: $3596.46 — GHEC seats: 885 — Copilot seats: 2574
 
 ```
-ghec: $25862.9
-copilot: $22543.5
-ghas: $579.83
-code_quality: $46.33
-codespaces: $13.5
+ghec: $27820.1
+copilot: $24170.53
+ghas: $641.9
+code_quality: $49.67
+codespaces: $13.53
 actions: $0
 sandbox: $0
 ```
@@ -16,8 +16,8 @@ sandbox: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$49046.07** |
-| → Our Azure sub (enterprise default) | $49046.07 |
+| **Total GitHub enterprise** | **$52695.73** |
+| → Our Azure sub (enterprise default) | $52695.73 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -34,19 +34,19 @@ sandbox: $0
 | Org | Minutes | Gross |
 |---|---|---|
 | Public-sector-hacks-Org | 14466.9 | $67.76 |
-| CL-Labs-04 | 6201.6 | $36.96 |
-| Cloudlabs-Enterprises | 803.7 | $4.93 |
-| Cloudlabs-GH-Copilot | 294 | $1.76 |
+| CL-Labs-04 | 6215.8 | $37.03 |
+| Cloudlabs-Enterprises | 804.7 | $4.94 |
+| Cloudlabs-GH-Copilot | 308 | $1.85 |
 | devops-org-20261117-2475699 | 79 | $0.53 |
 | ghas-bootcamp-20261113-2471474 | 65 | $0.39 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1439** — active licenses: **808** — inactive/suspended (est.): **631**
+SCIM-provisioned identities: **1518** — active licenses: **885** — inactive/suspended (est.): **633**
 
 ### 🚨 Alerts
-- Yesterday (2026-11-21) net spend $3591.25 exceeds DAILY_LIMIT $2500
-- Month-to-date net spend $49046.07 exceeds MTD_LIMIT $40000
+- Yesterday (2026-11-22) net spend $3596.46 exceeds DAILY_LIMIT $2500
+- Month-to-date net spend $52695.73 exceeds MTD_LIMIT $40000
 - GHAS billing active outside bootcamp orgs: devops-org-20261119-2479945/github-action-2479945
 - Unknown org detected (matches no known pattern): CL-odl-user-2459088
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
@@ -137,4 +137,12 @@ SCIM-provisioned identities: **1439** — active licenses: **808** — inactive/
 - Unknown org detected (matches no known pattern): devops-org-20261117-2476123
 - Unknown org detected (matches no known pattern): devops-org-20261118-2478254
 - Unknown org detected (matches no known pattern): devops-org-20261119-2479945
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482344
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482346
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482351
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482353
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482354
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482355
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482358
+- Unknown org detected (matches no known pattern): devops-org-20261123-2482359
 
