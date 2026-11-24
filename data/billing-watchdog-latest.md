@@ -1,13 +1,13 @@
-## Billing watchdog — 2026-11-23
+## Billing watchdog — 2026-11-24
 
-**MTD net: $52695.73** (gross $59259.77) — yesterday: $3596.46 — GHEC seats: 885 — Copilot seats: 2574
+**MTD net: $56409.13** (gross $63270.66) — yesterday: $3683.43 — GHEC seats: 854 — Copilot seats: 2584
 
 ```
-ghec: $27820.1
-copilot: $24170.53
-ghas: $641.9
-code_quality: $49.67
-codespaces: $13.53
+ghec: $29815.1
+copilot: $25803.9
+ghas: $723.57
+code_quality: $53
+codespaces: $13.56
 actions: $0
 sandbox: $0
 ```
@@ -16,8 +16,8 @@ sandbox: $0
 
 | Destination | MTD net |
 |---|---|
-| **Total GitHub enterprise** | **$52695.73** |
-| → Our Azure sub (enterprise default) | $52695.73 |
+| **Total GitHub enterprise** | **$56409.13** |
+| → Our Azure sub (enterprise default) | $56409.13 |
 | → Cost centers (prepaid credit pools) | $0.00 |
 
 #### Credit-pool burn-down
@@ -34,19 +34,19 @@ sandbox: $0
 | Org | Minutes | Gross |
 |---|---|---|
 | Public-sector-hacks-Org | 14466.9 | $67.76 |
-| CL-Labs-04 | 6215.8 | $37.03 |
-| Cloudlabs-Enterprises | 804.7 | $4.94 |
-| Cloudlabs-GH-Copilot | 308 | $1.85 |
+| CL-Labs-04 | 6233 | $37.11 |
+|  | 854.7 | $5.12 |
+| Cloudlabs-Enterprises | 808.7 | $4.96 |
+| Cloudlabs-GH-Copilot | 322 | $1.93 |
 | devops-org-20261117-2475699 | 79 | $0.53 |
-| ghas-bootcamp-20261113-2471474 | 65 | $0.39 |
 
 ### 👤 Identity & licenses
 
-SCIM-provisioned identities: **1518** — active licenses: **885** — inactive/suspended (est.): **633**
+SCIM-provisioned identities: **1568** — active licenses: **854** — inactive/suspended (est.): **714**
 
 ### 🚨 Alerts
-- Yesterday (2026-11-22) net spend $3596.46 exceeds DAILY_LIMIT $2500
-- Month-to-date net spend $52695.73 exceeds MTD_LIMIT $40000
+- Yesterday (2026-11-23) net spend $3683.43 exceeds DAILY_LIMIT $2500
+- Month-to-date net spend $56409.13 exceeds MTD_LIMIT $40000
 - GHAS billing active outside bootcamp orgs: devops-org-20261119-2479945/github-action-2479945
 - Unknown org detected (matches no known pattern): CL-odl-user-2459088
 - Unknown org detected (matches no known pattern): devops-org-20261104-2458551
